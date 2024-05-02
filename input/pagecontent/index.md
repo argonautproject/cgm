@@ -19,19 +19,19 @@ Dr. Patel conducts a study on CGM effectiveness in type 2 diabetes patients. Par
 ## Nominal Workflow
 <img style="max-width: 400px; float: none;" src="flowchart.svg">
 
-### Key Technical Actors
+## Key Technical Actors
 
 1. **Data Submitter**: The data submitter can be either a user-facing app (patient or clinician) or a backend service. User-facing apps include mobile apps running on a patient's phone or a provider-facing app integrated into an Electronic Health Record (EHR) system. Backend services are headless systems that can write CGM data.
 
 2. **Data Receiver**: The data receiver is typically an EHR system that receives and stores the CGM data submitted by the data submitter.
 
-### Key Workflows
+## Establishing Connections
 
-#### Patient App to EHR
+### Patient App to EHR
 
 In this workflow, a patient-facing app connects directly to the EHR using the SMART on FHIR capabilities of the EHR. The app acts as a SMART on FHIR client and goes through an OAuth process where the patient approves the app to access their EHR, granting write scopes. This ensures that both the patient and the source EHR system agree to allow the app to write data using an appropriate access token.
 
-#### Provider App to EHR
+### Provider App to EHR
 
 For provider-facing apps, the app can be integrated directly into the EHR's user interface using the EHR launch workflow in SMART on FHIR. This workflow is widely supported by EHRs. The provider app can be an app representing a hardware manufacturer's cloud environment or a glucose data management platform. The app can retrieve the patient's ID and demographics from the EHR in real-time using the FHIR US Core Patient API.
 
@@ -40,7 +40,7 @@ To correlate the patient with a data record in the app's backend system, an out-
 1. The patient app generates a sign-up code that the provider enters into the EHR.
 2. The provider has a business associate agreement with the app, allowing for patient matching based on demographics. The app compares the demographics retrieved from the EHR against its database and suggests matches or indicates if adjudication is needed.
 
-### CGM Data Submission Bundles
+## Submitting CGM Data
 
 Once an app is connected to the EHR, it can write data by POSTing a `batch` Bundle to the FHIR sever's submission endpoint. The EHR can recognize and handle these tagged bundles specially, while generic FHIR servers can process them as simple bundles at the POST Bundle endpoint. Bundles include a `meta.tag` of `"cgm-submission-bundle"` to help identify CGM Bundles, and the `entry` array includes any combination of CGM Summary Observations, CGM DiagnosticReport PDFs, and CGM Sensor Observation. 
 
