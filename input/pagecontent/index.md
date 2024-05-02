@@ -21,7 +21,7 @@ Dr. Patel conducts a study on CGM effectiveness in type 2 diabetes patients. Par
 
 ### Key Technical Actors
 
-1. **Data Submitter**: The data submitter can be either a user-facing app (patient or clinician) or a backend service. User-facing apps include mobile apps running on a patient's phone or a provider-facing app integrated into an Electronic Health Record (EHR) system. Backend services, also known as back-end services in the SMR specification, are headless pre-configured systems that can write CGM data.
+1. **Data Submitter**: The data submitter can be either a user-facing app (patient or clinician) or a backend service. User-facing apps include mobile apps running on a patient's phone or a provider-facing app integrated into an Electronic Health Record (EHR) system. Backend services are headless systems that can write CGM data.
 
 2. **Data Receiver**: The data receiver is typically an EHR system that receives and stores the CGM data submitted by the data submitter.
 
