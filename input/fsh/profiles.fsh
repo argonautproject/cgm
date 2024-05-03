@@ -464,7 +464,7 @@ The `DataSubmissionSchedule` extension contains:
 
 - `submissionDataProfile` (1..*): A list of `canonical` references to FHIR profiles that represent the types of data to be submitted according to the specified schedule.
 
-Multiple `DataSubmissionSchedule` extensions can be included in a single `DataSubmissionRequest` resource, allowsing for different data sets at different intervals.
+Multiple `DataSubmissionSchedule` extensions can be included in a single `DataSubmissionRequest` resource if the Data Recipient prefers a different schedule for different data types.
 
 It's important to note that submissions can also be **manually triggered by a patient or provider** within an app. For example, if there is an upcoming appointment, the provider can click a button to manually trigger submission of the most up-to-date results. Out-of-band communication between the app developer and the clinical provider system can also be used to establish preferred submission schedules.
 
