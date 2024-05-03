@@ -132,32 +132,30 @@ Examples include but are not limited to:
 
 ### SMART Health Links for CGM Data Sharing
 
-SMART Health Links (SHLinks) provide a complementary method for sharing CGM data and reports between patients, caregivers, clinicians, and other authorized parties. SHLinks allow users to easily share selected subsets of CGM data as needed, without relying on direct integration between systems.
+The Data Submission protocol defined above enables standardized integration between CGM data sources and receiving systems like EHRs. However, there are situations where tighter integration is not feasible or desired. [SMART Health Links](https://docs.smarthealthit.org/smart-health-links/) (SHLinks) provide a complementary method for sharing CGM data and reports among patients, caregivers, clinicians, and other authorized parties. SHLinks allow users to easily share selected subsets of CGM data as needed, offering an always up-to-date data feed without the need for direct system integration between the sharing parties. Specific scenarios where SHLinks provide value include:
 
-#### Use Cases
+- Sharing with parties that cannot or do not integrate with the Data Submission protocol, such as schools, camps, temporary caregivers during travel, etc.
+- Allowing patients granular control over what specific data is shared and with whom, beyond just provider-patient contexts.
+- Providing a simple, accessible sharing method for non-technical users like patients and caregivers.
+- Enabling temporary data sharing for finite needs like referrals, research studies, or consultations.
 
-By offering user-mediated sharing of both granular data and summarized reports, SHLinks can flexibly support diverse sharing scenarios.
-
-
-* Patient mediated sharing of CGM data
-  * for referrals, care transitions, school, or travel
-  * with clinicians, caregivers, or researchers.
+By defining a tightly-orchestrated Data Submission API as well as a more loosely-coupled SHLinks capability, this IG ensures comprehensive interoperability that accommodates diverse real-world requirements across the CGM data sharing landscape.
 
 #### Actors
 
-**SHLink Creator.** A system that can generate SHLinks containing CGM data and reports, acting as a SHLink Sharing Application.
+**SHLink Creator:** A system that can generate SHLinks containing CGM data and reports, acting as a SHLink Sharing Application.
 
-**SHLink Receiver.** A system that can receive and process SHLinks containing CGM data and reports, acting as a SHLink Receiving Application.
+**SHLink Receiver:** A system that can receive and process SHLinks containing CGM data and reports, acting as a SHLink Receiving Application.  
 
 #### Workflow
 
 1. The SHLink Creator allows the user to select the desired CGM data and reports to share, as well as the time period to include. Options include:
-   * Data to include: CGM Summary, CGM Sensor Readings, CGM Devices
-   * Time period: Past 2 weeks, 1 month, 3 months, etc.
-   * Link expiration time, if any
+   - Data to include: CGM Summary, CGM Sensor Readings, CGM Devices
+   - Time period: Past 2 weeks, 1 month, 3 months, etc.
+   - Link expiration time, if any
 
-2. The SHLink Creator generates a SHLink containing the user-selected content, encrypted with a unique key
+2. The SHLink Creator generates a SHLink containing the user-selected content, encrypted with a unique key.
 
-3. The user shares the SHLink with the intended recipient(s), who use a SHLink Receiver to periodically access the shared data and stay up-to-date over time.
+3. The user shares the SHLink with the intended recipient(s), who use a SHLink Receiver to periodically access the shared data and stay up-to-date over time.  
 
-The shared data are generated each time the SHLink is accessed and conform to the CGM Data Submission profiles defined above. For detailed technical requirements, refer to the [SMART Health Links specification](https://docs.smarthealthit.org/smart-health-links/).
+4. The shared data conforms to the CGM Data Submission profiles, promoting interoperability and accessibility across different systems and platforms.
