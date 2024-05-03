@@ -16,7 +16,7 @@ Title: "CGM Sensor Reading (Mass) Example"
 Usage: #example
 * status = #final 
 * code = $LNC#99504-3
-* subject = Reference(PatientExample)
+* subject = Reference(patientExample)
 * effectiveDateTime = "2024-05-02T10:15:00Z"
 * valueQuantity.value = 120
 * valueQuantity.unit = "mg/dl"
@@ -29,7 +29,7 @@ Title: "CGM Sensor Reading (Molar) Example"
 Usage: #example
 * status = #final
 * code = $LNC#14745-4  
-* subject = Reference(PatientExample)
+* subject = Reference(patientExample)
 * effectiveDateTime = "2024-05-02T10:30:00Z"
 * valueQuantity.value = 6.7
 * valueQuantity.unit = "mmol/l"
@@ -41,7 +41,7 @@ InstanceOf: CGMSummaryMeanGlucoseMass
 Title: "Mean Glucose (Mass) Example"
 Usage: #example
 * status = #final
-* subject = Reference(PatientExample)
+* subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
 * code.coding[0] = CGMSummaryCodesTemporary#mean-glucose-mass
@@ -56,7 +56,7 @@ InstanceOf: CGMSummaryMeanGlucoseMolar
 Title: "Mean Glucose (Molar) Example"
 Usage: #example
 * status = #final
-* subject = Reference(PatientExample)
+* subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01" 
 * effectivePeriod.end = "2024-05-31"
 * code = CGMSummaryCodesTemporary#mean-glucose-molar
@@ -70,7 +70,7 @@ InstanceOf: CGMSummaryTimeInVeryLow
 Title: "Time in Very Low Range Example"
 Usage: #example
 * status = #final
-* subject = Reference(PatientExample)
+* subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
 * code = CGMSummaryCodesTemporary#time-in-very-low
@@ -84,7 +84,7 @@ InstanceOf: CGMSummaryTimeInLow
 Title: "Time in Low Range Example" 
 Usage: #example
 * status = #final
-* subject = Reference(PatientExample)
+* subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
 * code = CGMSummaryCodesTemporary#time-in-low
@@ -98,7 +98,7 @@ InstanceOf: CGMSummaryTimeInTarget
 Title: "Time in Target Range Example"
 Usage: #example  
 * status = #final
-* subject = Reference(PatientExample)
+* subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
 * code.coding[0] = CGMSummaryCodesTemporary#time-in-target
@@ -113,7 +113,7 @@ InstanceOf: CGMSummaryTimeInHigh
 Title: "Time in High Range Example"
 Usage: #example
 * status = #final 
-* subject = Reference(PatientExample)
+* subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
 * code = CGMSummaryCodesTemporary#time-in-high
@@ -127,7 +127,7 @@ InstanceOf: CGMSummaryTimeInVeryHigh
 Title: "Time in Very High Range Example"
 Usage: #example
 * status = #final
-* subject = Reference(PatientExample) 
+* subject = Reference(patientExample) 
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
 * code = CGMSummaryCodesTemporary#time-in-very-high
@@ -141,7 +141,7 @@ InstanceOf: CGMSummaryGMI
 Title: "GMI Example"
 Usage: #example
 * status = #final
-* subject = Reference(PatientExample)
+* subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31" 
 * code.coding[0] = CGMSummaryCodesTemporary#gmi
@@ -156,7 +156,7 @@ InstanceOf: CGMSummaryCoefficientOfVariation
 Title: "Coefficient of Variation Example"
 Usage: #example
 * status = #final
-* subject = Reference(PatientExample)
+* subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
 * code = CGMSummaryCodesTemporary#cv
@@ -170,7 +170,7 @@ InstanceOf: CGMSummaryDaysOfWear
 Title: "Days of Wear Example"
 Usage: #example
 * status = #final
-* subject = Reference(PatientExample)
+* subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31" 
 * code = CGMSummaryCodesTemporary#days-of-wear
@@ -184,7 +184,7 @@ InstanceOf: CGMSummarySensorActivePercentage
 Title: "Sensor Active Percentage Example" 
 Usage: #example
 * status = #final
-* subject = Reference(PatientExample)
+* subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
 * code = CGMSummaryCodesTemporary#sensor-active-percentage
@@ -198,7 +198,7 @@ InstanceOf: CGMSummaryObservation
 Title: "CGM Summary Example"
 Usage: #example
 * status = #final
-* subject = Reference(PatientExample)
+* subject = Reference(patientExample)
 * code = CGMSummaryCodesTemporary#cgm-summary
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
@@ -219,7 +219,8 @@ InstanceOf: CGMSummaryPDF
 Title: "CGM Summary PDF Report Example"
 Usage: #example
 * status = #final
-* subject = Reference(PatientExample)
+* issued = "2024-05-15T14:30:00Z"
+* subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-14"
 * presentedForm.contentType = #application/pdf
@@ -233,32 +234,74 @@ Usage: #example
 * type = #batch
 * timestamp = "2024-05-02T14:30:00Z" 
 * entry[+].resource = cgmSummaryPDFExample
-* entry[=].fullUrl = "https://example.org/cgmSummaryPDFExample"
+* entry[=].fullUrl = "https://example.org/DiagnosticReport/cgmSummaryPDFExample"
+* entry[=].request.method = #POST
+* entry[=].request.url = "DiagnosticReport"
 * entry[+].resource = cgmSummaryExample
-* entry[=].fullUrl = "https://example.org/cgmSummaryExample"
+* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryExample"
+* entry[=].request.method = #POST
+* entry[=].request.url = "Observation"
 * entry[+].resource = cgmSummaryMeanGlucoseMassExample
-* entry[=].fullUrl = "https://example.org/cgmSummaryMeanGlucoseMassExample"
-* entry[+].resource = cgmSummaryMeanGlucoseMolarExample
-* entry[=].fullUrl = "https://example.org/cgmSummaryMeanGlucoseMolarExample"
+* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryMeanGlucoseMassExample"
+* entry[=].request.method = #POST
+* entry[=].request.url = "Observation"
 * entry[+].resource = cgmSummaryTimeInVeryLowExample
-* entry[=].fullUrl = "https://example.org/cgmSummaryTimeInVeryLowExample"
+* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryTimeInVeryLowExample"
+* entry[=].request.method = #POST
+* entry[=].request.url = "Observation"
 * entry[+].resource = cgmSummaryTimeInLowExample 
-* entry[=].fullUrl = "https://example.org/cgmSummaryTimeInLowExample"
+* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryTimeInLowExample"
+* entry[=].request.method = #POST
+* entry[=].request.url = "Observation"
 * entry[+].resource = cgmSummaryTimeInTargetExample
-* entry[=].fullUrl = "https://example.org/cgmSummaryTimeInTargetExample"
+* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryTimeInTargetExample"
+* entry[=].request.method = #POST
+* entry[=].request.url = "Observation"
 * entry[+].resource = cgmSummaryTimeInHighExample
-* entry[=].fullUrl = "https://example.org/cgmSummaryTimeInHighExample"
+* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryTimeInHighExample"
+* entry[=].request.method = #POST
+* entry[=].request.url = "Observation"
 * entry[+].resource = cgmSummaryTimeInVeryHighExample
-* entry[=].fullUrl = "https://example.org/cgmSummaryTimeInVeryHighExample"
+* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryTimeInVeryHighExample"
+* entry[=].request.method = #POST
+* entry[=].request.url = "Observation"
 * entry[+].resource = cgmSummaryGMIExample
-* entry[=].fullUrl = "https://example.org/cgmSummaryGMIExample"
+* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryGMIExample"
+* entry[=].request.method = #POST
+* entry[=].request.url = "Observation"
 * entry[+].resource = cgmSummaryCoefficientOfVariationExample
-* entry[=].fullUrl = "https://example.org/cgmSummaryCoefficientOfVariationExample"
+* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryCoefficientOfVariationExample"
+* entry[=].request.method = #POST
+* entry[=].request.url = "Observation"
 * entry[+].resource = cgmSummaryDaysOfWearExample
-* entry[=].fullUrl = "https://example.org/cgmSummaryDaysOfWearExample"
+* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryDaysOfWearExample"
+* entry[=].request.method = #POST
+* entry[=].request.url = "Observation"
 * entry[+].resource = cgmSummarySensorActivePercentageExample
-* entry[=].fullUrl = "https://example.org/cgmSummarySensorActivePercentageExample"
+* entry[=].fullUrl = "https://example.org/Observation/cgmSummarySensorActivePercentageExample"
+* entry[=].request.method = #POST
+* entry[=].request.url = "Observation"
 * entry[+].resource = cgmSensorReadingMassExample
-* entry[=].fullUrl = "https://example.org/cgmSensorReadingMassExample"
-* entry[+].resource = cgmSensorReadingMolarExample
-* entry[=].fullUrl = "https://example.org/cgmSensorReadingMolarExample"
+* entry[=].fullUrl = "https://example.org/Observation/cgmSensorReadingMassExample"
+* entry[=].request.method = #POST
+* entry[=].request.url = "Observation"
+
+Instance: cgmDataSubmissionStandingOrderExample
+InstanceOf: CGMDataSubmissionStandingOrder
+Usage: #example
+Title: "Example CGM Data Submission Standing Order"
+Description: """
+This example represents a standing order for continuous glucose monitoring (CGM) data submission.
+It specifies an order to submit data about Patient 123 once every two weeks, with each data submission including
+a summary of the CGM data and a PDF report of the CGM summary. This ensures the patient's CGM data is routinely
+available for clinical review.
+"""
+* status = #active
+* intent = #order
+* code = CGMCodes#cgm-data-submission-standing-order
+* subject = Reference(Patient/example)
+* extension[dataSubmissionSchedule].extension[submissionFrequency].valueTiming.repeat.frequency = 1
+* extension[dataSubmissionSchedule].extension[submissionFrequency].valueTiming.repeat.period = 2
+* extension[dataSubmissionSchedule].extension[submissionFrequency].valueTiming.repeat.periodUnit = #wk
+* extension[dataSubmissionSchedule].extension[submissionDataProfile][0].valueCanonical = Canonical(CGMSummaryObservation)
+* extension[dataSubmissionSchedule].extension[submissionDataProfile][+].valueCanonical = Canonical(CGMSummaryPDF) 

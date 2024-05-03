@@ -18,9 +18,13 @@ Dr. Patel conducts a study on CGM effectiveness in type 2 diabetes patients. Par
 
 ### Actors
 
-1. **Data Submitter**: The data submitter can be either a user-facing app (patient or clinician) or a backend service. User-facing apps include mobile apps running on a patient's phone or a provider-facing app integrated into an Electronic Health Record (EHR) system. Backend services are headless systems that can write CGM data.
+#### Data Submitter
 
-2. **Data Receiver**: The data receiver is typically an EHR system that receives and stores the CGM data submitted by the data submitter.
+The data submitter can be either a user-facing app (patient or clinician) or a backend service. User-facing apps include mobile apps running on a patient's phone or a provider-facing app integrated into an Electronic Health Record (EHR) system. Backend services are "headless" systems that can write CGM data.
+
+#### Data Receiver
+
+The data receiver is typically an EHR system that receives and stores the CGM data submitted by the data submitter.
 
 ### Nominal Workflow
 <img style="max-width: 400px; float: none;" src="flowchart.svg">
@@ -45,7 +49,8 @@ To correlate the patient with a data record in the app's backend system, an out-
 Once an app is connected to the EHR, it can write data by POSTing a `batch` Bundle to the FHIR sever's submission endpoint. The EHR can recognize and handle these tagged bundles specially, while generic FHIR servers can process them as simple bundles at the POST Bundle endpoint. Bundles include a `meta.tag` of `"cgm-submission-bundle"` to help identify CGM Bundles, and the `entry` array includes any combination of CGM Summary Observations, CGM DiagnosticReport PDFs, and CGM Sensor Observation. 
 
 
-**☛ See [CGM Submission Bundle](StructureDefinition-cgm-data-submission-bundle.html) for details**
+**☛ See [Profile: CGM Submission Bundle](StructureDefinition-cgm-data-submission-bundle.html) for details**
+**☛ See [Example Bundle](Bundle-cgmDataSubmissionBundle.json.html)**
 
 #### CGM Data Submission Standing Order
 
@@ -56,7 +61,8 @@ The Data Receiver can provide a standing order indicating:
 
 This standing order is modeled as a FHIR `ServiceRequest` resource. 
 
-**☛ See [CGM Data Submision Standing Order](StructureDefinition-cgm-data-submission-standing-order.html) for details**
+**☛ See [Profile: CGM Data Submision Standing Order](StructureDefinition-cgm-data-submission-standing-order.html) for details**
+**☛ See [Example Order](ServiceRequest-cgmDataSubmissionStandingOrderExample.json.html)**
 
 It's important to note that submissions can be manually triggered by a patient
 or provider within their app. For example, if there is an upcoming appointment,
@@ -66,51 +72,4 @@ clinical provider system can also be used to establish preferred submission
 schedules.
 
 ##### Example order: "Please Submit CGM Summary Statistics & PDF Every 2 weeks"
-
-```json
-{
-  "resourceType": "ServiceRequest",
-  "id": "cgm-data-submission-order",
-  "status": "active",
-  "intent": "order",
-  "code": {
-    "coding": [
-      {
-        "system": "http://argo.run/cgm/CodeSystem/cgm",
-        "code": "cgm-data-submission-order",
-        "display": "CGM Submission Order"
-      }
-    ]
-  },
-  "subject": {
-    "reference": "Patient/example"
-  },
-  "extension": [
-    {
-      "url": "http://argo.run/cgm/StructureDefinition/data-submission-schedule",
-      "extension": [
-        {
-          "url": "submissionFrequency",
-          "valueTiming": {
-            "repeat": {
-              "frequency": 1,
-              "period": 2,
-              "periodUnit": "wk"
-            }
-          }
-        },
-        {
-          "url": "submissionDataProfile",
-          "valueCanonical": "http://argo.run/cgm/StructureDefinition/cgm-summary"
-        },
-        {
-          "url": "submissionDataProfile",
-          "valueCanonical": "http://argo.run/cgm/StructureDefinition/cgm-summary-pdf"
-        }
-      ]
-    }
-  ]
-}
-```
-
 
