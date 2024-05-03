@@ -67,6 +67,7 @@ In this workflow, a patient-facing app connects directly to the EHR using the SM
 * SMART on FHIR scopes that enable this scenario include:
   * `launch/patient`: {{ launch_patient }}
   * `offline_access`: {{ offline_access }}
+  * Data Scopes:
     * `patient/Patient.r`: it may still be desirable to cross-reference patient demographics, e.g. to confirm a match
     * `patient/ServiceRequest.rs?code=cgm-data-submission-standing-order`: helps app learn the EHR's data submission preferences
     * `patient/DiagnosticReport.cu?category=laboratory`: submit a summary report
@@ -90,14 +91,15 @@ Examples include but are not limited to:
 
 * SMART on FHIR scopes that enable this scenario include:
   * `launch/patient` at linkage time
-  * If using patient-level authorization at submission time
+  * If using *patient*-level authorization at submission time
     * "Data Scopes" listed above
     * `offline_access`
-  * If using user-level authorization at submission time
+  * If using *user*-level authorization at submission time
     * "Data Scopes" listed above, with level of `user/`
     * `offline_access`
-  * If using system-level authorization at submission time
+  * If using *system*-level authorization at submission time
     * "Data Scopes" listed above, with level of `system/`
+    * No need for `offline_access` because short-lived access tokens are available at any time via client credentials grant
 
 ### CGM Data Submission: Bundles
 
@@ -132,7 +134,7 @@ Examples include but are not limited to:
 
 ### SMART Health Links for CGM Data Sharing
 
-The Data Submission protocol defined above enables standardized integration between CGM data sources and receiving systems like EHRs. However, there are situations where tighter integration is not feasible or desired. [SMART Health Links](https://docs.smarthealthit.org/smart-health-links/) (SHLinks) provide a complementary method for sharing CGM data and reports among patients, caregivers, clinicians, and other authorized parties. SHLinks allow users to easily share selected subsets of CGM data as needed, offering an always up-to-date data feed without the need for direct system integration between the sharing parties. Specific scenarios where SHLinks provide value include:
+The Data Submission protocol defined above enables standardized integration between CGM data sources and receiving systems like EHRs. However, there are situations where tight integration is not feasible or desired. [SMART Health Links](https://docs.smarthealthit.org/smart-health-links/) (SHLinks) provide a complementary method for sharing CGM data and reports among patients, caregivers, clinicians, and other authorized parties. SHLinks allow users to easily share selected subsets of CGM data as needed, offering an always up-to-date data feed without the need for direct system integration between the sharing parties. Specific scenarios where SHLinks provide value include:
 
 - Sharing with parties that cannot or do not integrate with the Data Submission protocol, such as schools, camps, temporary caregivers during travel, etc.
 - Allowing patients granular control over what specific data is shared and with whom, beyond just provider-patient contexts.
