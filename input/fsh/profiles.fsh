@@ -72,6 +72,7 @@ Description: "An observation representing a summary of continuous glucose monito
   * ^short = "Path used to identify the slices"
 * hasMember ^slicing.rules = #open
   * ^short = "Open slicing allowing additional slices"  
+* hasMember 6..*
 * hasMember contains
     meanGlucoseMass 0..1 MS and
     meanGlucoseMolar 0..1 MS and
@@ -282,12 +283,12 @@ Description: "Temporary code system for CGM summary observations."
 * #cgm-summary "CGM Summary"
 * #mean-glucose-mass "Mean Glucose (Mass per Volume)"
 * #mean-glucose-molar "Mean Glucose (Moles per Volume)"
-* #times-in-ranges "Time in Glucose Ranges"
-* #time-in-very-low "Time in Very Low Range"
-* #time-in-low "Time in Low Range"
-* #time-in-target "Time in Target Range"
-* #time-in-high "Time in High Range"
-* #time-in-very-high "Time in Very High Range" 
+* #times-in-ranges "Times in Glucose Ranges"
+* #time-in-very-low "Time in Very Low Range (%)"
+* #time-in-low "Time in Low Range (%)"
+* #time-in-target "Time in Target Range (%)"
+* #time-in-high "Time in High Range (%)"
+* #time-in-very-high "Time in Very High Range (%)" 
 * #gmi "Glucose Management Indicator (GMI)"
 * #cv "Coefficient of Variation (CV)"
 * #days-of-wear "Days of Wear"
