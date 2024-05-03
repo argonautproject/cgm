@@ -77,7 +77,7 @@ schedules.
     "coding": [
       {
         "system": "http://argo.run/cgm/CodeSystem/cgm",
-        "code": "cgm-submission-order",
+        "code": "cgm-data-submission-order",
         "display": "CGM Submission Order"
       }
     ]

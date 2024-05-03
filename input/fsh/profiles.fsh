@@ -10,7 +10,6 @@ Description: "Units for representing glucose measurements."
 
 RuleSet: GlucoseMass
 * value[x] only Quantity
-  * ^short = "Glucose value as Quantity"
 * valueQuantity
   * code = #mg/dL
   * unit = "mg/dl"
@@ -18,7 +17,6 @@ RuleSet: GlucoseMass
 
 RuleSet: GlucoseMolar
 * value[x] only Quantity
-  * ^short = "Glucose value as Quantity"
 * valueQuantity
   * code = #mmol/L
   * unit = "mmol/l"
@@ -31,7 +29,6 @@ Title: "CGM Sensor Reading (Mass)"
 Description: "A continuous glucose monitoring (CGM) sensor reading represented in mass units."
 * insert GlucoseMass
 * code = $LNC#99504-3
-  * ^short = "LOINC code for Glucose [Mass/volume] in Blood"
 * effectiveDateTime 1..1 MS
   * ^short = "Time the measurement was taken"
 
@@ -42,7 +39,6 @@ Title: "CGM Sensor Reading (Molar)"
 Description: "A continuous glucose monitoring (CGM) sensor reading represented in molar units."
 * insert GlucoseMolar
 * code = $LNC#14745-4
-  * ^short = "LOINC code for Glucose [Moles/volume] in Blood"
 * effectiveDateTime 1..1 MS
   * ^short = "Time the measurement was taken"
 
@@ -67,15 +63,9 @@ Description: "An observation representing a summary of continuous glucose monito
     * ^short = "Start date of the reporting period (YYYY-MM-DD)"
   * end 1..1 MS
     * ^short = "End date of the reporting period (YYYY-MM-DD)"
-* valueQuantity 1..1 MS
-  * unit from GlucoseUnits (required)
-    * ^short = "Unit of measure for the summary value"
-  * system = $UCUM (exactly)
-    * ^short = "Code system for units of measure"
-  * ^short = "Summary value with appropriate glucose units"
-* hasMember ^slicing.discriminator.type = #profile
+* hasMember ^slicing.discriminator.type = #pattern
   * ^short = "Slicing based on the profile of the referenced resource"
-* hasMember ^slicing.discriminator.path = "resolve()"
+* hasMember ^slicing.discriminator.path = "resolve().code"
   * ^short = "Path used to identify the slices"
 * hasMember ^slicing.rules = #open
   * ^short = "Open slicing allowing additional slices"
@@ -91,29 +81,29 @@ Description: "An observation representing a summary of continuous glucose monito
     cv 1..1 MS and
     daysOfWear 1..1 MS and
     sensorActivePercentage 1..1 MS
-  * ^short = "Slices representing different types of CGM summary observations"
+  * ^short = "CGM summary observations"
 * hasMember[meanGlucoseMass] only Reference(CGMSummaryMeanGlucoseMass)
-  * ^short = "Reference to the Mean Glucose (Mass) observation"
+  * ^short = "Mean Glucose (Mass) observation"
 * hasMember[meanGlucoseMolar] only Reference(CGMSummaryMeanGlucoseMolar)
-  * ^short = "Reference to the Mean Glucose (Molar) observation"
+  * ^short = "Mean Glucose (Molar) observation"
 * hasMember[timeInVeryLow] only Reference(CGMSummaryTimeInVeryLow)
-  * ^short = "Reference to the Time in Very Low Range observation"
+  * ^short = "Time in Very Low Range observation"
 * hasMember[timeInLow] only Reference(CGMSummaryTimeInLow)
-  * ^short = "Reference to the Time in Low Range observation"
+  * ^short = "Time in Low Range observation"
 * hasMember[timeInTarget] only Reference(CGMSummaryTimeInTarget)
-  * ^short = "Reference to the Time in Target Range observation"
+  * ^short = "Time in Target Range observation"
 * hasMember[timeInHigh] only Reference(CGMSummaryTimeInHigh)
-  * ^short = "Reference to the Time in High Range observation"
+  * ^short = "Time in High Range observation"
 * hasMember[timeInVeryHigh] only Reference(CGMSummaryTimeInVeryHigh)
-  * ^short = "Reference to the Time in Very High Range observation"
+  * ^short = "Time in Very High Range observation"
 * hasMember[gmi] only Reference(CGMSummaryGMI)
-  * ^short = "Reference to the Glucose Management Indicator (GMI) observation"
+  * ^short = "Glucose Management Indicator (GMI) observation"
 * hasMember[cv] only Reference(CGMSummaryCoefficientOfVariation)
-  * ^short = "Reference to the Coefficient of Variation (CV) observation"
+  * ^short = "Coefficient of Variation (CV) observation"
 * hasMember[daysOfWear] only Reference(CGMSummaryDaysOfWear)
-  * ^short = "Reference to the Days of Wear observation"
+  * ^short = "Days of Wear observation"
 * hasMember[sensorActivePercentage] only Reference(CGMSummarySensorActivePercentage)
-  * ^short = "Reference to the Sensor Active Percentage observation"
+  * ^short = "Sensor Active Percentage observation"
 
 Profile: CGMSummaryPDF
 Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab
@@ -143,7 +133,8 @@ Id: cgm-summary-mean-glucose-mass
 Title: "Mean Glucose (Mass)"
 Description: "The mean glucose value from a continuous glucose monitoring (CGM) summary, represented in mass units."
 * insert CGMSummaryBase
-* code = CGMSummaryCodesTemporary#mean-glucose
+* code ^patternCodeableConcept.coding[0] = CGMSummaryCodesTemporary#mean-glucose-mass
+* code ^patternCodeableConcept.coding[1] = $LNC#97507-8
   * ^short = "Code for Mean Glucose observation"
 * insert GlucoseMass
 
@@ -153,7 +144,7 @@ Id: cgm-summary-mean-glucose-molar
 Title: "Mean Glucose (Molar)"
 Description: "The mean glucose value from a continuous glucose monitoring (CGM) summary, represented in molar units."
 * insert CGMSummaryBase
-* code = CGMSummaryCodesTemporary#mean-glucose
+* code = CGMSummaryCodesTemporary#mean-glucose-molar
   * ^short = "Code for Mean Glucose observation"
 * insert GlucoseMolar
 
@@ -194,8 +185,8 @@ Id: cgm-summary-time-in-target
 Title: "Time in Target Range"
 Description: "The percentage of time glucose values were in the target range during the reporting period."
 * insert CGMSummaryBase
-* code = CGMSummaryCodesTemporary#time-in-target
-  * ^short = "Code for Time in Target Range observation"
+* code ^patternCodeableConcept.coding[0] = CGMSummaryCodesTemporary#time-in-target
+* code ^patternCodeableConcept.coding[1] = $LNC#97510-2
 * insert QuantityPercent
 
 Profile: CGMSummaryTimeInHigh
@@ -226,6 +217,8 @@ Description: "The Glucose Management Indicator (GMI) value from a continuous glu
 * insert CGMSummaryBase
 * code = CGMSummaryCodesTemporary#gmi
   * ^short = "Code for Glucose Management Indicator (GMI) observation"
+* code ^patternCodeableConcept.coding[1] = CGMSummaryCodesTemporary#gmi
+* code ^patternCodeableConcept.coding[1] = $LNC#97506-0
 * insert QuantityPercent
 
 Profile: CGMSummaryCoefficientOfVariation
@@ -289,8 +282,8 @@ Id: cgm
 Title: "Codes for CGM"
 Description: "Codes to identify content associated with this IG"
 * ^experimental = false
-* #cgm-submission-bundle "CGM Bundle"
-* #cgm-submission-order "CGM Submission Order"
+* #cgm-data-submission-bundle "CGM Bundle"
+* #cgm-data-submission-standing-order "CGM Submission Standing Order"
 
 CodeSystem: CGMSummaryCodesTemporary
 Id: cgm-summary-codes-temporary
@@ -298,7 +291,8 @@ Title: "CGM Summary Code System"
 Description: "Temporary code system for CGM summary observations."
 * ^experimental = false
 * #cgm-summary "CGM Summary"
-* #mean-glucose "Mean Glucose"
+* #mean-glucose-mass "Mean Glucose (Mass per Volume)"
+* #mean-glucose-molar "Mean Glucose (Moles per Volume)"
 * #time-in-very-low "Time in Very Low Range"
 * #time-in-low "Time in Low Range"
 * #time-in-target "Time in Target Range"
@@ -309,12 +303,6 @@ Description: "Temporary code system for CGM summary observations."
 * #days-of-wear "Days of Wear"
 * #sensor-active-percentage "Sensor Active Percentage"
 
-// ValueSet: CGMSummary
-// Id: cgm-summary
-// Title: "CGM Summary Value Set"
-// Description: "Value set for CGM summary observations."
-// * include codes from system CGMSummary
-
 Instance: CGMSummaryToLoinc
 InstanceOf: ConceptMap
 Usage: #definition
@@ -323,22 +311,49 @@ Description: "Mapping concepts from the CGM Summary code system to LOINC codes."
 * status = #draft
 * group[+].source = Canonical(CGMSummaryCodesTemporary)
 * group[=].target = $LNC
-* group[=].element[+].code = #mean-glucose
-* group[=].element[=].target[+].code = #97507-8
-* group[=].element[=].target[=].equivalence = #equivalent
-* group[=].element[+].code = #time-in-target
-* group[=].element[=].target[+].code = #97510-2
-* group[=].element[=].target[=].equivalence = #equivalent
-* group[=].element[+].code = #gmi 
-* group[=].element[=].target[+].code = #97506-0
-* group[=].element[=].target[=].equivalence = #equivalent
+* group[=].element[+]
+  * code = #mean-glucose-mass
+  * target[+].code = #97507-8
+  * target[=].equivalence = #equivalent
+* group[=].element[+]
+  * code = #mean-glucose-molar
+* group[=].element[+]
+  * code = #time-in-very-low
+* group[=].element[+]
+  * code = #time-in-low
+* group[=].element[+]
+  * code = #time-in-target
+  * target[+].code = #97510-2
+  * target[=].equivalence = #equivalent
+* group[=].element[+]
+  * code = #time-in-high
+* group[=].element[+]
+  * code = #time-in-very-high
+* group[=].element[+]
+  * code = #gmi
+  * target[+].code = #97506-0
+  * target[=].equivalence = #equivalent
+* group[=].element[+]
+  * code = #cv
+* group[=].element[+]
+  * code = #days-of-wear
+* group[=].element[+]
+  * code = #sensor-active-percentage
+
 
 Profile: CGMDataSubmissionBundle
 Parent: Bundle
 Id: cgm-data-submission-bundle
 Title: "CGM Data Submission Bundle"
 Description: "A bundle for submitting continuous glucose monitoring (CGM) data, including devices, observations, summaries, and optionally patient information."
-* type = #collection (exactly)
+* meta.tag
+  * ^slicing.discriminator.type = #pattern
+  * ^slicing.discriminator.path = "$this"
+  * ^slicing.rules = #open
+* meta.tag contains
+    cgmSubmissionBundle 1..1 MS
+  * ^short = "Tag for CGM submission bundle"
+* meta.tag[cgmSubmissionBundle] = CGMCodes#cgm-data-submission-bundle
   * ^short = "Bundle type is collection"
 * timestamp 1..1 MS
   * ^short = "Time the bundle was created"
@@ -412,11 +427,11 @@ Description: """**Sstanding order for data submission from an app to an EHR.**
 
 This profile can be used by an EHR to communicate its preferences for data submission frequency and content. Data Submitterss can query for standing orders and use them to guide future submissions.
 
-### Guiding Data Submission
+**Guiding Data Submission**
 
 This profiles represents a standing order for data submission, specifying the patient, the type of data to be submitted, the desired frequency of submission.
 
-#### DataSubmissionSchedule
+**DataSubmissionSchedule**
 
 The `DataSubmissionSchedule` extension contains:
 
@@ -424,16 +439,15 @@ The `DataSubmissionSchedule` extension contains:
 
 - `submissionDataProfile` (1..*): A list of `canonical` references to FHIR profiles that represent the types of data to be submitted according to the specified schedule.
 
-Multiple `DataSubmissionSchedule` extensions can be included in a single `DataSubmissionRequest` resource, allowing for different submission schedules and data profiles to be specified in the same request.
-
+Multiple `DataSubmissionSchedule` extensions can be included in a single `DataSubmissionRequest` resource, allowsing for different data sets at different intervals.
 """
 
 * status MS
 * intent MS
-* code = CGMCodes#cgm-submission-order
-  * ^short = "Code for CGM submission request"
+* code = CGMCodes#cgm-data-submission-standing-order
+  * ^short = "Code for CGM submission standing order"
 * subject 1..1 MS
-  * ^short = "Patient for the submission request"
+  * ^short = "Patient for the submission order"
 * extension contains 
     DataSubmissionSchedule named dataSubmissionSchedule 0..*
   * ^short = "Schedules for data submission"

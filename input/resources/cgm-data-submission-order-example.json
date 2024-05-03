@@ -1,0 +1,44 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "cgm-data-submission-standing-order-example",
+  "meta": {"profile": ["http://argo.run/cgm/StructureDefinition/cgm-data-submission-standing-order"]},
+  "status": "active",
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "http://argo.run/cgm/CodeSystem/cgm",
+        "code": "cgm-data-submission-standing-order",
+        "display": "CGM Submission Order"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/example"
+  },
+  "extension": [
+    {
+      "url": "http://argo.run/cgm/StructureDefinition/data-submission-schedule",
+      "extension": [
+        {
+          "url": "submissionFrequency",
+          "valueTiming": {
+            "repeat": {
+              "frequency": 1,
+              "period": 2,
+              "periodUnit": "wk"
+            }
+          }
+        },
+        {
+          "url": "submissionDataProfile",
+          "valueCanonical": "http://argo.run/cgm/StructureDefinition/cgm-summary"
+        },
+        {
+          "url": "submissionDataProfile",
+          "valueCanonical": "http://argo.run/cgm/StructureDefinition/cgm-summary-pdf"
+        }
+      ]
+    }
+  ]
+}
