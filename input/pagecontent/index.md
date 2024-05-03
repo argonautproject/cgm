@@ -22,9 +22,13 @@ Dr. Patel is the principal investigator for a longitudinal research study. Parti
 
 The data submitter can be either a user-facing app (patient or clinician) or a backend service. User-facing apps include mobile apps running on a patient's phone or a provider-facing app integrated into an Electronic Health Record (EHR) system. Backend services are "headless" systems that can write CGM data.
 
+This IG also refers to Data Submitters as "apps" or "glucose management platforoms", since these are commonly understood terms.
+
 #### Data Receiver
 
-The data receiver is typically an EHR system that receives and stores the CGM data submitted by the data submitter.
+The data receiver is EHR system that receives and stores the CGM data submitted by the data submitter.
+
+This IG also refers to Data Receivers as "EHRs", since this is a commonly understood term.
 
 ### Nominal Workflow
 <img style="max-width: 400px; float: none;" src="flowchart.svg">
@@ -34,6 +38,16 @@ The data receiver is typically an EHR system that receives and stores the CGM da
 #### Patient App to EHR
 
 In this workflow, a patient-facing app connects directly to the EHR using the SMART on FHIR capabilities of the EHR. The app acts as a SMART on FHIR client and goes through an OAuth process where the patient approves the app to access their EHR, granting write scopes. This ensures that both the patient and the source EHR system agree to allow the app to write data using an appropriate access token.
+
+**Technical Details**
+
+* SMART on FHIR scopes that enable this scenario include:
+  * `launch/patient`: patient app will already know who the patient is, and only requires a corresponding ID from the EHR
+  * `patient/Patient.r`: it may still be desirable to cross-reference patient demographics, e.g. to confirm a match
+  * `patient/ServiceRequest.rs?code=cgm-data-submission-standing-order`: helps app learn the EHR's data submission preferences
+  * `patient/DiagnosticReport.cu?category=laboratory`: submit a summary report
+  * `patient/Observation.cu?category=laboratory`: submit a summary observation or sensor reading
+  * `patient/Device.cu`: submit device details associated with a sensor reading
 
 #### Provider App to EHR
 
@@ -46,25 +60,47 @@ To correlate the patient with a data record in the app's backend system, an in-b
 3. A patient-facing companion app generates a sign-up code that the provider enters into the EHR.
 4. The provider has an appropriate data sharing agreement in place with the app, allowing the app to match its patient list against  EHR-sourced demographics.
 
-### Submitting CGM Data
+**Technical Details**
 
-**☛ See [Profile: CGM Submission Bundle](StructureDefinition-cgm-data-submission-bundle.html#profile) for details**
+* SMART on FHIR scopes that enable this scenario include:
+  * `launch/patient`
+  * If using patient-level authorization
+    * `patient/Patient.r`
+    * `patient/ServiceRequest.rs?code=cgm-data-submission-standing-order`
+    * `patient/DiagnosticReport.cu?category=laboratory`
+    * `patient/Observation.cu?category=laboratory`
+    * `patient/Device.cu`
+  * If using user-level authorization
+    * Same as above but `user/`
+  * If using system-level authorization
+    * Same as above but `system/`
 
-**☛ See [Example Bundle](Bundle-cgmDataSubmissionBundle.json.html#root)**
+### CGM Dats Submission: Bundles
+
+**☛ See [Data Profile](StructureDefinition-cgm-data-submission-bundle.html#profile) for details**
+
+**☛ See [Example CGM Data Submission Bundle](Bundle-cgmDataSubmissionBundle.json.html#root)**
 
 {% include StructureDefinition-cgm-data-submission-bundle-header.xhtml %}
 
-#### CGM Data Submission Standing Order
+**Technical Details**
 
-**☛ See [Profile: CGM Data Submision Standing Order](StructureDefinition-cgm-data-submission-standing-order.html#profile) for details**
+* CGM Submitters and Receivers SHALL support bundle-based submission, and MAY support individual resource submission
+* CGM Receivers MAY choose to store only a subset of resources in a submitted bundle
+  * Each entry in the `batch-response` bundle SHALL provide a status code indicating whether the submission was accepted 
+  * Accepted entries SHOULD be available for read/search immediately after submission, but MAY be subjected to additional ingestion workflow steps
 
-**☛ See [Example Order ("Send a summary every two weeks")](ServiceRequest-cgmDataSubmissionStandingOrderExample.json.html#root)**
+### CGM Data Submission: Standing Orders
+
+**☛ See [Data Profile](StructureDefinition-cgm-data-submission-standing-order.html#profile) for details**
+
+**☛ See [Example CHM Data Submission Order ("Send a summary every two weeks")](ServiceRequest-cgmDataSubmissionStandingOrderExample.json.html#root)**
 
 {% include StructureDefinition-cgm-data-submission-standing-order-header.xhtml %}
 
-It's important to note that submissions can also be **manually triggered by a patient
-or provider** within an app. For example, if there is an upcoming appointment,
-the provider can click a button to manually trigger submission of the most
-up-to-date results. Out-of-band communication between the app developer and the
-clinical provider system can also be used to establish preferred submission
-schedules.
+**Technical Details**
+
+* CGM Submitters SHOULD respect the Receivers' submission preferences
+* CGM Receivers MAY
+  * reject an entire submission Bundle if the frequency of submissions is too high
+  * reject a subset of any submission Bundle (as documented above)

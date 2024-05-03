@@ -351,20 +351,20 @@ The submission bundle includes a `Bundle.meta.tag` value of `cgm-data-submission
 
 The Bundle `entry` array includes any combination of 
 
-* CGM Summary PDF Reports ([Profile](StructureDefinition-cgm-summary-pdf.html#root), [Example](DiagnosticReport-cgmSummaryPDFExample.json.html#root))
-* CGM Summary Observation ([Profile](StructureDefinition-cgm-summary.html#root), [Example](Observation-cgm¢ummary.json.html#root))
-  * Mean Glucose ([Profile](StructureDefinition-cgm-summary-mean-glucose-mass.html#root), [Example](Observation-cgmSummaryMeanGlucoseMassExample.json.html#root))
-  * Time in Very Low Range ([Profile](StructureDefinition-cgm-summary-time-in-very-low.html#root), [Example](Observation-cgmSummaryTimeInVeryLowExample.json.html#root))
-  * Time in Low Range ([Profile](StructureDefinition-cgm-summary-time-in-low.html#root), [Example](Observation-cgmSummaryTimeInLowExample.json.html#root))
-  * Time in Target Range ([Profile](StructureDefinition-cgm-summary-time-in-target.html#root), [Example](Observation-cgmSummaryTimeInTargetExample.json.html#root))
-  * Time in High Range ([Profile](StructureDefinition-cgm-summary-time-in-high.html#root), [Example](Observation-cgmSummaryTimeInHighExample.json.html#root))
-  * Time in Very High Range ([Profile](StructureDefinition-cgm-summary-time-in-very-high.html#root), [Example](Observation-cgmSummaryTimeInVeryHighExample.json.html#root))
-  * Glucose Management Index ([Profile](StructureDefinition-cgm-summary-gmi.html#root), [Example](Observation-cgmSummaryGMIExample.json.html#root))
-  * Coefficient of Variations ([Profile](StructureDefinition-cgm-summary-coefficient-of-variation.html#root), [Example](Observation-cgmSummaryCoefficientOfVariationExample.json.html#root))
-  * Sensor Days of Wear ([Profile](StructureDefinition-cgm-summary-days-of-wear.html#root), [Example](Observation-cgmSummaryDaysOfWearExample.json.html#root))
-  * Sensor Active Percentage ([Profile](StructureDefinition-cgm-summary-sensor-active-percentage.html#root), [Example](Observation-cgmSummarySensorActivePercentageExample.json.html#root))
-* CGM Devices ([Profile](StructureDefinition-cgm-device.html#root), [Example](Device-cgmDeviceExample.json.html#root))
-* CGM Sensor Readings ([Profile](StructureDefinition-cgm-sensor-reding-mass.html#root), [Example](Observation-cgmSensorReadingMassExample.json.html#root))
+* CGM Summary PDF Reports ([Profile](StructureDefinition-cgm-summary-pdf.html#profile), [Example](DiagnosticReport-cgmSummaryPDFExample.json.html#root))
+* CGM Summary Observation ([Profile](StructureDefinition-cgm-summary.html#profile), [Example](Observation-cgm¢ummary.json.html#root))
+  * Mean Glucose ([Profile](StructureDefinition-cgm-summary-mean-glucose-mass.html#profile), [Example](Observation-cgmSummaryMeanGlucoseMassExample.json.html#root))
+  * Time in Very Low Range ([Profile](StructureDefinition-cgm-summary-time-in-very-low.html#profile), [Example](Observation-cgmSummaryTimeInVeryLowExample.json.html#root))
+  * Time in Low Range ([Profile](StructureDefinition-cgm-summary-time-in-low.html#profile), [Example](Observation-cgmSummaryTimeInLowExample.json.html#root))
+  * Time in Target Range ([Profile](StructureDefinition-cgm-summary-time-in-target.html#profile), [Example](Observation-cgmSummaryTimeInTargetExample.json.html#root))
+  * Time in High Range ([Profile](StructureDefinition-cgm-summary-time-in-high.html#profile), [Example](Observation-cgmSummaryTimeInHighExample.json.html#root))
+  * Time in Very High Range ([Profile](StructureDefinition-cgm-summary-time-in-very-high.html#profile), [Example](Observation-cgmSummaryTimeInVeryHighExample.json.html#root))
+  * Glucose Management Index ([Profile](StructureDefinition-cgm-summary-gmi.html#profile), [Example](Observation-cgmSummaryGMIExample.json.html#root))
+  * Coefficient of Variations ([Profile](StructureDefinition-cgm-summary-coefficient-of-variation.html#profile), [Example](Observation-cgmSummaryCoefficientOfVariationExample.json.html#root))
+  * Sensor Days of Wear ([Profile](StructureDefinition-cgm-summary-days-of-wear.html#profile), [Example](Observation-cgmSummaryDaysOfWearExample.json.html#root))
+  * Sensor Active Percentage ([Profile](StructureDefinition-cgm-summary-sensor-active-percentage.html#profile), [Example](Observation-cgmSummarySensorActivePercentageExample.json.html#root))
+* CGM Devices ([Profile](StructureDefinition-cgm-device.html#profile), [Example](Device-cgmDeviceExample.json.html#root))
+* CGM Sensor Readings ([Profile](StructureDefinition-cgm-sensor-reding-mass.html#profile), [Example](Observation-cgmSensorReadingMassExample.json.html#root))
 """
 
 * meta.tag
@@ -455,7 +455,7 @@ Data Submitterss can query to guide their future submissions.
 
 **Guiding Data Submission**
 
-This profiles represents a standing order for data submission, specifying the patient, the type of data to be submitted, the desired frequency of submission.
+This profiles represents a standing order for data submission, specifying the patient, the type of data to be submitted, and the desired frequency of submission.
 
 **DataSubmissionSchedule**
 
@@ -466,6 +466,9 @@ The `DataSubmissionSchedule` extension contains:
 - `submissionDataProfile` (1..*): A list of `canonical` references to FHIR profiles that represent the types of data to be submitted according to the specified schedule.
 
 Multiple `DataSubmissionSchedule` extensions can be included in a single `DataSubmissionRequest` resource, allowsing for different data sets at different intervals.
+
+It's important to note that submissions can also be **manually triggered by a patient or provider** within an app. For example, if there is an upcoming appointment, the provider can click a button to manually trigger submission of the most up-to-date results. Out-of-band communication between the app developer and the clinical provider system can also be used to establish preferred submission schedules.
+
 """
 
 * status MS
