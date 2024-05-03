@@ -330,7 +330,7 @@ The submission bundle includes a `Bundle.meta.tag` value of `cgm-data-submission
 The Bundle `entry` array includes any combination of 
 
 * CGM Summary PDF Reports ([Profile](StructureDefinition-cgm-summary-pdf.html#profile), [Example](DiagnosticReport-cgmSummaryPDFExample.json.html#root))
-* CGM Summary Observation ([Profile](StructureDefinition-cgm-summary.html#profile), [Example](Observation-cgm¢ummary.json.html#root))
+* CGM Summary Observation ([Profile](StructureDefinition-cgm-summary.html#profile), [Example](Observation-cgmSummary.json.html#root))
   * Mean Glucose ([Profile](StructureDefinition-cgm-summary-mean-glucose-mass.html#profile), [Example](Observation-cgmSummaryMeanGlucoseMassExample.json.html#root))
   * Times in Ranges ([Profile](StructureDefinition-cgm-summary-times-in-ranges.html#profile), [Example](Observation-cgmSummaryTimesInRangesExample.json.html#root))
   * Glucose Management Index ([Profile](StructureDefinition-cgm-summary-gmi.html#profile), [Example](Observation-cgmSummaryGMIExample.json.html#root))
@@ -338,7 +338,7 @@ The Bundle `entry` array includes any combination of
   * Sensor Days of Wear ([Profile](StructureDefinition-cgm-summary-days-of-wear.html#profile), [Example](Observation-cgmSummaryDaysOfWearExample.json.html#root))
   * Sensor Active Percentage ([Profile](StructureDefinition-cgm-summary-sensor-active-percentage.html#profile), [Example](Observation-cgmSummarySensorActivePercentageExample.json.html#root))
 * CGM Devices ([Profile](StructureDefinition-cgm-device.html#profile), [Example](Device-cgmDeviceExample.json.html#root))
-* CGM Sensor Readings ([Profile](StructureDefinition-cgm-sensor-reding-mass.html#profile), [Example](Observation-cgmSensorReadingMassExample.json.html#root))
+* CGM Sensor Readings ([Profile](StructureDefinition-cgm-sensor-reading-mass.html#profile), [Example](Observation-cgmSensorReadingMassExample.json.html#root))
 """
 
 * meta.tag

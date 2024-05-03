@@ -250,3 +250,12 @@ available for clinical review.
 * extension[dataSubmissionSchedule].extension[submissionFrequency].valueTiming.repeat.periodUnit = #wk
 * extension[dataSubmissionSchedule].extension[submissionDataProfile][0].valueCanonical = Canonical(CGMSummaryObservation)
 * extension[dataSubmissionSchedule].extension[submissionDataProfile][+].valueCanonical = Canonical(CGMSummaryPDF) 
+
+Instance: cgmDeviceExample
+InstanceOf: CGMDevice
+Title: "CGM Device Example"
+Usage: #example
+* deviceName[cgmDeviceName].name = "Acme CGM System"
+* serialNumber = "ABC123"  
+* identifier[0].system = "http://acme.com/devices"
+* identifier[0].value = "456789"
