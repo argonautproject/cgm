@@ -134,6 +134,15 @@ Examples include but are not limited to:
 
 SMART Health Links (SHLinks) provide a complementary method for sharing CGM data and reports between patients, caregivers, clinicians, and other authorized parties. SHLinks allow users to easily share selected subsets of CGM data as needed, without relying on direct integration between systems.
 
+#### Use Cases
+
+By offering user-mediated sharing of both granular data and summarized reports, SHLinks can flexibly support diverse sharing scenarios.
+
+
+* Patient mediated sharing of CGM data
+  * for referrals, care transitions, school, or travel
+  * with clinicians, caregivers, or researchers.
+
 #### Actors
 
 **SHLink Creator.** A system that can generate SHLinks containing CGM data and reports, acting as a SHLink Sharing Application.
@@ -152,10 +161,3 @@ SMART Health Links (SHLinks) provide a complementary method for sharing CGM data
 3. The user shares the SHLink with the intended recipient(s), who use a SHLink Receiver to periodically access the shared data and stay up-to-date over time.
 
 The shared data are generated each time the SHLink is accessed and conform to the CGM Data Submission profiles defined above. For detailed technical requirements, refer to the [SMART Health Links specification](https://docs.smarthealthit.org/smart-health-links/).
-
-#### Use Cases
-
-* Sharing CGM data and insights with clinicians, caregivers, or researchers.
-* Including CGM history and analysis in referrals or care transitions.
-
-By offering user-mediated sharing of both granular data and summarized reports, SHLinks can flexibly support diverse sharing scenarios.
