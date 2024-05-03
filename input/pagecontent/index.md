@@ -1,6 +1,6 @@
 ### Introduction
 
-The Argo Continuous Glucose Monitoring Implementation Guide provides a standardized approach for sharing CGM data between various systems and actors using the FHIR (Fast Healthcare Interoperability Resources) standard. This IG focuses on enabling the exchange of CGM data, including high-level reports and raw glucose observations, to support collaborative glucose management.
+The Argo Continuous Glucose Monitoring Implementation Guide provides a standardized approach for sharing CGM data between actors. This IG focuses on enabling the exchange of CGM data, including high-level reports and raw glucose observations, to support collaborative glucose management.
 
 ### User Stories
 
