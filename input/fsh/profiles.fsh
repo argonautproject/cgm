@@ -52,15 +52,53 @@ RuleSet: CGMSummaryBase
   * end 1..1 MS
     * ^short = "End date of the reporting period (YYYY-MM-DD)"
 
+Profile: CGMSummaryTimesInRanges
+Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Id: cgm-summary-times-in-ranges
+Title: "CGM Summary Times in Ranges"
+Description: "An observation representing the times in various ranges from a continuous glucose monitoring (CGM) summary."
+* insert CGMSummaryBase
+* code = CGMSummaryCodesTemporary#times-in-ranges
+  * ^short = "Code for Times in Ranges observation"
+* component ^slicing.discriminator.type = #pattern
+  * ^short = "Slicing based on the pattern of the component.code"
+* component ^slicing.discriminator.path = "code"
+  * ^short = "Path used to identify the slices"
+* component ^slicing.rules = #open
+  * ^short = "Open slicing allowing additional slices"
+* component contains
+    timeInVeryLow 1..1 MS and
+    timeInLow 1..1 MS and 
+    timeInTarget 1..1 MS and
+    timeInHigh 1..1 MS and
+    timeInVeryHigh 1..1 MS
+  * ^short = "Components representing times in different ranges"
+* component[timeInVeryLow]
+  * code = CGMSummaryCodesTemporary#time-in-very-low
+  * insert QuantityPercent
+* component[timeInLow]  
+  * code = CGMSummaryCodesTemporary#time-in-low
+  * insert QuantityPercent
+* component[timeInTarget]
+  * code ^patternCodeableConcept.coding[0] = CGMSummaryCodesTemporary#time-in-target
+  * code ^patternCodeableConcept.coding[1] = $LNC#97510-2
+  * insert QuantityPercent
+* component[timeInHigh]
+  * code = CGMSummaryCodesTemporary#time-in-high    
+  * insert QuantityPercent
+* component[timeInVeryHigh]
+  * code = CGMSummaryCodesTemporary#time-in-very-high
+  * insert QuantityPercent
+  
 Profile: CGMSummaryObservation
 Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
-Id: cgm-summary
+Id: cgm-summary  
 Title: "CGM Summary Observation"
 Description: "An observation representing a summary of continuous glucose monitoring (CGM) data."
 * effectivePeriod 1..1 MS
   * ^short = "Reporting period for the CGM summary"
   * start 1..1 MS
-    * ^short = "Start date of the reporting period (YYYY-MM-DD)"
+    * ^short = "Start date of the reporting period (YYYY-MM-DD)" 
   * end 1..1 MS
     * ^short = "End date of the reporting period (YYYY-MM-DD)"
 * hasMember ^slicing.discriminator.type = #pattern
@@ -68,15 +106,11 @@ Description: "An observation representing a summary of continuous glucose monito
 * hasMember ^slicing.discriminator.path = "resolve().code"
   * ^short = "Path used to identify the slices"
 * hasMember ^slicing.rules = #open
-  * ^short = "Open slicing allowing additional slices"
+  * ^short = "Open slicing allowing additional slices"  
 * hasMember contains
     meanGlucoseMass 0..1 MS and
     meanGlucoseMolar 0..1 MS and
-    timeInVeryLow 1..1 MS and
-    timeInLow 1..1 MS and
-    timeInTarget 1..1 MS and
-    timeInHigh 1..1 MS and
-    timeInVeryHigh 1..1 MS and
+    timesInRanges 1..1 MS and 
     gmi 1..1 MS and
     cv 1..1 MS and
     daysOfWear 1..1 MS and
@@ -85,17 +119,9 @@ Description: "An observation representing a summary of continuous glucose monito
 * hasMember[meanGlucoseMass] only Reference(CGMSummaryMeanGlucoseMass)
   * ^short = "Mean Glucose (Mass) observation"
 * hasMember[meanGlucoseMolar] only Reference(CGMSummaryMeanGlucoseMolar)
-  * ^short = "Mean Glucose (Molar) observation"
-* hasMember[timeInVeryLow] only Reference(CGMSummaryTimeInVeryLow)
-  * ^short = "Time in Very Low Range observation"
-* hasMember[timeInLow] only Reference(CGMSummaryTimeInLow)
-  * ^short = "Time in Low Range observation"
-* hasMember[timeInTarget] only Reference(CGMSummaryTimeInTarget)
-  * ^short = "Time in Target Range observation"
-* hasMember[timeInHigh] only Reference(CGMSummaryTimeInHigh)
-  * ^short = "Time in High Range observation"
-* hasMember[timeInVeryHigh] only Reference(CGMSummaryTimeInVeryHigh)
-  * ^short = "Time in Very High Range observation"
+  * ^short = "Mean Glucose (Molar) observation" 
+* hasMember[timesInRanges] only Reference(CGMSummaryTimesInRanges)
+  * ^short = "Times in Ranges observation"
 * hasMember[gmi] only Reference(CGMSummaryGMI)
   * ^short = "Glucose Management Indicator (GMI) observation"
 * hasMember[cv] only Reference(CGMSummaryCoefficientOfVariation)
@@ -293,6 +319,7 @@ Description: "Temporary code system for CGM summary observations."
 * #cgm-summary "CGM Summary"
 * #mean-glucose-mass "Mean Glucose (Mass per Volume)"
 * #mean-glucose-molar "Mean Glucose (Moles per Volume)"
+* #times-in-ranges "Time in Glucose Ranges"
 * #time-in-very-low "Time in Very Low Range"
 * #time-in-low "Time in Low Range"
 * #time-in-target "Time in Target Range"
@@ -393,11 +420,7 @@ The Bundle `entry` array includes any combination of
     cgmSummaryPDF 0..* MS and
     cgmSummaryMeanGlucoseMass 0..* MS and
     cgmSummaryMeanGlucoseMolar 0..* MS and
-    cgmSummaryTimeInVeryLow 0..* MS and
-    cgmSummaryTimeInLow 0..* MS and
-    cgmSummaryTimeInTarget 0..* MS and
-    cgmSummaryTimeInHigh 0..* MS and
-    cgmSummaryTimeInVeryHigh 0..* MS and
+    cgmSummaryTimesInRanges 0..* MS and
     cgmSummaryGMI 0..* MS and
     cgmSummaryCoefficientOfVariation 0..* MS and
     cgmSummaryDaysOfWear 0..* MS and
@@ -421,16 +444,8 @@ The Bundle `entry` array includes any combination of
   * ^short = "Mean glucose (mass) entry must conform to CGMSummaryMeanGlucoseMass profile"
 * entry[cgmSummaryMeanGlucoseMolar].resource only CGMSummaryMeanGlucoseMolar
   * ^short = "Mean glucose (molar) entry must conform to CGMSummaryMeanGlucoseMolar profile"
-* entry[cgmSummaryTimeInVeryLow].resource only CGMSummaryTimeInVeryLow
-  * ^short = "Time in very low entry must conform to CGMSummaryTimeInVeryLow profile"
-* entry[cgmSummaryTimeInLow].resource only CGMSummaryTimeInLow
-  * ^short = "Time in low entry must conform to CGMSummaryTimeInLow profile"
-* entry[cgmSummaryTimeInTarget].resource only CGMSummaryTimeInTarget
-  * ^short = "Time in target entry must conform to CGMSummaryTimeInTarget profile"
-* entry[cgmSummaryTimeInHigh].resource only CGMSummaryTimeInHigh
-  * ^short = "Time in high entry must conform to CGMSummaryTimeInHigh profile"
-* entry[cgmSummaryTimeInVeryHigh].resource only CGMSummaryTimeInVeryHigh
-  * ^short = "Time in very high entry must conform to CGMSummaryTimeInVeryHigh profile"
+* entry[cgmSummaryTimesInRanges].resource only CGMSummaryTimesInRanges
+  * ^short = "Times spent in ranges entry must conform to CGMSummaryTimesInRanges profile"
 * entry[cgmSummaryGMI].resource only CGMSummaryGMI
   * ^short = "GMI entry must conform to CGMSummaryGMI profile"
 * entry[cgmSummaryCoefficientOfVariation].resource only CGMSummaryCoefficientOfVariation  

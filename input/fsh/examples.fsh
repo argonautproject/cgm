@@ -65,76 +65,41 @@ Usage: #example
 * valueQuantity.system = $UCUM 
 * valueQuantity.code = #mmol/L
 
-Instance: cgmSummaryTimeInVeryLowExample 
-InstanceOf: CGMSummaryTimeInVeryLow
-Title: "Time in Very Low Range Example"
+Instance: cgmSummaryTimesInRangesExample
+InstanceOf: CGMSummaryTimesInRanges
+Title: "CGM Summary Times in Ranges Example" 
 Usage: #example
 * status = #final
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
-* effectivePeriod.end = "2024-05-31"
-* code = CGMSummaryCodesTemporary#time-in-very-low
-* valueQuantity.value = 3
-* valueQuantity.unit = "%"
-* valueQuantity.system = $UCUM
-* valueQuantity.code = #d
-
-Instance: cgmSummaryTimeInLowExample
-InstanceOf: CGMSummaryTimeInLow
-Title: "Time in Low Range Example" 
-Usage: #example
-* status = #final
-* subject = Reference(patientExample)
-* effectivePeriod.start = "2024-05-01"
-* effectivePeriod.end = "2024-05-31"
-* code = CGMSummaryCodesTemporary#time-in-low
-* valueQuantity.value = 8
-* valueQuantity.unit = "%"
-* valueQuantity.system = $UCUM
-* valueQuantity.code = #d
-
-Instance: cgmSummaryTimeInTargetExample
-InstanceOf: CGMSummaryTimeInTarget
-Title: "Time in Target Range Example"
-Usage: #example  
-* status = #final
-* subject = Reference(patientExample)
-* effectivePeriod.start = "2024-05-01"
-* effectivePeriod.end = "2024-05-31"
-* code.coding[0] = CGMSummaryCodesTemporary#time-in-target
-* code.coding[1] = $LNC#97510-2
-* valueQuantity.value = 65 
-* valueQuantity.unit = "%"
-* valueQuantity.system = $UCUM
-* valueQuantity.code = #d
-
-Instance: cgmSummaryTimeInHighExample
-InstanceOf: CGMSummaryTimeInHigh
-Title: "Time in High Range Example"
-Usage: #example
-* status = #final 
-* subject = Reference(patientExample)
-* effectivePeriod.start = "2024-05-01"
-* effectivePeriod.end = "2024-05-31"
-* code = CGMSummaryCodesTemporary#time-in-high
-* valueQuantity.value = 20
-* valueQuantity.unit = "%"
-* valueQuantity.system = $UCUM
-* valueQuantity.code = #d
-
-Instance: cgmSummaryTimeInVeryHighExample  
-InstanceOf: CGMSummaryTimeInVeryHigh
-Title: "Time in Very High Range Example"
-Usage: #example
-* status = #final
-* subject = Reference(patientExample) 
-* effectivePeriod.start = "2024-05-01"
-* effectivePeriod.end = "2024-05-31"
-* code = CGMSummaryCodesTemporary#time-in-very-high
-* valueQuantity.value = 4
-* valueQuantity.unit = "%"
-* valueQuantity.system = $UCUM
-* valueQuantity.code = #d
+* effectivePeriod.end = "2024-05-31"  
+* code = CGMSummaryCodesTemporary#times-in-ranges
+* component[timeInVeryLow].code = CGMSummaryCodesTemporary#time-in-very-low  
+* component[timeInVeryLow].valueQuantity.value = 3
+* component[timeInVeryLow].valueQuantity.unit = "%"
+* component[timeInVeryLow].valueQuantity.system = $UCUM
+* component[timeInVeryLow].valueQuantity.code = #d
+* component[timeInLow].code = CGMSummaryCodesTemporary#time-in-low
+* component[timeInLow].valueQuantity.value = 8
+* component[timeInLow].valueQuantity.unit = "%"
+* component[timeInLow].valueQuantity.system = $UCUM
+* component[timeInLow].valueQuantity.code = #d
+* component[timeInTarget].code.coding[0] = CGMSummaryCodesTemporary#time-in-target
+* component[timeInTarget].code.coding[1] = $LNC#97510-2
+* component[timeInTarget].valueQuantity.value = 65
+* component[timeInTarget].valueQuantity.unit = "%"
+* component[timeInTarget].valueQuantity.system = $UCUM
+* component[timeInTarget].valueQuantity.code = #d
+* component[timeInHigh].code = CGMSummaryCodesTemporary#time-in-high
+* component[timeInHigh].valueQuantity.value = 20
+* component[timeInHigh].valueQuantity.unit = "%"
+* component[timeInHigh].valueQuantity.system = $UCUM
+* component[timeInHigh].valueQuantity.code = #d  
+* component[timeInVeryHigh].code = CGMSummaryCodesTemporary#time-in-very-high
+* component[timeInVeryHigh].valueQuantity.value = 4
+* component[timeInVeryHigh].valueQuantity.unit = "%"
+* component[timeInVeryHigh].valueQuantity.system = $UCUM
+* component[timeInVeryHigh].valueQuantity.code = #d
 
 Instance: cgmSummaryGMIExample
 InstanceOf: CGMSummaryGMI  
@@ -204,11 +169,7 @@ Usage: #example
 * effectivePeriod.end = "2024-05-31"
 * hasMember[meanGlucoseMass] = Reference(cgmSummaryMeanGlucoseMassExample)
 * hasMember[meanGlucoseMolar] = Reference(cgmSummaryMeanGlucoseMolarExample)  
-* hasMember[timeInVeryLow] = Reference(cgmSummaryTimeInVeryLowExample)
-* hasMember[timeInLow] = Reference(cgmSummaryTimeInLowExample)
-* hasMember[timeInTarget] = Reference(cgmSummaryTimeInTargetExample)
-* hasMember[timeInHigh] = Reference(cgmSummaryTimeInHighExample)
-* hasMember[timeInVeryHigh] = Reference(cgmSummaryTimeInVeryHighExample)
+* hasMember[timesInRanges] = Reference(cgmSummaryTimesInRangesExample)
 * hasMember[gmi] = Reference(cgmSummaryGMIExample)
 * hasMember[cv] = Reference(cgmSummaryCoefficientOfVariationExample)
 * hasMember[daysOfWear] = Reference(cgmSummaryDaysOfWearExample)  
@@ -245,24 +206,8 @@ Usage: #example
 * entry[=].fullUrl = "https://example.org/Observation/cgmSummaryMeanGlucoseMassExample"
 * entry[=].request.method = #POST
 * entry[=].request.url = "Observation"
-* entry[+].resource = cgmSummaryTimeInVeryLowExample
-* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryTimeInVeryLowExample"
-* entry[=].request.method = #POST
-* entry[=].request.url = "Observation"
-* entry[+].resource = cgmSummaryTimeInLowExample 
-* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryTimeInLowExample"
-* entry[=].request.method = #POST
-* entry[=].request.url = "Observation"
-* entry[+].resource = cgmSummaryTimeInTargetExample
-* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryTimeInTargetExample"
-* entry[=].request.method = #POST
-* entry[=].request.url = "Observation"
-* entry[+].resource = cgmSummaryTimeInHighExample
-* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryTimeInHighExample"
-* entry[=].request.method = #POST
-* entry[=].request.url = "Observation"
-* entry[+].resource = cgmSummaryTimeInVeryHighExample
-* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryTimeInVeryHighExample"
+* entry[+].resource = cgmSummaryTimesInRangesExample
+* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryTimesInRangesExample"
 * entry[=].request.method = #POST
 * entry[=].request.url = "Observation"
 * entry[+].resource = cgmSummaryGMIExample
