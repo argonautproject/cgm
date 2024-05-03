@@ -345,7 +345,18 @@ Profile: CGMDataSubmissionBundle
 Parent: Bundle
 Id: cgm-data-submission-bundle
 Title: "CGM Data Submission Bundle"
-Description: "A bundle for submitting continuous glucose monitoring (CGM) data, including devices, observations, summaries, and optionally patient information."
+Description: """
+A Bundle for submitting continuous glucose monitoring (CGM) data, including
+devices, observations, summaries, and optionally patient information.
+
+A Submission Bundle includes a `Bundle.meta.tag` value of
+`cgm-data-submission-bundle` to support ingestion workflows on servers with
+limited data ingestion capabilities. The tag has no impact on the meaning of the
+bundle, and can safely be ignored by servers that offer a general-purpose `POST /`
+endpoint.
+
+"""
+
 * meta.tag
   * ^slicing.discriminator.type = #pattern
   * ^slicing.discriminator.path = "$this"
