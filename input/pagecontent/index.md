@@ -22,13 +22,13 @@ Dr. Patel is the principal investigator for a longitudinal research study. Parti
 
 The data submitter can be either a user-facing app (patient or clinician) or a backend service. User-facing apps include mobile apps running on a patient's phone or a provider-facing app integrated into an Electronic Health Record (EHR) system. Backend services are "headless" systems that can write CGM data.
 
-This IG also refers to Data Submitters as "apps" or "glucose management platforoms", since these are commonly understood terms.
+This IG also refers to Data Submitters as "apps" or "diabetes management platforms".
 
 #### Data Receiver
 
 The data receiver is EHR system that receives and stores the CGM data submitted by the data submitter.
 
-This IG also refers to Data Receivers as "EHRs", since this is a commonly understood term.
+This IG also refers to Data Receivers as "EHRs".
 
 ### Nominal Workflow
 <img style="max-width: 400px; float: none;" src="flowchart.svg">
@@ -41,21 +41,27 @@ In this workflow, a patient-facing app connects directly to the EHR using the SM
 
 **Technical Details**
 
+{% assign launch_patient = "patient app will already know who the patient is, and only requires a corresponding ID from the EHR" %}
+{% assign offline_access = "establish persistent access for long-term submissions" %}
+
 * SMART on FHIR scopes that enable this scenario include:
-  * `launch/patient`: patient app will already know who the patient is, and only requires a corresponding ID from the EHR
-  * `patient/Patient.r`: it may still be desirable to cross-reference patient demographics, e.g. to confirm a match
-  * `patient/ServiceRequest.rs?code=cgm-data-submission-standing-order`: helps app learn the EHR's data submission preferences
-  * `patient/DiagnosticReport.cu?category=laboratory`: submit a summary report
-  * `patient/Observation.cu?category=laboratory`: submit a summary observation or sensor reading
-  * `patient/Device.cu`: submit device details associated with a sensor reading
+  * `launch/patient`: {{ launch_patient }}
+  * `offline_access`: {{ offline_access }}
+    * `patient/Patient.r`: it may still be desirable to cross-reference patient demographics, e.g. to confirm a match
+    * `patient/ServiceRequest.rs?code=cgm-data-submission-standing-order`: helps app learn the EHR's data submission preferences
+    * `patient/DiagnosticReport.cu?category=laboratory`: submit a summary report
+    * `patient/Observation.cu?category=laboratory`: submit a summary observation or sensor reading
+    * `patient/Device.cu`: submit device details associated with a sensor reading
 
 #### Provider App to EHR
 
-For provider-facing apps, the app can be integrated directly into the EHR's user interface using the SMART on FHIR EHR launch workflow. This workflow is widely supported by EHRs and allows apps to run within the EHR's creen rel estate. The EHR-integrated app might represent a device manufacturer or an independent glucose management platform. The app can retrieve the patient's ID and demographics from the EHR in real-time using the FHIR US Core Patient API.
+For provider-facing apps, the app can be integrated directly into the EHR's user interface using the SMART on FHIR EHR launch workflow. This workflow is widely supported by EHRs and allows apps to run within the EHR's creen rel estate. The EHR-integrated app might represent a device manufacturer or an independent diabetes management platform. The app can retrieve the patient's ID and demographics from the EHR in real-time using the FHIR US Core Patient API.
 
-To correlate the patient with a data record in the app's backend system, an in-brand or out-of-band process can be employed. Examples include:
+To correlate the patient with a data record in the app's backend system, an in-brand or out-of-band process can be employed.
 
-1. A patient-facing companion app connects to the EHR using SMART on FHIR as in "Patient App to EHR," establishing a record linkage via API
+Examples include but are not limited to:
+
+1. A patient-facing companion app connects to the EHR using SMART on FHIR as described in "Patient App to EHR" above, establishing a record linkage via API
 2. A patient-facing companion app sends a push notification to the patient, asking if they want to establish a record linkage
 3. A patient-facing companion app generates a sign-up code that the provider enters into the EHR.
 4. The provider has an appropriate data sharing agreement in place with the app, allowing the app to match its patient list against  EHR-sourced demographics.
@@ -63,17 +69,15 @@ To correlate the patient with a data record in the app's backend system, an in-b
 **Technical Details**
 
 * SMART on FHIR scopes that enable this scenario include:
-  * `launch/patient`
-  * If using patient-level authorization
-    * `patient/Patient.r`
-    * `patient/ServiceRequest.rs?code=cgm-data-submission-standing-order`
-    * `patient/DiagnosticReport.cu?category=laboratory`
-    * `patient/Observation.cu?category=laboratory`
-    * `patient/Device.cu`
-  * If using user-level authorization
-    * Same as above but `user/`
-  * If using system-level authorization
-    * Same as above but `system/`
+  * `launch/patient` at linkage time
+  * If using patient-level authorization at submission time
+    * "Data Scopes" listed above
+    * `offline_access`
+  * If using user-level authorization at submission time
+    * "Data Scopes" listed above, with level of `user/`
+    * `offline_access`
+  * If using system-level authorization at submission time
+    * "Data Scopes" listed above, with level of `system/`
 
 ### CGM Dats Submission: Bundles
 
@@ -101,6 +105,6 @@ To correlate the patient with a data record in the app's backend system, an in-b
 **Technical Details**
 
 * CGM Submitters SHOULD respect the Receivers' submission preferences
-* CGM Receivers MAY
-  * reject an entire submission Bundle if the frequency of submissions is too high
-  * reject a subset of any submission Bundle (as documented above)
+* CGM Receivers MAY reject
+  * An entire submission Bundle if the frequency of submissions is too high
+  * Any subset of a submission Bundle (as documented above)
