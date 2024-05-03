@@ -441,7 +441,7 @@ The Bundle `entry` array includes any combination of
   * ^short = "Sensor active percentage entry must conform to CGMSummarySensorActivePercentage profile"
 
 Profile: CGMDataSubmissionStandingOrder
-Parent: ServiceRequest
+Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest
 Id: cgm-data-submission-standing-order
 Title: "Data Submission Standing Order"
 Description: """
@@ -469,12 +469,10 @@ Multiple `DataSubmissionSchedule` extensions can be included in a single `DataSu
 It's important to note that submissions can also be **manually triggered by a patient or provider** within an app. For example, if there is an upcoming appointment, the provider can click a button to manually trigger submission of the most up-to-date results. Out-of-band communication between the app developer and the clinical provider system can also be used to establish preferred submission schedules.
 
 """
-
-* status MS
-* intent MS
+* intent = #order
 * code = CGMCodes#cgm-data-submission-standing-order
   * ^short = "Code for CGM submission standing order"
-* subject 1..1 MS
+* subject 1..1
   * ^short = "Patient for the submission order"
 * extension contains 
     DataSubmissionSchedule named dataSubmissionSchedule 0..*
