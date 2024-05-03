@@ -448,14 +448,13 @@ Description: """
 The Data Receiver can expose a standing order indicating:
 
 * how often a Data Submitter should submit CGM data
-* what data the Data Submitter should include in each CGM Data Submission Bundle.
+* what data a Data Submitter should include in each CGM Data Submission Bundle.
 
-This standing order is modeled as a FHIR `ServiceRequest` resource, which 
-Data Submitterss can query to guide their future submissions.
 
 **Guiding Data Submission**
 
-This profiles represents a standing order for data submission, specifying the patient, the type of data to be submitted, and the desired frequency of submission.
+This standing order is modeled as a FHIR `ServiceRequest` resource, which 
+Data Submitters can query to guide their future submissions. The standing order specifyies the patient, the type of data to be submitted, and the desired frequency of submission.
 
 **DataSubmissionSchedule**
 
