@@ -48,20 +48,22 @@ To correlate the patient with a data record in the app's backend system, an in-b
 
 ### Submitting CGM Data
 
-{% include StructureDefinition-cgm-data-submission-bundle-header.xhtml %}
-
 **☛ See [Profile: CGM Submission Bundle](StructureDefinition-cgm-data-submission-bundle.html#profile) for details**
+
 **☛ See [Example Bundle](Bundle-cgmDataSubmissionBundle.json.html#root)**
+
+{% include StructureDefinition-cgm-data-submission-bundle-header.xhtml %}
 
 #### CGM Data Submission Standing Order
 
-{% include StructureDefinition-cgm-data-submission-standing-order-header.xhtml %}
-
 **☛ See [Profile: CGM Data Submision Standing Order](StructureDefinition-cgm-data-submission-standing-order.html#profile) for details**
+
 **☛ See [Example Order ("Send a summary every two weeks")](ServiceRequest-cgmDataSubmissionStandingOrderExample.json.html#root)**
 
-It's important to note that submissions can be manually triggered by a patient
-or provider within their app. For example, if there is an upcoming appointment,
+{% include StructureDefinition-cgm-data-submission-standing-order-header.xhtml %}
+
+It's important to note that submissions can also be **manually triggered by a patient
+or provider** within an app. For example, if there is an upcoming appointment,
 the provider can click a button to manually trigger submission of the most
 up-to-date results. Out-of-band communication between the app developer and the
 clinical provider system can also be used to establish preferred submission
