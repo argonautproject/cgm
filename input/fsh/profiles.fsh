@@ -346,22 +346,22 @@ Parent: Bundle
 Id: cgm-data-submission-bundle
 Title: "CGM Data Submission Bundle"
 Description: """
-Once an app is connected to the EHR, it can write data by submitting a `batch` Bundle to the FHIR sever's `/` submission endpoint.
+Once an Data Submitter is connected to the EHR, it can write data by submitting a `batch` Bundle to the EHR FHIR sever's `/` submission endpoint.
 The submission bundle includes a `Bundle.meta.tag` value of `cgm-data-submission-bundle` to support ingestion workflows on servers with limited data ingestion capabilities. The tag has no impact on the meaning of the bundle, and can safely be ignored by servers that offer a general-purpose `POST /` endpoint.
 
 The Bundle `entry` array includes any combination of 
 
 * CGM Summary PDF Reports ([Profile](StructureDefinition-cgm-summary-pdf.html#root), [Example](DiagnosticReport-cgmSummaryPDFExample.json.html#root))
-* CGM Summary Observations ([Profile](StructureDefinition-cgm-summary.html#root), [Example](StructureDefinition-cgm-summary.profile.json.html#root))
+* CGM Summary Observation ([Profile](StructureDefinition-cgm-summary.html#root), [Example](Observation-cgm¢ummary.json.html#root))
   * Mean Glucose ([Profile](StructureDefinition-cgm-summary-mean-glucose-mass.html#root), [Example](Observation-cgmSummaryMeanGlucoseMassExample.json.html#root))
-  * Time in Very Low ([Profile](StructureDefinition-cgm-summary-time-in-very-low.html#root), [Example](Observation-cgmSummaryTimeInVeryLowExample.json.html#root))
-  * Time in Low ([Profile](StructureDefinition-cgm-summary-time-in-low.html#root), [Example](Observation-cgmSummaryTimeInLowExample.json.html#root))
-  * Time in Target ([Profile](StructureDefinition-cgm-summary-time-in-target.html#root), [Example](Observation-cgmSummaryTimeInTargetExample.json.html#root))
-  * Time in High ([Profile](StructureDefinition-cgm-summary-time-in-high.html#root), [Example](Observation-cgmSummaryTimeInHighExample.json.html#root))
-  * Time in Very High ([Profile](StructureDefinition-cgm-summary-time-in-very-high.html#root), [Example](Observation-cgmSummaryTimeInVeryHighExample.json.html#root))
-  * GMI ([Profile](StructureDefinition-cgm-summary-gmi.html#root), [Example](Observation-cgmSummaryGMIExample.json.html#root))
-  * CV ([Profile](StructureDefinition-cgm-summary-coefficient-of-variation.html#root), [Example](Observation-cgmSummaryCoefficientOfVariationExample.json.html#root))
-  * Days of Wear ([Profile](StructureDefinition-cgm-summary-days-of-wear.html#root), [Example](Observation-cgmSummaryDaysOfWearExample.json.html#root))
+  * Time in Very Low Range ([Profile](StructureDefinition-cgm-summary-time-in-very-low.html#root), [Example](Observation-cgmSummaryTimeInVeryLowExample.json.html#root))
+  * Time in Low Range ([Profile](StructureDefinition-cgm-summary-time-in-low.html#root), [Example](Observation-cgmSummaryTimeInLowExample.json.html#root))
+  * Time in Target Range ([Profile](StructureDefinition-cgm-summary-time-in-target.html#root), [Example](Observation-cgmSummaryTimeInTargetExample.json.html#root))
+  * Time in High Range ([Profile](StructureDefinition-cgm-summary-time-in-high.html#root), [Example](Observation-cgmSummaryTimeInHighExample.json.html#root))
+  * Time in Very High Range ([Profile](StructureDefinition-cgm-summary-time-in-very-high.html#root), [Example](Observation-cgmSummaryTimeInVeryHighExample.json.html#root))
+  * Glucose Management Index ([Profile](StructureDefinition-cgm-summary-gmi.html#root), [Example](Observation-cgmSummaryGMIExample.json.html#root))
+  * Coefficient of Variations ([Profile](StructureDefinition-cgm-summary-coefficient-of-variation.html#root), [Example](Observation-cgmSummaryCoefficientOfVariationExample.json.html#root))
+  * Sensor Days of Wear ([Profile](StructureDefinition-cgm-summary-days-of-wear.html#root), [Example](Observation-cgmSummaryDaysOfWearExample.json.html#root))
   * Sensor Active Percentage ([Profile](StructureDefinition-cgm-summary-sensor-active-percentage.html#root), [Example](Observation-cgmSummarySensorActivePercentageExample.json.html#root))
 * CGM Devices ([Profile](StructureDefinition-cgm-device.html#root), [Example](Device-cgmDeviceExample.json.html#root))
 * CGM Sensor Readings ([Profile](StructureDefinition-cgm-sensor-reding-mass.html#root), [Example](Observation-cgmSensorReadingMassExample.json.html#root))
