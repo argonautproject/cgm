@@ -20,36 +20,38 @@ Dr. Patel is the principal investigator for a longitudinal research study. Parti
 
 #### Data Submitter
 
-The data submitter can be either a user-facing app (patient or clinician) or a backend service. User-facing apps include mobile apps running on a patient's phone or a provider-facing app integrated into an Electronic Health Record (EHR) system. Backend services are "headless" systems that can write CGM data.
+The data submitter is a software system that manages CGM data. It typically incorporates a patient-facing app, and may also incorporate a clinician-facing EHR-integrated app and a cloud service.
 
-This IG also refers to Data Submitters as "apps" or "diabetes management platforms".
+This IG also refers to Data Submitters as "**apps**" or "**diabetes management platforms**".
 
 #### Data Receiver
 
-The data receiver is an EHR system that receives and stores the CGM data submitted by the data submitter.
+The data receiver is a software system that receives and stores the CGM data submitted by the data submitter.
 
-This IG also refers to Data Receivers as "EHRs".
+This IG also refers to Data Receivers as "**EHRs**".
 
 ### Nominal Workflow
+
 <img style="max-width: 400px; float: none;" src="flowchart.svg">
 
-1. App Authorization (SMART on FHIR): The Data Submitter's app completes a SMART App Launch to securely access the EHR system.
+1. App Authorization (SMART on FHIR): The Data Submitter completes a [SMART App Launch](https://www.hl7.org/fhir/smart-app-launch/app-launch.html#app-launch-launch-and-authorization) or [SMART Backend Services Authorization](https://www.hl7.org/fhir/smart-app-launch/backend-services.html) to securely access the EHR system.
 
-2. Establish EHR Patient ID: After successful authorization, the app determines the `Patient.id` within the EHR FHIR Server. This can be done through the SMART's `launch/patient` context, or using an out-of-band (OOB) process.
+2. Establish EHR Patient ID: After successful authorization, the Data Submitter determines the patient's `id`  within the EHR's FHIR Server. This can be done through the SMART's `launch/patient` context, through FHIR patient search, or using an out-of-band (OOB) process.
 
-3. Learn Submission Preferences: The app retrieves the EHR's submission preferences by either:
+3. Learn Submission Preferences: The Dataa Submitter determines the EHR's CGM data submission preferences by:
    a. Querying the EHR FHIR server for a specific `ServiceRequest` resource that contains the CGM data submission standing order, or
    b. Learning the submission schedule through an OOB process.
 
-4. Submission Triggers:
-   a. Scheduled Submission Interval: Based on the standing order obtained from the submission preferences, the app initiates scheduled submissions of CGM data at the specified intervals.
-   b. Manual Trigger: The app may also support manual triggers, such as an in-app button, allowing users to initiate on-demand submissions of CGM data.
+4. Submission Triggers: The Data Submitter determines when to submit data
+   a. Scheduled Submission Interval: Based on the standing order obtained from the submission preferences, the Submitter initiates scheduled submissions of CGM data at the specified intervals.
+   b. Manual Trigger: The Submitter may also support manual triggers, such as an in-app button, allowing users to initiate on-demand submissions of CGM data.
 
-5. Prepare FHIR Bundle: When a submission is triggered (either scheduled or manual), the app prepares a FHIR Bundle containing the relevant CGM data, conforming to the specified profiles and requirements.
+5. Prepare FHIR Bundle: When a submission is triggered (either scheduled or manual), the Data Submitter prepares a FHIR Bundle containing the relevant CGM data, conforming to the specified profiles and requirements.
 
-6. POST Bundle to EHR: The app submits the prepared FHIR Bundle to the EHR (Data Receiver) using a POST request to the appropriate endpoint.
+6. POST Bundle to EHR: The Submitter issues a POST request to send the prepared FHIR Bundle to the EHR's FHIR Base URL.
 
-This workflow ensures that the data submitter app is properly authorized, respects the EHR's submission preferences, and securely transmits CGM data in a standardized format. The combination of scheduled submissions and manual triggers provides flexibility and ensures that the EHR receives up-to-date CGM data as needed.
+This workflow ensures that the Data Submitter is properly authorized, respects the EHR's submission preferences, and securely transmits CGM data in a standardized format. The combination of scheduled submissions and manual triggers provides flexibility and ensures that the EHR receives up-to-date CGM data as needed.
+
 
 ### Establishing Connections
 
