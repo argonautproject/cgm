@@ -58,6 +58,8 @@ Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Id: cgm-summary  
 Title: "CGM Summary Observation"
 Description: "An observation representing a summary of continuous glucose monitoring (CGM) data."
+* code = CGMSummaryCodesTemporary#cgm-summary
+  * ^short = "Code for Times in Ranges observation"
 * effectivePeriod 1..1 MS
   * ^short = "Reporting period for the CGM summary"
   * start 1..1 MS
@@ -154,16 +156,22 @@ Description: "An observation representing the times in various ranges from a con
   * code = CGMSummaryCodesTemporary#time-in-very-high
   * insert QuantityPercent
  
+Instance: MeanGlucoseMassWithLoinc
+InstanceOf: CodeableConcept
+Usage: #inline
+* coding[+] = CGMSummaryCodesTemporary#mean-glucose-mass
+* coding[+] =  $LNC#97507-8
+
 Profile: CGMSummaryMeanGlucoseMass
 Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Id: cgm-summary-mean-glucose-mass
 Title: "Mean Glucose (Mass)"
 Description: "The mean glucose value from a continuous glucose monitoring (CGM) summary, represented in mass units."
 * insert CGMSummaryBase
-* code ^patternCodeableConcept.coding[0] = CGMSummaryCodesTemporary#mean-glucose-mass
-* code ^patternCodeableConcept.coding[1] = $LNC#97507-8
+* code = MeanGlucoseMassWithLoinc
   * ^short = "Code for Mean Glucose observation"
 * insert GlucoseMass
+
 
 Profile: CGMSummaryMeanGlucoseMolar
 Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
@@ -186,16 +194,20 @@ RuleSet: QuantityPercent
     * ^short = "UCUM code system"
   * ^short = "Value as a percentage"
 
+Instance: GMIWithLoinc
+InstanceOf: CodeableConcept
+Usage: #inline
+* coding[+] = CGMSummaryCodesTemporary#gmi
+* coding[+] = $LNC#97506-0
+
 Profile: CGMSummaryGMI
 Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Id: cgm-summary-gmi
 Title: "Glucose Management Indicator (GMI)"
 Description: "The Glucose Management Indicator (GMI) value from a continuous glucose monitoring (CGM) summary."
 * insert CGMSummaryBase
-* code = CGMSummaryCodesTemporary#gmi
+* code = GMIWithLoinc
   * ^short = "Code for Glucose Management Indicator (GMI) observation"
-* code ^patternCodeableConcept.coding[1] = CGMSummaryCodesTemporary#gmi
-* code ^patternCodeableConcept.coding[1] = $LNC#97506-0
 * insert QuantityPercent
 
 Profile: CGMSummaryCoefficientOfVariation
@@ -341,67 +353,67 @@ The Bundle `entry` array includes any combination of
 * CGM Sensor Readings ([Profile](StructureDefinition-cgm-sensor-reading-mass.html#profile), [Example](Observation-cgmSensorReadingMassExample.json.html#root))
 """
 
+
 * meta.tag
-  * ^slicing.discriminator.type = #pattern
   * ^slicing.discriminator.path = "$this"
+  * ^slicing.discriminator.type = #pattern
   * ^slicing.rules = #open
-* meta.tag contains
-    cgmSubmissionBundle 1..1 MS
+* meta.tag contains cgmSubmissionBundle 1..1 MS
   * ^short = "Tag for CGM submission bundle"
 * meta.tag[cgmSubmissionBundle] = CGMCodes#cgm-data-submission-bundle
   * ^short = "Bundle type is collection"
 * timestamp 1..1 MS
   * ^short = "Time the bundle was created"
-* entry ^slicing.discriminator.type = #profile
-  * ^short = "Slicing based on the profile of the resource"
-* entry ^slicing.discriminator.path = "resource"
-  * ^short = "Path to the resource element for slicing" 
+
+* entry ^slicing.discriminator[+].type = #type
+* entry ^slicing.discriminator[=].path = "resource"
+* entry ^slicing.discriminator[+].type = #pattern
+* entry ^slicing.discriminator[=].path = "resource.ofType(Observation).code"
 * entry ^slicing.rules = #open
   * ^short = "Open slicing allowing additional slices"
+* entry 1..* MS
+  * ^short = "At least one entry is required"
 * entry contains
     patient 0..1 MS and
-    cgmDevice 0..* MS and
-    cgmSensorReadingMolar 0..* MS and
-    cgmSensorReadingMass 0..* MS and
+    device 0..* MS and
+    observation 0..* MS and
+    diagnosticReport 0..* MS
+  * ^short = "Slices representing different resource types in the bundle"
+
+* entry[patient].resource only us-core-patient
+  * ^short = "Patient entry must conform to us-core-patient profile"
+* entry[device].resource only CGMDevice
+  * ^short = "CGM device entry must conform to CGMDevice profile"
+* entry[diagnosticReport].resource only CGMSummaryPDF
+  * ^short = "CGM summary PDF entry must conform to CGMSummaryPDF profile"
+* entry[observation].resource only Observation
+  * ^short = "Observation entry must be an Observation resource"
+
+* entry[observation].resource only Observation
+* entry[observation] contains
     cgmSummary 0..* MS and
-    cgmSummaryPDF 0..* MS and
-    cgmSummaryMeanGlucoseMass 0..* MS and
+    cgmSummaryMeanGlucoseMass 0..* MS  and
     cgmSummaryMeanGlucoseMolar 0..* MS and
     cgmSummaryTimesInRanges 0..* MS and
     cgmSummaryGMI 0..* MS and
     cgmSummaryCoefficientOfVariation 0..* MS and
     cgmSummaryDaysOfWear 0..* MS and
-    cgmSummarySensorActivePercentage 0..* MS
-  * ^short = "Slices representing different resource types in the bundle"
-* entry 1..* MS
-  * ^short = "At least one entry is required"
-* entry[patient].resource only us-core-patient
-  * ^short = "Patient entry must conform to us-core-patient profile"
-* entry[cgmSummary].resource only CGMSummaryObservation
-  * ^short = "CGM summary entry must conform to CGMSummaryObservation profile"
-* entry[cgmSummaryPDF].resource only CGMSummaryPDF
-  * ^short = "CGM summary PDF entry must conform to CGMSummaryPDF profile" 
-* entry[cgmDevice].resource only CGMDevice
-  * ^short = "CGM device entry must conform to CGMDevice profile"
-* entry[cgmSensorReadingMass].resource only CGMSensorReadingMass
-  * ^short = "CGM sensor reading (mass) entry must conform to CGMSensorReadingMass profile"
-* entry[cgmSensorReadingMolar].resource only CGMSensorReadingMolar
-  * ^short = "CGM sensor reading (molar) entry must conform to CGMSensorReadingMolar profile"
-* entry[cgmSummaryMeanGlucoseMass].resource only CGMSummaryMeanGlucoseMass
-  * ^short = "Mean glucose (mass) entry must conform to CGMSummaryMeanGlucoseMass profile"
-* entry[cgmSummaryMeanGlucoseMolar].resource only CGMSummaryMeanGlucoseMolar
-  * ^short = "Mean glucose (molar) entry must conform to CGMSummaryMeanGlucoseMolar profile"
-* entry[cgmSummaryTimesInRanges].resource only CGMSummaryTimesInRanges
-  * ^short = "Times spent in ranges entry must conform to CGMSummaryTimesInRanges profile"
-* entry[cgmSummaryGMI].resource only CGMSummaryGMI
-  * ^short = "GMI entry must conform to CGMSummaryGMI profile"
-* entry[cgmSummaryCoefficientOfVariation].resource only CGMSummaryCoefficientOfVariation  
-  * ^short = "CV entry must conform to CGMSummaryCoefficientOfVariation profile"
-* entry[cgmSummaryDaysOfWear].resource only CGMSummaryDaysOfWear
-  * ^short = "Days of wear entry must conform to CGMSummaryDaysOfWear profile"
-* entry[cgmSummarySensorActivePercentage].resource only CGMSummarySensorActivePercentage
-  * ^short = "Sensor active percentage entry must conform to CGMSummarySensorActivePercentage profile"
+    cgmSummarySensorActivePercentage 0..* MS and
+    cgmSensorReadingMass 0..* MS and
+    cgmSensorReadingMolar 0..* MS
+  * ^short = "Slices for different observation types based on code pattern"
+* entry[observation][cgmSummary].resource only CGMSummaryObservation
+* entry[observation][cgmSummaryMeanGlucoseMass].resource only CGMSummaryMeanGlucoseMass
+* entry[observation][cgmSummaryMeanGlucoseMolar].resource only CGMSummaryMeanGlucoseMolar
+* entry[observation][cgmSummaryTimesInRanges].resource only CGMSummaryTimesInRanges
+* entry[observation][cgmSummaryGMI].resource only CGMSummaryGMI
+* entry[observation][cgmSummaryCoefficientOfVariation].resource only CGMSummaryCoefficientOfVariation
+* entry[observation][cgmSummaryDaysOfWear].resource only CGMSummaryDaysOfWear
+* entry[observation][cgmSummarySensorActivePercentage].resource only CGMSummarySensorActivePercentage
+* entry[observation][cgmSensorReadingMass].resource only CGMSensorReadingMass
+* entry[observation][cgmSensorReadingMolar].resource only CGMSensorReadingMolar
 
+  
 Profile: CGMDataSubmissionStandingOrder
 Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest
 Id: cgm-data-submission-standing-order
@@ -444,7 +456,6 @@ Extension: DataSubmissionSchedule
 Id: data-submission-schedule
 Title: "Data Submission Schedule"
 Description: "Schedule and type of data to be submitted"
-
 * extension contains
     submissionFrequency 1..1 MS and
     submissionDataProfile 1..*  MS
