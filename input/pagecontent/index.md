@@ -1,20 +1,20 @@
 ### Introduction
 
-The Continuous Glucose Monitoring (CGM) Data Sharing Implementation Guide (IG) provides a standardized approach for sharing CGM data between various systems and actors using the FHIR (Fast Healthcare Interoperability Resources) standard. This IG focuses on enabling the exchange of CGM data, including high-level reports and raw glucose observations, to support effective collaboration between patients, healthcare providers, and researchers.
+The Argo Continuous Glucose Monitoring Implementation Guide provides a standardized approach for sharing CGM data between various systems and actors using the FHIR (Fast Healthcare Interoperability Resources) standard. This IG focuses on enabling the exchange of CGM data, including high-level reports and raw glucose observations, to support collaborative glucose management.
 
 ### User Stories
 
-#### Patient-Controlled Data Sharing
-Sarah, a type 1 diabetes patient, is switching to a new doctor. She has been using a CGM device and a patient app that stores her CGM data on her phone. The app is compatible with the CGM Data Sharing IG. Sarah authenticates the app with her new provider's EHR, granting write access. The app then sends Sarah's CGM reports from the past 3 months directly from her phone to the new EHR using FHIR, ensuring her new doctor has access to her recent CGM history for informed decision-making.
+#### Patient-Mediated Data Sharing
 
-#### Automated Data Submission from Connected Apps
-Emily, a pregnant woman with gestational diabetes, uses a CGM device connected to a compliant app. The app's backend service periodically sends Emily's CGM data to her obstetrician's EHR using FHIR, based on the EHR's configured preferences. The EHR automatically processes the data bundles, updating Emily's record. This helps keep Emily's obstetrician informed about her glucose levels throughout her pregnancy.
+Sarah, a type 1 diabetes patient, is switching to a new doctor. She has been using a CGM device and a patient app that stores her CGM data on her phone or in an app backend server. The app supports SMART on FHIR and is compatible with the Argo CGM IG. Sarah authorizes the app to connect with her new provider's EHR, using her patient portal credentials to grant access to the phone app. The app then sends Sarah's CGM reports from the past 3 months to the new provider's EHR using FHIR, ensuring her new doctor has access to her recent CGM history for informed decision-making.
 
-#### Provider-Initiated Data Integration
-Dr. Johnson treats Michael, a type 2 diabetes patient struggling with management. Michael uses a CGM device and diabetes app that displays a sign-up code. During an appointment, Michael provides the code to Dr. Johnson, who enters it into his EHR. The app, which supports the CGM Data Sharing IG, connects to Dr. Johnson's EHR and reads the EHR's preferences for data submission frequency and content. The app then sends Michael's CGM data to the EHR according to these preferences, enabling Dr. Johnson to analyze trends and provide personalized recommendations.
+#### Provider-Initiated Data Sharing
 
-#### Research Study on CGM Effectiveness
-Dr. Patel conducts a study on CGM effectiveness in type 2 diabetes patients. Participants are recruited from multiple diabetes management platforms that implement the CGM Data Sharing IG. The research study server is configured as a data receiver, and the diabetes management platforms, which serve as data submitters, are set up to send CGM data directly to the server. Participants' CGM devices and apps send data, including raw glucose readings, to the platforms using FHIR. The platforms then submit the data to the research server according to the study's configured preferences. The research server aggregates and analyzes the received data to assess CGM impact on glycemic control and other outcomes. The standardized format and exchange protocols enable an efficient, multi-platform study focused on collecting raw glucose readings as part of the data package.
+Dr. Johnson treats Michael, a type 2 diabetes patient struggling with glucose management. Dr. Johnson's practice uses "CloudCGM", a (fictional) cloud-based diabetes management platform that supports the Argo CGM IG.  Michael has a patient account in the CloudCGM platform, and a "Sharing Code" appears in his account settings. During a clinic visit, Dr. Johnson launches the CloudCGM SMART on FHIR app inside of his EHR, entering the sharing code as Michael reads it to him, This process establishes a linkage between Michael's records in the two systems. Now CloudCGM is able to submit data every week into Dr. Johnson's EHR, with results appearing in the native interface and easily incorporated into visit notes.
+
+#### Patient Participation in Clinical Research
+
+Dr. Patel is the principal investigator for a longitudinal research study. Participants are recruited from multiple diabetes management platforms that support the Argo CGM IG. The study protocol allows participants to share CGM data after completing an informed consent process. For consented participants, the diabetes management platforms submit a weekly data feed to a study server under Dr. Patel's control.  The standardized format and exchange protocols enable an efficient, multi-platform study focused on collecting raw glucose readings as part of the data package.
 
 ### Actors
 
