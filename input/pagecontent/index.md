@@ -37,32 +37,28 @@ In this workflow, a patient-facing app connects directly to the EHR using the SM
 
 #### Provider App to EHR
 
-For provider-facing apps, the app can be integrated directly into the EHR's user interface using the EHR launch workflow in SMART on FHIR. This workflow is widely supported by EHRs. The provider app can be an app representing a hardware manufacturer's cloud environment or a glucose data management platform. The app can retrieve the patient's ID and demographics from the EHR in real-time using the FHIR US Core Patient API.
+For provider-facing apps, the app can be integrated directly into the EHR's user interface using the SMART on FHIR EHR launch workflow. This workflow is widely supported by EHRs and allows apps to run within the EHR's creen rel estate. The EHR-integrated app might represent a device manufacturer or an independent glucose management platform. The app can retrieve the patient's ID and demographics from the EHR in real-time using the FHIR US Core Patient API.
 
-To correlate the patient with a data record in the app's backend system, an out-of-band process can be employed. Examples include:
+To correlate the patient with a data record in the app's backend system, an in-brand or out-of-band process can be employed. Examples include:
 
-1. The patient app generates a sign-up code that the provider enters into the EHR.
-2. The provider has a business associate agreement with the app, allowing for patient matching based on demographics. The app compares the demographics retrieved from the EHR against its database and suggests matches or indicates if adjudication is needed.
+1. A patient-facing companion app connects to the EHR using SMART on FHIR as in "Patient App to EHR," establishing a record linkage via API
+2. A patient-facing companion app sends a push notification to the patient, asking if they want to establish a record linkage
+3. A patient-facing companion app generates a sign-up code that the provider enters into the EHR.
+4. The provider has an appropriate data sharing agreement in place with the app, allowing the app to match its patient list against  EHR-sourced demographics.
 
 ### Submitting CGM Data
 
-Once an app is connected to the EHR, it can write data by POSTing a `batch` Bundle to the FHIR sever's submission endpoint. The EHR can recognize and handle these tagged bundles specially, while generic FHIR servers can process them as simple bundles at the POST Bundle endpoint. Bundles include a `meta.tag` of `"cgm-submission-bundle"` to help identify CGM Bundles, and the `entry` array includes any combination of CGM Summary Observations, CGM DiagnosticReport PDFs, and CGM Sensor Observation. 
+{% include StructureDefinition-cgm-data-submission-bundle-header.xhtml %}
 
-
-**☛ See [Profile: CGM Submission Bundle](StructureDefinition-cgm-data-submission-bundle.html) for details**
-**☛ See [Example Bundle](Bundle-cgmDataSubmissionBundle.json.html)**
+**☛ See [Profile: CGM Submission Bundle](StructureDefinition-cgm-data-submission-bundle.html#profile) for details**
+**☛ See [Example Bundle](Bundle-cgmDataSubmissionBundle.json.html#root)**
 
 #### CGM Data Submission Standing Order
 
-The Data Receiver can provide a standing order indicating:
+{% include StructureDefinition-cgm-data-submission-standing-order-header.xhtml %}
 
-* how often a Data Submitter should submit CGM data
-* what specific data profiles the Data Submitter should include in each CGM Data Submission Bundle.
-
-This standing order is modeled as a FHIR `ServiceRequest` resource. 
-
-**☛ See [Profile: CGM Data Submision Standing Order](StructureDefinition-cgm-data-submission-standing-order.html) for details**
-**☛ See [Example Order](ServiceRequest-cgmDataSubmissionStandingOrderExample.json.html)**
+**☛ See [Profile: CGM Data Submision Standing Order](StructureDefinition-cgm-data-submission-standing-order.html#profile) for details**
+**☛ See [Example Order ("Send a summary every two weeks")](ServiceRequest-cgmDataSubmissionStandingOrderExample.json.html#root)**
 
 It's important to note that submissions can be manually triggered by a patient
 or provider within their app. For example, if there is an upcoming appointment,
@@ -70,6 +66,3 @@ the provider can click a button to manually trigger submission of the most
 up-to-date results. Out-of-band communication between the app developer and the
 clinical provider system can also be used to establish preferred submission
 schedules.
-
-##### Example order: "Please Submit CGM Summary Statistics & PDF Every 2 weeks"
-
