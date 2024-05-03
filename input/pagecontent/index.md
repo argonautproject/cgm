@@ -10,7 +10,7 @@ Sarah, a type 1 diabetes patient, is switching to a new doctor. She has been usi
 
 #### Provider-Initiated Data Sharing
 
-Dr. Johnson treats Michael, a type 2 diabetes patient struggling with glucose management. Dr. Johnson's practice uses "CloudCGM", a (fictional) cloud-based diabetes management platform that supports the Argo CGM IG.  Michael has a patient account in the CloudCGM platform, and a "Sharing Code" appears in his account settings. During a clinic visit, Dr. Johnson launches the CloudCGM SMART on FHIR app inside of his EHR, entering the sharing code as Michael reads it to him, This process establishes a linkage between Michael's records in the two systems. Now CloudCGM is able to submit data every week into Dr. Johnson's EHR, with results appearing in the native interface and easily incorporated into visit notes.
+Dr. Johnson treats Michael, a type 2 diabetes patient struggling with glucose management. Dr. Johnson's practice uses "CloudCGM", a (fictional) cloud-based diabetes management platform that supports the Argo CGM IG.  Michael has a patient account in the CloudCGM platform, and a "Sharing Code" appears in his account settings. During a clinic visit, Dr. Johnson launches the CloudCGM SMART on FHIR app inside of his EHR, entering the sharing code as Michael reads it to him. This process establishes a linkage between Michael's records in the two systems. CloudCGM is now able to submit data every week into Dr. Johnson's EHR, with results appearing in the native interface and easily incorporated into visit notes.
 
 #### Patient Participation in Clinical Research
 
@@ -26,12 +26,30 @@ This IG also refers to Data Submitters as "apps" or "diabetes management platfor
 
 #### Data Receiver
 
-The data receiver is EHR system that receives and stores the CGM data submitted by the data submitter.
+The data receiver is an EHR system that receives and stores the CGM data submitted by the data submitter.
 
 This IG also refers to Data Receivers as "EHRs".
 
 ### Nominal Workflow
 <img style="max-width: 400px; float: none;" src="flowchart.svg">
+
+1. App Authorization (SMART on FHIR): The Data Submitter's app completes a SMART App Launch to securely access the EHR system.
+
+2. Establish EHR Patient ID: After successful authorization, the app determines the `Patient.id` within the EHR FHIR Server. This can be done through the SMART's `launch/patient` context, or using an out-of-band (OOB) process.
+
+3. Learn Submission Preferences: The app retrieves the EHR's submission preferences by either:
+   a. Querying the EHR FHIR server for a specific `ServiceRequest` resource that contains the CGM data submission standing order, or
+   b. Learning the submission schedule through an OOB process.
+
+4. Submission Triggers:
+   a. Scheduled Submission Interval: Based on the standing order obtained from the submission preferences, the app initiates scheduled submissions of CGM data at the specified intervals.
+   b. Manual Trigger: The app may also support manual triggers, such as an in-app button, allowing users to initiate on-demand submissions of CGM data.
+
+5. Prepare FHIR Bundle: When a submission is triggered (either scheduled or manual), the app prepares a FHIR Bundle containing the relevant CGM data, conforming to the specified profiles and requirements.
+
+6. POST Bundle to EHR: The app submits the prepared FHIR Bundle to the EHR (Data Receiver) using a POST request to the appropriate endpoint.
+
+This workflow ensures that the data submitter app is properly authorized, respects the EHR's submission preferences, and securely transmits CGM data in a standardized format. The combination of scheduled submissions and manual triggers provides flexibility and ensures that the EHR receives up-to-date CGM data as needed.
 
 ### Establishing Connections
 
