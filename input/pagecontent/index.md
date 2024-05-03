@@ -128,3 +128,34 @@ Examples include but are not limited to:
 * CGM Receivers MAY reject
   * An entire submission Bundle if the frequency of submissions is too high
   * Any subset of a submission Bundle (as documented above)
+
+
+### SMART Health Links for CGM Data Sharing
+
+SMART Health Links (SHLinks) provide a complementary method for sharing CGM data and reports between patients, caregivers, clinicians, and other authorized parties. SHLinks allow users to easily share selected subsets of CGM data as needed, without relying on direct integration between systems.
+
+#### Actors
+
+**SHLink Creator.** A system that can generate SHLinks containing CGM data and reports, acting as a SHLink Sharing Application.
+
+**SHLink Receiver.** A system that can receive and process SHLinks containing CGM data and reports, acting as a SHLink Receiving Application.
+
+#### Workflow
+
+1. The SHLink Creator allows the user to select the desired CGM data and reports to share, as well as the time period to include. Options may include:
+   * CGM data: Glucose values, device information, etc. 
+   * Reports: Ambulatory Glucose Profile (AGP), daily patterns, etc.
+   * Time period: Past 1 week, 2 weeks, 1 month, 3 months, etc.
+
+2. The SHLink Creator generates a SHLink containing the user-selected content, encrypted with a unique key.
+
+3. The user shares the SHLink with the intended recipient(s), who use a SHLink Receiver to access the shared data and reports.
+
+The shared data and reports conform to the profiles defined elsewhere in this IG. For detailed technical requirements, refer to the [SMART Health Links specification](https://docs.smarthealthit.org/smart-health-links/).
+
+#### Use Cases
+
+* Sharing CGM data and insights with clinicians, caregivers, or researchers.
+* Including CGM history and analysis in referrals or care transitions.
+
+By offering user-mediated sharing of both granular data and summarized reports, SHLinks can flexibly support diverse sharing scenarios.
