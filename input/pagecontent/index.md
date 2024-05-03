@@ -142,16 +142,16 @@ SMART Health Links (SHLinks) provide a complementary method for sharing CGM data
 
 #### Workflow
 
-1. The SHLink Creator allows the user to select the desired CGM data and reports to share, as well as the time period to include. Options may include:
-   * CGM data: Glucose values, device information, etc. 
-   * Reports: Ambulatory Glucose Profile (AGP), daily patterns, etc.
-   * Time period: Past 1 week, 2 weeks, 1 month, 3 months, etc.
+1. The SHLink Creator allows the user to select the desired CGM data and reports to share, as well as the time period to include. Options include:
+   * Data to include: CGM Summary, CGM Sensor Readings, CGM Devices
+   * Time period: Past 2 weeks, 1 month, 3 months, etc.
+   * Link expiration time, if any
 
-2. The SHLink Creator generates a SHLink containing the user-selected content, encrypted with a unique key.
+2. The SHLink Creator generates a SHLink containing the user-selected content, encrypted with a unique key
 
-3. The user shares the SHLink with the intended recipient(s), who use a SHLink Receiver to access the shared data and reports.
+3. The user shares the SHLink with the intended recipient(s), who use a SHLink Receiver to periodically access the shared data and stay up-to-date over time.
 
-The shared data and reports conform to the profiles defined elsewhere in this IG. For detailed technical requirements, refer to the [SMART Health Links specification](https://docs.smarthealthit.org/smart-health-links/).
+The shared data are generated each time the SHLink is accessed and conform to the CGM Data Submission profiles defined above. For detailed technical requirements, refer to the [SMART Health Links specification](https://docs.smarthealthit.org/smart-health-links/).
 
 #### Use Cases
 
