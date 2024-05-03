@@ -52,44 +52,7 @@ RuleSet: CGMSummaryBase
   * end 1..1 MS
     * ^short = "End date of the reporting period (YYYY-MM-DD)"
 
-Profile: CGMSummaryTimesInRanges
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
-Id: cgm-summary-times-in-ranges
-Title: "CGM Summary Times in Ranges"
-Description: "An observation representing the times in various ranges from a continuous glucose monitoring (CGM) summary."
-* insert CGMSummaryBase
-* code = CGMSummaryCodesTemporary#times-in-ranges
-  * ^short = "Code for Times in Ranges observation"
-* component ^slicing.discriminator.type = #pattern
-  * ^short = "Slicing based on the pattern of the component.code"
-* component ^slicing.discriminator.path = "code"
-  * ^short = "Path used to identify the slices"
-* component ^slicing.rules = #open
-  * ^short = "Open slicing allowing additional slices"
-* component contains
-    timeInVeryLow 1..1 MS and
-    timeInLow 1..1 MS and 
-    timeInTarget 1..1 MS and
-    timeInHigh 1..1 MS and
-    timeInVeryHigh 1..1 MS
-  * ^short = "Components representing times in different ranges"
-* component[timeInVeryLow]
-  * code = CGMSummaryCodesTemporary#time-in-very-low
-  * insert QuantityPercent
-* component[timeInLow]  
-  * code = CGMSummaryCodesTemporary#time-in-low
-  * insert QuantityPercent
-* component[timeInTarget]
-  * code ^patternCodeableConcept.coding[0] = CGMSummaryCodesTemporary#time-in-target
-  * code ^patternCodeableConcept.coding[1] = $LNC#97510-2
-  * insert QuantityPercent
-* component[timeInHigh]
-  * code = CGMSummaryCodesTemporary#time-in-high    
-  * insert QuantityPercent
-* component[timeInVeryHigh]
-  * code = CGMSummaryCodesTemporary#time-in-very-high
-  * insert QuantityPercent
-  
+ 
 Profile: CGMSummaryObservation
 Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Id: cgm-summary  
@@ -153,6 +116,44 @@ Description: "A PDF report containing a summary of continuous glucose monitoring
   * ^short = "PDF content type"
 * presentedForm.data 1..1 MS
 
+Profile: CGMSummaryTimesInRanges
+Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Id: cgm-summary-times-in-ranges
+Title: "CGM Summary Times in Ranges"
+Description: "An observation representing the times in various ranges from a continuous glucose monitoring (CGM) summary."
+* insert CGMSummaryBase
+* code = CGMSummaryCodesTemporary#times-in-ranges
+  * ^short = "Code for Times in Ranges observation"
+* component ^slicing.discriminator.type = #pattern
+  * ^short = "Slicing based on the pattern of the component.code"
+* component ^slicing.discriminator.path = "code"
+  * ^short = "Path used to identify the slices"
+* component ^slicing.rules = #open
+  * ^short = "Open slicing allowing additional slices"
+* component contains
+    timeInVeryLow 1..1 MS and
+    timeInLow 1..1 MS and 
+    timeInTarget 1..1 MS and
+    timeInHigh 1..1 MS and
+    timeInVeryHigh 1..1 MS
+  * ^short = "Components representing times in different ranges"
+* component[timeInVeryLow]
+  * code = CGMSummaryCodesTemporary#time-in-very-low
+  * insert QuantityPercent
+* component[timeInLow]  
+  * code = CGMSummaryCodesTemporary#time-in-low
+  * insert QuantityPercent
+* component[timeInTarget]
+  * code ^patternCodeableConcept.coding[0] = CGMSummaryCodesTemporary#time-in-target
+  * code ^patternCodeableConcept.coding[1] = $LNC#97510-2
+  * insert QuantityPercent
+* component[timeInHigh]
+  * code = CGMSummaryCodesTemporary#time-in-high    
+  * insert QuantityPercent
+* component[timeInVeryHigh]
+  * code = CGMSummaryCodesTemporary#time-in-very-high
+  * insert QuantityPercent
+ 
 Profile: CGMSummaryMeanGlucoseMass
 Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Id: cgm-summary-mean-glucose-mass
@@ -184,56 +185,6 @@ RuleSet: QuantityPercent
   * system = $UCUM (exactly)
     * ^short = "UCUM code system"
   * ^short = "Value as a percentage"
-
-Profile: CGMSummaryTimeInVeryLow
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
-Id: cgm-summary-time-in-very-low
-Title: "Time in Very Low Range"
-Description: "The percentage of time glucose values were in the very low range during the reporting period."
-* insert CGMSummaryBase
-* code = CGMSummaryCodesTemporary#time-in-very-low
-  * ^short = "Code for Time in Very Low Range observation"
-* insert QuantityPercent
-
-Profile: CGMSummaryTimeInLow
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
-Id: cgm-summary-time-in-low
-Title: "Time in Low Range"
-Description: "The percentage of time glucose values were in the low range during the reporting period."
-* insert CGMSummaryBase
-* code = CGMSummaryCodesTemporary#time-in-low
-  * ^short = "Code for Time in Low Range observation"
-* insert QuantityPercent
-
-Profile: CGMSummaryTimeInTarget
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
-Id: cgm-summary-time-in-target
-Title: "Time in Target Range"
-Description: "The percentage of time glucose values were in the target range during the reporting period."
-* insert CGMSummaryBase
-* code ^patternCodeableConcept.coding[0] = CGMSummaryCodesTemporary#time-in-target
-* code ^patternCodeableConcept.coding[1] = $LNC#97510-2
-* insert QuantityPercent
-
-Profile: CGMSummaryTimeInHigh
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
-Id: cgm-summary-time-in-high
-Title: "Time in High Range"
-Description: "The percentage of time glucose values were in the high range during the reporting period."
-* insert CGMSummaryBase
-* code = CGMSummaryCodesTemporary#time-in-high
-  * ^short = "Code for Time in High Range observation"
-* insert QuantityPercent
-
-Profile: CGMSummaryTimeInVeryHigh
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
-Id: cgm-summary-time-in-very-high
-Title: "Time in Very High Range"
-Description: "The percentage of time glucose values were in the very high range during the reporting period."
-* insert CGMSummaryBase
-* code = CGMSummaryCodesTemporary#time-in-very-high
-  * ^short = "Code for Time in Very High Range observation"
-* insert QuantityPercent
 
 Profile: CGMSummaryGMI
 Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
@@ -381,11 +332,7 @@ The Bundle `entry` array includes any combination of
 * CGM Summary PDF Reports ([Profile](StructureDefinition-cgm-summary-pdf.html#profile), [Example](DiagnosticReport-cgmSummaryPDFExample.json.html#root))
 * CGM Summary Observation ([Profile](StructureDefinition-cgm-summary.html#profile), [Example](Observation-cgm¢ummary.json.html#root))
   * Mean Glucose ([Profile](StructureDefinition-cgm-summary-mean-glucose-mass.html#profile), [Example](Observation-cgmSummaryMeanGlucoseMassExample.json.html#root))
-  * Time in Very Low Range ([Profile](StructureDefinition-cgm-summary-time-in-very-low.html#profile), [Example](Observation-cgmSummaryTimeInVeryLowExample.json.html#root))
-  * Time in Low Range ([Profile](StructureDefinition-cgm-summary-time-in-low.html#profile), [Example](Observation-cgmSummaryTimeInLowExample.json.html#root))
-  * Time in Target Range ([Profile](StructureDefinition-cgm-summary-time-in-target.html#profile), [Example](Observation-cgmSummaryTimeInTargetExample.json.html#root))
-  * Time in High Range ([Profile](StructureDefinition-cgm-summary-time-in-high.html#profile), [Example](Observation-cgmSummaryTimeInHighExample.json.html#root))
-  * Time in Very High Range ([Profile](StructureDefinition-cgm-summary-time-in-very-high.html#profile), [Example](Observation-cgmSummaryTimeInVeryHighExample.json.html#root))
+  * Times in Ranges ([Profile](StructureDefinition-cgm-summary-times-in-ranges.html#profile), [Example](Observation-cgmSummaryTimesInRangesExample.json.html#root))
   * Glucose Management Index ([Profile](StructureDefinition-cgm-summary-gmi.html#profile), [Example](Observation-cgmSummaryGMIExample.json.html#root))
   * Coefficient of Variations ([Profile](StructureDefinition-cgm-summary-coefficient-of-variation.html#profile), [Example](Observation-cgmSummaryCoefficientOfVariationExample.json.html#root))
   * Sensor Days of Wear ([Profile](StructureDefinition-cgm-summary-days-of-wear.html#profile), [Example](Observation-cgmSummaryDaysOfWearExample.json.html#root))
