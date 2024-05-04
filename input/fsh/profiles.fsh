@@ -1,14 +1,6 @@
 Alias: $UCUM = http://unitsofmeasure.org
 Alias: $LNC = http://loinc.org
 
-ValueSet: GlucoseUnits
-Id: glucose-units
-Title: "Glucose Measurement Units"
-Description: "Units for representing glucose measurements."
-* ^experimental = false
-* $UCUM#mg/dL "mg/dL"
-* $UCUM#mmol/L "mmol/L"
-
 RuleSet: GlucoseMass
 * value[x] only Quantity
 * valueQuantity
