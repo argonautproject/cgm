@@ -38,7 +38,7 @@ This IG also refers to Data Receivers as "**EHRs**".
 
 2. **Establish EHR Patient ID**: After successful authorization, the Data Submitter determines the patient's `id`  within the EHR's FHIR Server. This can be done through the SMART's `launch/patient` context, through FHIR patient search, or using an out-of-band (OOB) process.
 
-3. **Learn Submission Preferences**: The Dataa Submitter determines the EHR's CGM data submission preferences by:
+3. **Learn Submission Preferences**: The Data Submitter determines the EHR's CGM data submission preferences by:
    a. Querying the EHR FHIR server for a specific `ServiceRequest` resource that contains the CGM data submission standing order, or
    b. Learning the submission schedule through an OOB process.
 
