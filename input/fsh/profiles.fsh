@@ -5,6 +5,7 @@ ValueSet: GlucoseUnits
 Id: glucose-units
 Title: "Glucose Measurement Units"
 Description: "Units for representing glucose measurements."
+* ^experimental = false
 * $UCUM#mg/dL "mg/dL"
 * $UCUM#mmol/L "mmol/L"
 
@@ -271,7 +272,9 @@ CodeSystem: CGMCodes
 Id: cgm
 Title: "Codes for CGM"
 Description: "Codes to identify content associated with this IG"
+* ^caseSensitive = true
 * ^experimental = false
+* ^status = active
 * #cgm-data-submission-bundle "CGM Bundle"
 * #cgm-data-submission-standing-order "CGM Submission Standing Order"
 
@@ -279,7 +282,9 @@ CodeSystem: CGMSummaryCodesTemporary
 Id: cgm-summary-codes-temporary
 Title: "CGM Summary Code System"
 Description: "Temporary code system for CGM summary observations."
+* ^caseSensitive = true
 * ^experimental = false
+* ^status = active
 * #cgm-summary "CGM Summary"
 * #mean-glucose-mass "Mean Glucose (Mass per Volume)"
 * #mean-glucose-molar "Mean Glucose (Moles per Volume)"
