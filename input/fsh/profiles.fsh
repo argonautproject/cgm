@@ -360,37 +360,26 @@ The Bundle `entry` array includes any combination of
   * ^slicing.discriminator.type = #pattern
   * ^slicing.rules = #open
 * meta.tag contains cgmSubmissionBundle 1..1 MS
-  * ^short = "Tag for CGM submission bundle"
 * meta.tag[cgmSubmissionBundle] = CGMCodes#cgm-data-submission-bundle
-  * ^short = "Bundle type is collection"
+  * ^short = "Tag for CGM submission bundle"
 * timestamp 1..1 MS
-  * ^short = "Time the bundle was created"
-
+  * ^short = "Instant the bundle was created"
 * entry ^slicing.discriminator[+].type = #type
 * entry ^slicing.discriminator[=].path = "resource"
 * entry ^slicing.discriminator[+].type = #pattern
 * entry ^slicing.discriminator[=].path = "resource.ofType(Observation).code"
 * entry ^slicing.rules = #open
-  * ^short = "Open slicing allowing additional slices"
 * entry 1..* MS
-  * ^short = "At least one entry is required"
 * entry contains
     patient 0..1 MS and
-    device 0..* MS and
     observation 0..* MS and
     diagnosticReport 0..* MS
-  * ^short = "Slices representing different resource types in the bundle"
-
 * entry[patient].resource only us-core-patient
-  * ^short = "Patient entry must conform to us-core-patient profile"
+  * ^short = "Patient entry is a US Core Patient"
 * entry[device].resource only CGMDevice
   * ^short = "CGM device entry must conform to CGMDevice profile"
 * entry[diagnosticReport].resource only CGMSummaryPDF
   * ^short = "CGM summary PDF entry must conform to CGMSummaryPDF profile"
-* entry[observation].resource only Observation
-  * ^short = "Observation entry must be an Observation resource"
-
-* entry[observation].resource only Observation
 * entry[observation] contains
     cgmSummary 0..* MS and
     cgmSummaryMeanGlucoseMass 0..* MS  and
@@ -400,9 +389,9 @@ The Bundle `entry` array includes any combination of
     cgmSummaryCoefficientOfVariation 0..* MS and
     cgmSummaryDaysOfWear 0..* MS and
     cgmSummarySensorActivePercentage 0..* MS and
+    device 0..* MS and
     cgmSensorReadingMass 0..* MS and
     cgmSensorReadingMolar 0..* MS
-  * ^short = "Slices for different observation types based on code pattern"
 * entry[observation][cgmSummary].resource only CGMSummaryObservation
 * entry[observation][cgmSummaryMeanGlucoseMass].resource only CGMSummaryMeanGlucoseMass
 * entry[observation][cgmSummaryMeanGlucoseMolar].resource only CGMSummaryMeanGlucoseMolar

@@ -1,3 +1,5 @@
+== Suppressed Messages ==
+# Reviewed these; they are OK
 WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource Bundle/cgmDataSubmissionBundle.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
 WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource Device/cgmDeviceExample.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
 WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource Observation/cgmSensorReadingMassExample.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
