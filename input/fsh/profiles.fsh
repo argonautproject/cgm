@@ -274,7 +274,7 @@ Title: "Codes for CGM"
 Description: "Codes to identify content associated with this IG"
 * ^caseSensitive = true
 * ^experimental = false
-* ^status = active
+* ^status = #active
 * #cgm-data-submission-bundle "CGM Bundle"
 * #cgm-data-submission-standing-order "CGM Submission Standing Order"
 
@@ -284,7 +284,7 @@ Title: "CGM Summary Code System"
 Description: "Temporary code system for CGM summary observations."
 * ^caseSensitive = true
 * ^experimental = false
-* ^status = active
+* ^status = #active
 * #cgm-summary "CGM Summary"
 * #mean-glucose-mass "Mean Glucose (Mass per Volume)"
 * #mean-glucose-molar "Mean Glucose (Moles per Volume)"
@@ -378,7 +378,8 @@ The Bundle `entry` array includes any combination of
 * entry contains
     patient 0..1 MS and
     observation 0..* MS and
-    diagnosticReport 0..* MS
+    diagnosticReport 0..* MS and
+    device 0..* MS
 * entry[patient].resource only us-core-patient
   * ^short = "Patient entry is a US Core Patient"
 * entry[device].resource only CGMDevice
