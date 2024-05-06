@@ -1,0 +1,463 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://argo.run/cgm/Bundle/cgmDataSubmissionBundle> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "cgmDataSubmissionBundle"] ; # 
+  fhir:meta [
+     fhir:tag ( [
+       fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "cgm-data-submission-bundle" ]
+     ] )
+  ] ; # 
+  fhir:type [ fhir:v "batch"] ; # 
+  fhir:timestamp [ fhir:v "2024-05-02T14:30:00Z"^^xsd:dateTime] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "https://example.org/DiagnosticReport/cgmSummaryPDFExample"^^xsd:anyURI ] ;
+     fhir:resource ( <https://example.org/DiagnosticReport/cgmSummaryPDFExample> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "DiagnosticReport"^^xsd:anyURI ]
+     ]
+  ] [
+     fhir:fullUrl [ fhir:v "https://example.org/Observation/cgmSummaryExample"^^xsd:anyURI ] ;
+     fhir:resource ( <https://example.org/Observation/cgmSummaryExample> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "Observation"^^xsd:anyURI ]
+     ]
+  ] [
+     fhir:fullUrl [ fhir:v "https://example.org/Observation/cgmSummaryMeanGlucoseMassExample"^^xsd:anyURI ] ;
+     fhir:resource ( <https://example.org/Observation/cgmSummaryMeanGlucoseMassExample> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "Observation"^^xsd:anyURI ]
+     ]
+  ] [
+     fhir:fullUrl [ fhir:v "https://example.org/Observation/cgmSummaryTimesInRangesExample"^^xsd:anyURI ] ;
+     fhir:resource ( <https://example.org/Observation/cgmSummaryTimesInRangesExample> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "Observation"^^xsd:anyURI ]
+     ]
+  ] [
+     fhir:fullUrl [ fhir:v "https://example.org/Observation/cgmSummaryGMIExample"^^xsd:anyURI ] ;
+     fhir:resource ( <https://example.org/Observation/cgmSummaryGMIExample> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "Observation"^^xsd:anyURI ]
+     ]
+  ] [
+     fhir:fullUrl [ fhir:v "https://example.org/Observation/cgmSummaryCoefficientOfVariationExample"^^xsd:anyURI ] ;
+     fhir:resource ( <https://example.org/Observation/cgmSummaryCoefficientOfVariationExample> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "Observation"^^xsd:anyURI ]
+     ]
+  ] [
+     fhir:fullUrl [ fhir:v "https://example.org/Observation/cgmSummaryDaysOfWearExample"^^xsd:anyURI ] ;
+     fhir:resource ( <https://example.org/Observation/cgmSummaryDaysOfWearExample> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "Observation"^^xsd:anyURI ]
+     ]
+  ] [
+     fhir:fullUrl [ fhir:v "https://example.org/Observation/cgmSummarySensorActivePercentageExample"^^xsd:anyURI ] ;
+     fhir:resource ( <https://example.org/Observation/cgmSummarySensorActivePercentageExample> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "Observation"^^xsd:anyURI ]
+     ]
+  ] [
+     fhir:fullUrl [ fhir:v "https://example.org/Observation/cgmSensorReadingMassExample"^^xsd:anyURI ] ;
+     fhir:resource ( <https://example.org/Observation/cgmSensorReadingMassExample> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "Observation"^^xsd:anyURI ]
+     ]
+  ] ) . # 
+
+<https://example.org/DiagnosticReport/cgmSummaryPDFExample> a fhir:DiagnosticReport ;
+  fhir:id [ fhir:v "cgmSummaryPDFExample"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_cgmSummaryPDFExample\"> </a><p><b>Generated Narrative: DiagnosticReport</b><a name=\"cgmSummaryPDFExample\"> </a><a name=\"hccgmSummaryPDFExample\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource DiagnosticReport &quot;cgmSummaryPDFExample&quot; </p></div><p><b>status</b>: final</p><p><b>category</b>: Laboratory <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.0.0/CodeSystem-v2-0074.html\">diagnosticServiceSectionId</a>#LAB)</span></p><p><b>code</b>: CGM Summary <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cgm-summary-codes-temporary.html\">CGM Summary Code System</a>#cgm-summary)</span></p><p><b>subject</b>: <a href=\"Patient-patientExample.html\">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-01 --&gt; 2024-05-14</p><p><b>issued</b>: May 15, 2024, 9:30:00 AM</p><h3>PresentedForms</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>ContentType</b></td><td><b>Data</b></td></tr><tr><td style=\"display: none\">*</td><td>application/pdf</td><td>(base64 data - 471 bytes)</td></tr></table></div>"
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v2-0074"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "LAB" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "cgm-summary" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://argo.run/cgm/Patient/patientExample> ;
+     fhir:reference [ fhir:v "Patient/patientExample" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:Period ;
+     fhir:start [ fhir:v "2024-05-01"^^xsd:date ] ;
+     fhir:end [ fhir:v "2024-05-14"^^xsd:date ]
+  ] ; # 
+  fhir:issued [ fhir:v "2024-05-15T14:30:00Z"^^xsd:dateTime] ; # 
+  fhir:presentedForm ( [
+     fhir:contentType [ fhir:v "application/pdf" ] ;
+     fhir:data [ fhir:v "JVBERi0xLjAKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG9nL1BhZ2VzIDIgMCBSPj4KZW5kb2JqCgoyIDAgb2JqCjw8L0tpZHNbMyAwIFJdL0NvdW50IDEvVHlwZS9QYWdlcy9NZWRpYUJveFswIDAgNTk1IDc5Ml0+PgplbmRvYmoKCjMgMCBvYmoKPDwvVHlwZS9QYWdlL1BhcmVudCAyIDAgUi9Db250ZW50cyA0IDAgUi9SZXNvdXJjZXM8PD4+Pj4KZW5kb2JqCgo0IDAgb2JqCjw8L0xlbmd0aCA1OD4+CnN0cmVhbQpxCkJUCi8gOTYgVGYKMSAwIDAgMSAzNiA2ODQgVG0KKEZISVIgQ0dNISkgVGoKRVQKUQoKZW5kc3RyZWFtCmVuZG9iagoKeHJlZgowIDUKMDAwMDAwMDAwMCA2NTUzNiBmIAowMDAwMDAwMDE2IDAwMDAwIG4gCjAwMDAwMDAwNjIgMDAwMDAgbiAKMDAwMDAwMDEzNiAwMDAwMCBuIAowMDAwMDAwMjA5IDAwMDAwIG4gCgp0cmFpbGVyCjw8L1NpemUgNS9Sb290IDEgMCBSPj4Kc3RhcnR4cmVmCjMxNgolJUVPRgoK"^^xsd:base64Binary ]
+  ] ) . # 
+
+<https://example.org/Observation/cgmSummaryExample> a fhir:Observation ;
+  fhir:id [ fhir:v "cgmSummaryExample"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_cgmSummaryExample\"> </a><p><b>Generated Narrative: Observation</b><a name=\"cgmSummaryExample\"> </a><a name=\"hccgmSummaryExample\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Observation &quot;cgmSummaryExample&quot; </p></div><p><b>status</b>: final</p><p><b>category</b>: Laboratory <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html\">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: CGM Summary <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cgm-summary-codes-temporary.html\">CGM Summary Code System</a>#cgm-summary)</span></p><p><b>subject</b>: <a href=\"Patient-patientExample.html\">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-01 --&gt; 2024-05-31</p><p><b>hasMember</b>: </p><ul><li>See on this page: Observation/cgmSummaryMeanGlucoseMassExample</li><li><a href=\"Observation-cgmSummaryMeanGlucoseMolarExample.html\">Observation/cgmSummaryMeanGlucoseMolarExample</a></li><li>See on this page: Observation/cgmSummaryTimesInRangesExample</li><li>See on this page: Observation/cgmSummaryGMIExample</li><li>See on this page: Observation/cgmSummaryCoefficientOfVariationExample</li><li>See on this page: Observation/cgmSummaryDaysOfWearExample</li><li>See on this page: Observation/cgmSummarySensorActivePercentageExample</li></ul></div>"
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "laboratory" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "cgm-summary" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://argo.run/cgm/Patient/patientExample> ;
+     fhir:reference [ fhir:v "Patient/patientExample" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:Period ;
+     fhir:start [ fhir:v "2024-05-01"^^xsd:date ] ;
+     fhir:end [ fhir:v "2024-05-31"^^xsd:date ]
+  ] ; # 
+  fhir:hasMember ( [
+     fhir:link <http://argo.run/cgm/Observation/cgmSummaryMeanGlucoseMassExample> ;
+     fhir:reference [ fhir:v "Observation/cgmSummaryMeanGlucoseMassExample" ]
+  ] [
+     fhir:link <http://argo.run/cgm/Observation/cgmSummaryMeanGlucoseMolarExample> ;
+     fhir:reference [ fhir:v "Observation/cgmSummaryMeanGlucoseMolarExample" ]
+  ] [
+     fhir:link <http://argo.run/cgm/Observation/cgmSummaryTimesInRangesExample> ;
+     fhir:reference [ fhir:v "Observation/cgmSummaryTimesInRangesExample" ]
+  ] [
+     fhir:link <http://argo.run/cgm/Observation/cgmSummaryGMIExample> ;
+     fhir:reference [ fhir:v "Observation/cgmSummaryGMIExample" ]
+  ] [
+     fhir:link <http://argo.run/cgm/Observation/cgmSummaryCoefficientOfVariationExample> ;
+     fhir:reference [ fhir:v "Observation/cgmSummaryCoefficientOfVariationExample" ]
+  ] [
+     fhir:link <http://argo.run/cgm/Observation/cgmSummaryDaysOfWearExample> ;
+     fhir:reference [ fhir:v "Observation/cgmSummaryDaysOfWearExample" ]
+  ] [
+     fhir:link <http://argo.run/cgm/Observation/cgmSummarySensorActivePercentageExample> ;
+     fhir:reference [ fhir:v "Observation/cgmSummarySensorActivePercentageExample" ]
+  ] ) . # 
+
+<https://example.org/Observation/cgmSummaryMeanGlucoseMassExample> a fhir:Observation ;
+  fhir:id [ fhir:v "cgmSummaryMeanGlucoseMassExample"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_cgmSummaryMeanGlucoseMassExample\"> </a><p><b>Generated Narrative: Observation</b><a name=\"cgmSummaryMeanGlucoseMassExample\"> </a><a name=\"hccgmSummaryMeanGlucoseMassExample\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Observation &quot;cgmSummaryMeanGlucoseMassExample&quot; </p></div><p><b>status</b>: final</p><p><b>category</b>: Laboratory <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html\">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: Mean Glucose (Mass per Volume) <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cgm-summary-codes-temporary.html\">CGM Summary Code System</a>#mean-glucose-mass; <a href=\"https://loinc.org/\">LOINC</a>#97507-8)</span></p><p><b>subject</b>: <a href=\"Patient-patientExample.html\">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-01 --&gt; 2024-05-31</p><p><b>value</b>: 145</p></div>"
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "laboratory" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "mean-glucose-mass" ]
+     ] [
+       a loinc:97507-8 ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "97507-8" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://argo.run/cgm/Patient/patientExample> ;
+     fhir:reference [ fhir:v "Patient/patientExample" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:Period ;
+     fhir:start [ fhir:v "2024-05-01"^^xsd:date ] ;
+     fhir:end [ fhir:v "2024-05-31"^^xsd:date ]
+  ] ; # 
+  fhir:value [
+     a fhir:Quantity ;
+     fhir:value [ fhir:v "145"^^xsd:decimal ]
+  ] . # 
+
+<https://example.org/Observation/cgmSummaryTimesInRangesExample> a fhir:Observation ;
+  fhir:id [ fhir:v "cgmSummaryTimesInRangesExample"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_cgmSummaryTimesInRangesExample\"> </a><p><b>Generated Narrative: Observation</b><a name=\"cgmSummaryTimesInRangesExample\"> </a><a name=\"hccgmSummaryTimesInRangesExample\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Observation &quot;cgmSummaryTimesInRangesExample&quot; </p></div><p><b>status</b>: final</p><p><b>category</b>: Laboratory <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html\">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: Times in Glucose Ranges <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cgm-summary-codes-temporary.html\">CGM Summary Code System</a>#times-in-ranges)</span></p><p><b>subject</b>: <a href=\"Patient-patientExample.html\">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-01 --&gt; 2024-05-31</p><blockquote><p><b>component</b></p><p><b>code</b>: Time in Very Low Range (%) <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cgm-summary-codes-temporary.html\">CGM Summary Code System</a>#time-in-very-low)</span></p><p><b>value</b>: 3</p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: Time in Low Range (%) <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cgm-summary-codes-temporary.html\">CGM Summary Code System</a>#time-in-low)</span></p><p><b>value</b>: 8</p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: Time in Target Range (%) <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cgm-summary-codes-temporary.html\">CGM Summary Code System</a>#time-in-target; <a href=\"https://loinc.org/\">LOINC</a>#97510-2)</span></p><p><b>value</b>: 65</p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: Time in High Range (%) <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cgm-summary-codes-temporary.html\">CGM Summary Code System</a>#time-in-high)</span></p><p><b>value</b>: 20</p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: Time in Very High Range (%) <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cgm-summary-codes-temporary.html\">CGM Summary Code System</a>#time-in-very-high)</span></p><p><b>value</b>: 4</p></blockquote></div>"
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "laboratory" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "times-in-ranges" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://argo.run/cgm/Patient/patientExample> ;
+     fhir:reference [ fhir:v "Patient/patientExample" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:Period ;
+     fhir:start [ fhir:v "2024-05-01"^^xsd:date ] ;
+     fhir:end [ fhir:v "2024-05-31"^^xsd:date ]
+  ] ; # 
+  fhir:component ( [
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "time-in-very-low" ]
+       ] )
+     ] ;
+     fhir:value [
+       a fhir:Quantity ;
+       fhir:value [ fhir:v "3"^^xsd:decimal ]
+     ]
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "time-in-low" ]
+       ] )
+     ] ;
+     fhir:value [
+       a fhir:Quantity ;
+       fhir:value [ fhir:v "8"^^xsd:decimal ]
+     ]
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "time-in-target" ]
+       ] [
+         a loinc:97510-2 ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "97510-2" ]
+       ] )
+     ] ;
+     fhir:value [
+       a fhir:Quantity ;
+       fhir:value [ fhir:v "65"^^xsd:decimal ]
+     ]
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "time-in-high" ]
+       ] )
+     ] ;
+     fhir:value [
+       a fhir:Quantity ;
+       fhir:value [ fhir:v "20"^^xsd:decimal ]
+     ]
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "time-in-very-high" ]
+       ] )
+     ] ;
+     fhir:value [
+       a fhir:Quantity ;
+       fhir:value [ fhir:v "4"^^xsd:decimal ]
+     ]
+  ] ) . # 
+
+<https://example.org/Observation/cgmSummaryGMIExample> a fhir:Observation ;
+  fhir:id [ fhir:v "cgmSummaryGMIExample"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_cgmSummaryGMIExample\"> </a><p><b>Generated Narrative: Observation</b><a name=\"cgmSummaryGMIExample\"> </a><a name=\"hccgmSummaryGMIExample\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Observation &quot;cgmSummaryGMIExample&quot; </p></div><p><b>status</b>: final</p><p><b>category</b>: Laboratory <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html\">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: Glucose Management Indicator (GMI) <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cgm-summary-codes-temporary.html\">CGM Summary Code System</a>#gmi; <a href=\"https://loinc.org/\">LOINC</a>#97506-0)</span></p><p><b>subject</b>: <a href=\"Patient-patientExample.html\">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-01 --&gt; 2024-05-31</p><p><b>value</b>: 6.8</p></div>"
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "laboratory" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "gmi" ]
+     ] [
+       a loinc:97506-0 ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "97506-0" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://argo.run/cgm/Patient/patientExample> ;
+     fhir:reference [ fhir:v "Patient/patientExample" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:Period ;
+     fhir:start [ fhir:v "2024-05-01"^^xsd:date ] ;
+     fhir:end [ fhir:v "2024-05-31"^^xsd:date ]
+  ] ; # 
+  fhir:value [
+     a fhir:Quantity ;
+     fhir:value [ fhir:v "6.8"^^xsd:decimal ]
+  ] . # 
+
+<https://example.org/Observation/cgmSummaryCoefficientOfVariationExample> a fhir:Observation ;
+  fhir:id [ fhir:v "cgmSummaryCoefficientOfVariationExample"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_cgmSummaryCoefficientOfVariationExample\"> </a><p><b>Generated Narrative: Observation</b><a name=\"cgmSummaryCoefficientOfVariationExample\"> </a><a name=\"hccgmSummaryCoefficientOfVariationExample\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Observation &quot;cgmSummaryCoefficientOfVariationExample&quot; </p></div><p><b>status</b>: final</p><p><b>category</b>: Laboratory <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html\">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: Coefficient of Variation (CV) <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cgm-summary-codes-temporary.html\">CGM Summary Code System</a>#cv)</span></p><p><b>subject</b>: <a href=\"Patient-patientExample.html\">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-01 --&gt; 2024-05-31</p><p><b>value</b>: 34</p></div>"
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "laboratory" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "cv" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://argo.run/cgm/Patient/patientExample> ;
+     fhir:reference [ fhir:v "Patient/patientExample" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:Period ;
+     fhir:start [ fhir:v "2024-05-01"^^xsd:date ] ;
+     fhir:end [ fhir:v "2024-05-31"^^xsd:date ]
+  ] ; # 
+  fhir:value [
+     a fhir:Quantity ;
+     fhir:value [ fhir:v "34"^^xsd:decimal ]
+  ] . # 
+
+<https://example.org/Observation/cgmSummaryDaysOfWearExample> a fhir:Observation ;
+  fhir:id [ fhir:v "cgmSummaryDaysOfWearExample"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_cgmSummaryDaysOfWearExample\"> </a><p><b>Generated Narrative: Observation</b><a name=\"cgmSummaryDaysOfWearExample\"> </a><a name=\"hccgmSummaryDaysOfWearExample\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Observation &quot;cgmSummaryDaysOfWearExample&quot; </p></div><p><b>status</b>: final</p><p><b>category</b>: Laboratory <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html\">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: Days of Wear <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cgm-summary-codes-temporary.html\">CGM Summary Code System</a>#days-of-wear)</span></p><p><b>subject</b>: <a href=\"Patient-patientExample.html\">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-01 --&gt; 2024-05-31</p><p><b>value</b>: 28</p></div>"
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "laboratory" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "days-of-wear" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://argo.run/cgm/Patient/patientExample> ;
+     fhir:reference [ fhir:v "Patient/patientExample" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:Period ;
+     fhir:start [ fhir:v "2024-05-01"^^xsd:date ] ;
+     fhir:end [ fhir:v "2024-05-31"^^xsd:date ]
+  ] ; # 
+  fhir:value [
+     a fhir:Quantity ;
+     fhir:value [ fhir:v "28"^^xsd:decimal ]
+  ] . # 
+
+<https://example.org/Observation/cgmSummarySensorActivePercentageExample> a fhir:Observation ;
+  fhir:id [ fhir:v "cgmSummarySensorActivePercentageExample"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_cgmSummarySensorActivePercentageExample\"> </a><p><b>Generated Narrative: Observation</b><a name=\"cgmSummarySensorActivePercentageExample\"> </a><a name=\"hccgmSummarySensorActivePercentageExample\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Observation &quot;cgmSummarySensorActivePercentageExample&quot; </p></div><p><b>status</b>: final</p><p><b>category</b>: Laboratory <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html\">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: Sensor Active Percentage <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cgm-summary-codes-temporary.html\">CGM Summary Code System</a>#sensor-active-percentage)</span></p><p><b>subject</b>: <a href=\"Patient-patientExample.html\">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-01 --&gt; 2024-05-31</p><p><b>value</b>: 95</p></div>"
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "laboratory" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "sensor-active-percentage" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://argo.run/cgm/Patient/patientExample> ;
+     fhir:reference [ fhir:v "Patient/patientExample" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:Period ;
+     fhir:start [ fhir:v "2024-05-01"^^xsd:date ] ;
+     fhir:end [ fhir:v "2024-05-31"^^xsd:date ]
+  ] ; # 
+  fhir:value [
+     a fhir:Quantity ;
+     fhir:value [ fhir:v "95"^^xsd:decimal ]
+  ] . # 
+
+<https://example.org/Observation/cgmSensorReadingMassExample> a fhir:Observation ;
+  fhir:id [ fhir:v "cgmSensorReadingMassExample"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_cgmSensorReadingMassExample\"> </a><p><b>Generated Narrative: Observation</b><a name=\"cgmSensorReadingMassExample\"> </a><a name=\"hccgmSensorReadingMassExample\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Observation &quot;cgmSensorReadingMassExample&quot; </p></div><p><b>status</b>: final</p><p><b>category</b>: Laboratory <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html\">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: Glucose Interstitial fld-mCnc <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://loinc.org/\">LOINC</a>#99504-3)</span></p><p><b>subject</b>: <a href=\"Patient-patientExample.html\">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-02 10:15:00+0000</p><p><b>value</b>: 120</p></div>"
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "laboratory" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       a loinc:99504-3 ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "99504-3" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://argo.run/cgm/Patient/patientExample> ;
+     fhir:reference [ fhir:v "Patient/patientExample" ]
+  ] ; # 
+  fhir:effective [ fhir:v "2024-05-02T10:15:00Z"^^xsd:dateTime] ; # 
+  fhir:value [
+     a fhir:Quantity ;
+     fhir:value [ fhir:v "120"^^xsd:decimal ]
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

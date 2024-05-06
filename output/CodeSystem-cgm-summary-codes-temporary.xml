@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="cgm-summary-codes-temporary"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This case-sensitive code system <code>http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">cgm-summary<a name="cgm-summary-codes-temporary-cgm-summary"> </a></td><td>CGM Summary</td></tr><tr><td style="white-space:nowrap">mean-glucose-mass<a name="cgm-summary-codes-temporary-mean-glucose-mass"> </a></td><td>Mean Glucose (Mass per Volume)</td></tr><tr><td style="white-space:nowrap">mean-glucose-molar<a name="cgm-summary-codes-temporary-mean-glucose-molar"> </a></td><td>Mean Glucose (Moles per Volume)</td></tr><tr><td style="white-space:nowrap">times-in-ranges<a name="cgm-summary-codes-temporary-times-in-ranges"> </a></td><td>Times in Glucose Ranges</td></tr><tr><td style="white-space:nowrap">time-in-very-low<a name="cgm-summary-codes-temporary-time-in-very-low"> </a></td><td>Time in Very Low Range (%)</td></tr><tr><td style="white-space:nowrap">time-in-low<a name="cgm-summary-codes-temporary-time-in-low"> </a></td><td>Time in Low Range (%)</td></tr><tr><td style="white-space:nowrap">time-in-target<a name="cgm-summary-codes-temporary-time-in-target"> </a></td><td>Time in Target Range (%)</td></tr><tr><td style="white-space:nowrap">time-in-high<a name="cgm-summary-codes-temporary-time-in-high"> </a></td><td>Time in High Range (%)</td></tr><tr><td style="white-space:nowrap">time-in-very-high<a name="cgm-summary-codes-temporary-time-in-very-high"> </a></td><td>Time in Very High Range (%)</td></tr><tr><td style="white-space:nowrap">gmi<a name="cgm-summary-codes-temporary-gmi"> </a></td><td>Glucose Management Indicator (GMI)</td></tr><tr><td style="white-space:nowrap">cv<a name="cgm-summary-codes-temporary-cv"> </a></td><td>Coefficient of Variation (CV)</td></tr><tr><td style="white-space:nowrap">days-of-wear<a name="cgm-summary-codes-temporary-days-of-wear"> </a></td><td>Days of Wear</td></tr><tr><td style="white-space:nowrap">sensor-active-percentage<a name="cgm-summary-codes-temporary-sensor-active-percentage"> </a></td><td>Sensor Active Percentage</td></tr></table></div>
+  </text>
+  <url value="http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"/>
+  <version value="0.1.0"/>
+  <name value="CGMSummaryCodesTemporary"/>
+  <title value="CGM Summary Code System"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2024-05-06T14:02:14-05:00"/>
+  <publisher value="Argonaut"/>
+  <contact>
+    <name value="Argonaut"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://argo.run"/>
+    </telecom>
+  </contact>
+  <description value="Temporary code system for CGM summary observations."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+      <display value="United States of America"/>
+    </coding>
+  </jurisdiction>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <count value="13"/>
+  <concept>
+    <code value="cgm-summary"/>
+    <display value="CGM Summary"/>
+  </concept>
+  <concept>
+    <code value="mean-glucose-mass"/>
+    <display value="Mean Glucose (Mass per Volume)"/>
+  </concept>
+  <concept>
+    <code value="mean-glucose-molar"/>
+    <display value="Mean Glucose (Moles per Volume)"/>
+  </concept>
+  <concept>
+    <code value="times-in-ranges"/>
+    <display value="Times in Glucose Ranges"/>
+  </concept>
+  <concept>
+    <code value="time-in-very-low"/>
+    <display value="Time in Very Low Range (%)"/>
+  </concept>
+  <concept>
+    <code value="time-in-low"/>
+    <display value="Time in Low Range (%)"/>
+  </concept>
+  <concept>
+    <code value="time-in-target"/>
+    <display value="Time in Target Range (%)"/>
+  </concept>
+  <concept>
+    <code value="time-in-high"/>
+    <display value="Time in High Range (%)"/>
+  </concept>
+  <concept>
+    <code value="time-in-very-high"/>
+    <display value="Time in Very High Range (%)"/>
+  </concept>
+  <concept>
+    <code value="gmi"/>
+    <display value="Glucose Management Indicator (GMI)"/>
+  </concept>
+  <concept>
+    <code value="cv"/>
+    <display value="Coefficient of Variation (CV)"/>
+  </concept>
+  <concept>
+    <code value="days-of-wear"/>
+    <display value="Days of Wear"/>
+  </concept>
+  <concept>
+    <code value="sensor-active-percentage"/>
+    <display value="Sensor Active Percentage"/>
+  </concept>
+</CodeSystem>

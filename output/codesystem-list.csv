@@ -1,0 +1,3 @@
+URL,Version,Status,OIDs,Name,Title,Descriptino,Used
+http://argo.run/cgm/CodeSystem/cgm,0.1.0,active,,CGMCodes,Codes for CGM,"Codes to identify content associated with this IG",
+http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary,0.1.0,active,,CGMSummaryCodesTemporary,CGM Summary Code System,"Temporary code system for CGM summary observations.",

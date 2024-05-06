@@ -1,0 +1,42 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "cgm",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This case-sensitive code system <code>http://argo.run/cgm/CodeSystem/cgm</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">cgm-data-submission-bundle<a name=\"cgm-cgm-data-submission-bundle\"> </a></td><td>CGM Bundle</td></tr><tr><td style=\"white-space:nowrap\">cgm-data-submission-standing-order<a name=\"cgm-cgm-data-submission-standing-order\"> </a></td><td>CGM Submission Standing Order</td></tr></table></div>"
+  },
+  "url" : "http://argo.run/cgm/CodeSystem/cgm",
+  "version" : "0.1.0",
+  "name" : "CGMCodes",
+  "title" : "Codes for CGM",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-05-06T14:02:14-05:00",
+  "publisher" : "Argonaut",
+  "contact" : [{
+    "name" : "Argonaut",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://argo.run"
+    }]
+  }],
+  "description" : "Codes to identify content associated with this IG",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "US",
+      "display" : "United States of America"
+    }]
+  }],
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 2,
+  "concept" : [{
+    "code" : "cgm-data-submission-bundle",
+    "display" : "CGM Bundle"
+  },
+  {
+    "code" : "cgm-data-submission-standing-order",
+    "display" : "CGM Submission Standing Order"
+  }]
+}

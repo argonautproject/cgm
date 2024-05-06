@@ -1,0 +1,15 @@
+{
+  "resourceType" : "Patient",
+  "id" : "patientExample",
+  "identifier" : [{
+    "use" : "official",
+    "system" : "http://example.org",
+    "value" : "ee8d4ac0-545c-4501-8d7e-646bfbda1db5"
+  }],
+  "name" : [{
+    "family" : "Peters",
+    "given" : ["Amy"]
+  }],
+  "gender" : "female",
+  "birthDate" : "1964-06-20"
+}

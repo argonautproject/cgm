@@ -107,7 +107,8 @@ Examples include but are not limited to:
 
 **☛ See [Example CGM Data Submission Bundle](Bundle-cgmDataSubmissionBundle.json.html#root)**
 
-{% include StructureDefinition-cgm-data-submission-bundle-header.xhtml %}
+{{ site.data.resources.['StructureDefinition/cgm-data-submission-bundle']['description'] }}
+
 
 **Technical Details**
 
@@ -122,7 +123,7 @@ Examples include but are not limited to:
 
 **☛ See [Example CHM Data Submission Order ("Send a summary every two weeks")](ServiceRequest-cgmDataSubmissionStandingOrderExample.json.html#root)**
 
-{% include StructureDefinition-cgm-data-submission-standing-order-header.xhtml %}
+{{ site.data.resources.['StructureDefinition/cgm-data-submission-standing-order']['description'] }}
 
 **Technical Details**
 
@@ -173,17 +174,41 @@ This IG aims to use LOINC codes for all Observations and DiagnosticReports. Howe
 
 #### Overview of LOINC Mappings
 
-{% sql SELECT
-    c.code as "Temporary Code",
-    CASE
-        WHEN cm.TargetCode IS NOT NULL THEN cm.TargetCode
-        ELSE 'No LOINC Available'
-    END as "LOINC Code"
+{% sqlToData mappingCodes SELECT
+  c.code as "Temporary Code",
+  CASE
+    WHEN cm.TargetCode IS NOT NULL THEN cm.TargetCode
+    ELSE 'No LOINC Available'
+  END as "LOINC Code"
 FROM
-    Concepts c
-    JOIN Resources r ON c.ResourceKey = r.key
-    LEFT JOIN ConceptMappings cm ON c.code = cm.SourceCode AND cm.SourceSystem LIKE '%cgm-summary-codes-temporary'
+  Concepts c
+JOIN Resources r ON c.ResourceKey = r.key
+LEFT JOIN ConceptMappings cm ON c.code = cm.SourceCode AND cm.SourceSystem LIKE '%cgm-summary-codes-temporary'
 WHERE
-    r.json->>'$.url' LIKE '%temporary'
+  r.json->>'$.url' LIKE '%temporary'
 %}
 
+{% assign mappedCodes = 0 %}
+{% assign unmappedCodes = 0 %}
+
+{% for row in mappingCodes %}
+  {% if row["LOINC Code"] == "No LOINC Available" %}
+    {% assign unmappedCodes = unmappedCodes | plus: 1 %}
+  {% else %}
+    {% assign mappedCodes = mappedCodes | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+##### Mapping Overview
+
+- Total Concepts Required: {{ mappingCodes.size }}
+  - **Mapped**: {{ mappedCodes }}
+  - **Unmapped**: {{ unmappedCodes }}
+
+##### Mapping Table
+
+| Temporary Code | LOINC Code |
+|----------------|------------|
+{% for row in mappingCodes -%}
+| {{ row["Temporary Code"] }} | {{ row["LOINC Code"] }} |
+{% endfor %}

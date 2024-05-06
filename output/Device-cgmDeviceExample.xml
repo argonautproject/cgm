@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Device xmlns="http://hl7.org/fhir">
+  <id value="cgmDeviceExample"/>
+  <identifier>
+    <system value="http://acme.com/devices"/>
+    <value value="456789"/>
+  </identifier>
+  <serialNumber value="ABC123"/>
+  <deviceName>
+    <name value="Acme CGM System"/>
+    <type value="user-friendly-name"/>
+  </deviceName>
+</Device>

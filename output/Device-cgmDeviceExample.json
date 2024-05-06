@@ -1,0 +1,13 @@
+{
+  "resourceType" : "Device",
+  "id" : "cgmDeviceExample",
+  "identifier" : [{
+    "system" : "http://acme.com/devices",
+    "value" : "456789"
+  }],
+  "serialNumber" : "ABC123",
+  "deviceName" : [{
+    "name" : "Acme CGM System",
+    "type" : "user-friendly-name"
+  }]
+}

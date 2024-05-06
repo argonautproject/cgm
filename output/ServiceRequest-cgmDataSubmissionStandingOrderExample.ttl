@@ -1,0 +1,55 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://argo.run/cgm/ServiceRequest/cgmDataSubmissionStandingOrderExample> a fhir:ServiceRequest ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "cgmDataSubmissionStandingOrderExample"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: ServiceRequest</b><a name=\"cgmDataSubmissionStandingOrderExample\"> </a><a name=\"hccgmDataSubmissionStandingOrderExample\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource ServiceRequest &quot;cgmDataSubmissionStandingOrderExample&quot; </p></div><blockquote><p><b>Data Submission Schedule</b></p><blockquote><p><b>url</b></p><code>submissionFrequency</code></blockquote><p><b>value</b>: Once per 2 weeks</p><blockquote><p><b>url</b></p><code>submissionDataProfile</code></blockquote><p><b>value</b>: <a href=\"StructureDefinition-cgm-summary.html\">CGM Summary Observation</a></p><blockquote><p><b>url</b></p><code>submissionDataProfile</code></blockquote><p><b>value</b>: <a href=\"StructureDefinition-cgm-summary-pdf.html\">CGM Summary PDF Report</a></p></blockquote><p><b>status</b>: active</p><p><b>intent</b>: order</p><p><b>code</b>: CGM Submission Standing Order <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cgm.html\">Codes for CGM</a>#cgm-data-submission-standing-order)</span></p><p><b>subject</b>: <a href=\"http://hl7.org/fhir/us/core/STU6.1/Patient-example.html\">Patient/example</a></p></div>"
+  ] ; # 
+  fhir:extension ( [
+     fhir:extension ( [
+       fhir:url [ fhir:v "submissionFrequency"^^xsd:anyURI ] ;
+       fhir:value [
+         a fhir:Timing ;
+         fhir:repeat [
+           fhir:frequency [ fhir:v "1"^^xsd:positiveInteger ] ;
+           fhir:period [ fhir:v "2"^^xsd:decimal ] ;
+           fhir:periodUnit [ fhir:v "wk" ]
+         ]
+       ]
+     ] [
+       fhir:url [ fhir:v "submissionDataProfile"^^xsd:anyURI ] ;
+       fhir:value [
+         fhir:v "http://argo.run/cgm/StructureDefinition/cgm-summary"^^xsd:anyURI ;
+         fhir:link <http://argo.run/cgm/StructureDefinition/cgm-summary>
+       ]
+     ] [
+       fhir:url [ fhir:v "submissionDataProfile"^^xsd:anyURI ] ;
+       fhir:value [
+         fhir:v "http://argo.run/cgm/StructureDefinition/cgm-summary-pdf"^^xsd:anyURI ;
+         fhir:link <http://argo.run/cgm/StructureDefinition/cgm-summary-pdf>
+       ]
+     ] ) ;
+     fhir:url [ fhir:v "http://argo.run/cgm/StructureDefinition/data-submission-schedule"^^xsd:anyURI ]
+  ] ) ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:intent [ fhir:v "order"] ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "cgm-data-submission-standing-order" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://argo.run/cgm/Patient/example> ;
+     fhir:reference [ fhir:v "Patient/example" ]
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

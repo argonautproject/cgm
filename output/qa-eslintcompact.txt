@@ -1,0 +1,8 @@
+ArgoCGM
+=========================================
+
+/home/jmandel/work/ArgoCGM/fsh-generated/resources/ConceptMap-CGMSummaryToLoinc.json: line 1, col 4038, Warning - Published concept maps SHOULD conform to the ShareableConceptMap profile, which says that the element ConceptMap.experimental is mandatory, but it is not present (REQUIRED)
+/home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-data-submission-schedule.json: line 0, col 0, Warning - Review the extension type for data-submission-schedule: extensions should not have a context of Element unless it's really intended that they can be used anywhere (BUSINESSRULE)
+
+err = 0, warn = 2, info = 0
+IG Publisher Version: 1.6.7-SNAPSHOT

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="cgmSummaryTimesInRangesExample"/>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="laboratory"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"/>
+      <code value="times-in-ranges"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/patientExample"/>
+  </subject>
+  <effectivePeriod>
+    <start value="2024-05-01"/>
+    <end value="2024-05-31"/>
+  </effectivePeriod>
+  <component>
+    <code>
+      <coding>
+        <system value="http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"/>
+        <code value="time-in-very-low"/>
+      </coding>
+    </code>
+    <valueQuantity>
+      <value value="3"/>
+    </valueQuantity>
+  </component>
+  <component>
+    <code>
+      <coding>
+        <system value="http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"/>
+        <code value="time-in-low"/>
+      </coding>
+    </code>
+    <valueQuantity>
+      <value value="8"/>
+    </valueQuantity>
+  </component>
+  <component>
+    <code>
+      <coding>
+        <system value="http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"/>
+        <code value="time-in-target"/>
+      </coding>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="97510-2"/>
+      </coding>
+    </code>
+    <valueQuantity>
+      <value value="65"/>
+    </valueQuantity>
+  </component>
+  <component>
+    <code>
+      <coding>
+        <system value="http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"/>
+        <code value="time-in-high"/>
+      </coding>
+    </code>
+    <valueQuantity>
+      <value value="20"/>
+    </valueQuantity>
+  </component>
+  <component>
+    <code>
+      <coding>
+        <system value="http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"/>
+        <code value="time-in-very-high"/>
+      </coding>
+    </code>
+    <valueQuantity>
+      <value value="4"/>
+    </valueQuantity>
+  </component>
+</Observation>

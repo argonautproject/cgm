@@ -1,0 +1,79 @@
+ArgoCGM : Validation Results
+=========================================
+
+err = 0, warn = 2, info = 0
+IG Publisher Version: 1.6.7-SNAPSHOT Out of date - current version is 1.6.6
+Generated Mon May 06 14:03:29 CDT 2024. FHIR version 4.0.1 for fhir.argocgm#0.1.0 (canonical = http://argo.run/cgm)
+ Build Errors : 0 / 0 / 0
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/Bundle-cgmDataSubmissionBundle : 0 / 16 / 27
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/CodeSystem-cgm : 0 / 0 / 1
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/CodeSystem-cgm-summary-codes-temporary : 0 / 0 / 1
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/ConceptMap-CGMSummaryToLoinc : 0 / 4 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/Device-cgmDeviceExample : 0 / 1 / 1
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/DiagnosticReport-cgmSummaryPDFExample : 0 / 1 / 1
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/ImplementationGuide-fhir.argocgm : 0 / 0 / 1
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/Observation-cgmSensorReadingMassExample : 0 / 2 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/Observation-cgmSensorReadingMolarExample : 0 / 2 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/Observation-cgmSummaryCoefficientOfVariationExample : 0 / 2 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/Observation-cgmSummaryDaysOfWearExample : 0 / 2 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/Observation-cgmSummaryExample : 0 / 2 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/Observation-cgmSummaryGMIExample : 0 / 2 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/Observation-cgmSummaryMeanGlucoseMassExample : 0 / 2 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/Observation-cgmSummaryMeanGlucoseMolarExample : 0 / 2 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/Observation-cgmSummarySensorActivePercentageExample : 0 / 2 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/Observation-cgmSummaryTimesInRangesExample : 0 / 2 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/Patient-patientExample : 0 / 1 / 1
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/ServiceRequest-cgmDataSubmissionStandingOrderExample : 0 / 0 / 1
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-cgm-data-submission-bundle : 0 / 0 / 1
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-cgm-data-submission-standing-order : 0 / 0 / 1
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-cgm-device : 0 / 0 / 1
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-cgm-sensor-reading-mass : 0 / 0 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-cgm-sensor-reading-molar : 0 / 0 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-cgm-summary : 0 / 0 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-cgm-summary-coefficient-of-variation : 0 / 0 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-cgm-summary-days-of-wear : 0 / 0 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-cgm-summary-gmi : 0 / 0 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-cgm-summary-mean-glucose-mass : 0 / 0 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-cgm-summary-mean-glucose-molar : 0 / 0 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-cgm-summary-pdf : 0 / 0 / 1
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-cgm-summary-sensor-active-percentage : 0 / 0 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-cgm-summary-times-in-ranges : 0 / 0 / 2
+ /home/jmandel/work/ArgoCGM/fsh-generated/resources/StructureDefinition-data-submission-schedule : 0 / 1 / 1
+</table>
+== n/a ==
+== fsh-generated/resources/Bundle-cgmDataSubmissionBundle.json ==
+== fsh-generated/resources/CodeSystem-cgm.json ==
+== fsh-generated/resources/CodeSystem-cgm-summary-codes-temporary.json ==
+== fsh-generated/resources/ConceptMap-CGMSummaryToLoinc.json ==
+WARNING: ConceptMap/CGMSummaryToLoinc: ConceptMap: Published concept maps SHOULD conform to the ShareableConceptMap profile, which says that the element ConceptMap.experimental is mandatory, but it is not present
+== fsh-generated/resources/Device-cgmDeviceExample.json ==
+== fsh-generated/resources/DiagnosticReport-cgmSummaryPDFExample.json ==
+== fsh-generated/resources/ImplementationGuide-fhir.argocgm.json ==
+== fsh-generated/resources/Observation-cgmSensorReadingMassExample.json ==
+== fsh-generated/resources/Observation-cgmSensorReadingMolarExample.json ==
+== fsh-generated/resources/Observation-cgmSummaryCoefficientOfVariationExample.json ==
+== fsh-generated/resources/Observation-cgmSummaryDaysOfWearExample.json ==
+== fsh-generated/resources/Observation-cgmSummaryExample.json ==
+== fsh-generated/resources/Observation-cgmSummaryGMIExample.json ==
+== fsh-generated/resources/Observation-cgmSummaryMeanGlucoseMassExample.json ==
+== fsh-generated/resources/Observation-cgmSummaryMeanGlucoseMolarExample.json ==
+== fsh-generated/resources/Observation-cgmSummarySensorActivePercentageExample.json ==
+== fsh-generated/resources/Observation-cgmSummaryTimesInRangesExample.json ==
+== fsh-generated/resources/Patient-patientExample.json ==
+== fsh-generated/resources/ServiceRequest-cgmDataSubmissionStandingOrderExample.json ==
+== fsh-generated/resources/StructureDefinition-cgm-data-submission-bundle.json ==
+== fsh-generated/resources/StructureDefinition-cgm-data-submission-standing-order.json ==
+== fsh-generated/resources/StructureDefinition-cgm-device.json ==
+== fsh-generated/resources/StructureDefinition-cgm-sensor-reading-mass.json ==
+== fsh-generated/resources/StructureDefinition-cgm-sensor-reading-molar.json ==
+== fsh-generated/resources/StructureDefinition-cgm-summary.json ==
+== fsh-generated/resources/StructureDefinition-cgm-summary-coefficient-of-variation.json ==
+== fsh-generated/resources/StructureDefinition-cgm-summary-days-of-wear.json ==
+== fsh-generated/resources/StructureDefinition-cgm-summary-gmi.json ==
+== fsh-generated/resources/StructureDefinition-cgm-summary-mean-glucose-mass.json ==
+== fsh-generated/resources/StructureDefinition-cgm-summary-mean-glucose-molar.json ==
+== fsh-generated/resources/StructureDefinition-cgm-summary-pdf.json ==
+== fsh-generated/resources/StructureDefinition-cgm-summary-sensor-active-percentage.json ==
+== fsh-generated/resources/StructureDefinition-cgm-summary-times-in-ranges.json ==
+== fsh-generated/resources/StructureDefinition-data-submission-schedule.json ==
+WARNING: StructureDefinition/data-submission-schedule: StructureDefinition.context[0]: Review the extension type for data-submission-schedule: extensions should not have a context of Element unless it's really intended that they can be used anywhere

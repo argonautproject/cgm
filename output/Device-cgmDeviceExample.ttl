@@ -1,0 +1,22 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://argo.run/cgm/Device/cgmDeviceExample> a fhir:Device ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "cgmDeviceExample"] ; # 
+  fhir:identifier ( [
+     fhir:system [ fhir:v "http://acme.com/devices"^^xsd:anyURI ] ;
+     fhir:value [ fhir:v "456789" ]
+  ] ) ; # 
+  fhir:serialNumber [ fhir:v "ABC123"] ; # 
+  fhir:deviceName ( [
+     fhir:name [ fhir:v "Acme CGM System" ] ;
+     fhir:type [ fhir:v "user-friendly-name" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

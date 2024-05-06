@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="cgmSensorReadingMolarExample"/>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="laboratory"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="14745-4"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/patientExample"/>
+  </subject>
+  <effectiveDateTime value="2024-05-02T10:30:00Z"/>
+  <valueQuantity>
+    <value value="6.7"/>
+  </valueQuantity>
+</Observation>

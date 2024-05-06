@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Home - Argo CGM Write v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+
+    <style type="text/css">h2{--heading-prefix:"1"}
+    h3,h4,h5,h6{--heading-prefix:"1"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Argo CGM Write</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - ci-build
+
+
+
+  <img alt="United States of America flag" src="assets/images/usa.svg" height="16" title="United States of America"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Specification</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artifacts</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Home</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Argo CGM Write - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href="http://argo.run/cgm/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Home</h2>
+  
+
+
+
+
+
+
+  <table class="colsd">
+
+    <tr>
+      <td colspan="4"><i>Official URL</i>: <span class="copy-text">http://argo.run/cgm/ImplementationGuide/fhir.argocgm<button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://argo.run/cgm/ImplementationGuide/fhir.argocgm"/></span>
+      </td>
+      <td><i>Version</i>:
+      <span class="copy-text">0.1.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="http://argo.run/cgm/ImplementationGuide/fhir.argocgm|0.1.0"/></span>
+      </td>
+    </tr>
+
+    <tr>
+
+
+
+
+
+
+
+      <td colspan="4">
+        
+          Draft
+          
+            as of 2024-05-06
+          
+        
+      </td>
+
+
+
+      <td><i>Computable Name</i>: <span style="font-family: monospace;">ArgoCGM</span></td>
+    </tr>
+
+
+
+
+  </table>
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#user-stories" id="markdown-toc-user-stories">User Stories</a></li>
+  <li><a href="#actors" id="markdown-toc-actors">Actors</a></li>
+  <li><a href="#nominal-workflow" id="markdown-toc-nominal-workflow">Nominal Workflow</a></li>
+  <li><a href="#establishing-connections" id="markdown-toc-establishing-connections">Establishing Connections</a></li>
+  <li><a href="#cgm-data-submission-bundles" id="markdown-toc-cgm-data-submission-bundles">CGM Data Submission: Bundles</a></li>
+  <li><a href="#cgm-data-submission-standing-orders" id="markdown-toc-cgm-data-submission-standing-orders">CGM Data Submission: Standing Orders</a></li>
+  <li><a href="#smart-health-links-for-cgm-data-sharing" id="markdown-toc-smart-health-links-for-cgm-data-sharing">SMART Health Links for CGM Data Sharing</a></li>
+  <li><a href="#note-on-loinc-codes" id="markdown-toc-note-on-loinc-codes">Note on LOINC Codes</a></li>
+</ul>
+
+</div>
+<h3 id="introduction">Introduction</h3>
+
+<p>The Argo Continuous Glucose Monitoring Implementation Guide provides a standardized approach for sharing CGM data between actors. This IG focuses on enabling the exchange of CGM data, including high-level reports and raw glucose observations, to support collaborative glucose management.</p>
+
+<h3 id="user-stories">User Stories</h3>
+
+<h4 id="patient-mediated-data-sharing">Patient-Mediated Data Sharing</h4>
+
+<p>Sarah, a type 1 diabetes patient, is switching to a new doctor. She has been using a CGM device and a patient app that stores her CGM data on her phone or in an app backend server. The app supports SMART on FHIR and is compatible with the Argo CGM IG. Sarah authorizes the app to connect with her new provider’s EHR, using her patient portal credentials to grant access to the phone app. The app then sends Sarah’s CGM reports from the past 3 months to the new provider’s EHR using FHIR, ensuring her new doctor has access to her recent CGM history for informed decision-making.</p>
+
+<h4 id="provider-initiated-data-sharing">Provider-Initiated Data Sharing</h4>
+
+<p>Dr. Johnson treats Michael, a type 2 diabetes patient struggling with glucose management. Dr. Johnson’s practice uses “CloudCGM”, a (fictional) cloud-based diabetes management platform that supports the Argo CGM IG.  Michael has a patient account in the CloudCGM platform, and a “Sharing Code” appears in his account settings. During a clinic visit, Dr. Johnson launches the CloudCGM SMART on FHIR app inside of his EHR, entering the sharing code as Michael reads it to him. This process establishes a linkage between Michael’s records in the two systems. CloudCGM is now able to submit data every week into Dr. Johnson’s EHR, with results appearing in the native interface and easily incorporated into visit notes.</p>
+
+<h4 id="patient-participation-in-clinical-research">Patient Participation in Clinical Research</h4>
+
+<p>Dr. Patel is the principal investigator for a longitudinal research study. Participants are recruited from multiple diabetes management platforms that support the Argo CGM IG. The study protocol allows participants to share CGM data after completing an informed consent process. For consented participants, the diabetes management platforms submit a weekly data feed to a study server under Dr. Patel’s control.  The standardized format and exchange protocols enable an efficient, multi-platform study focused on collecting raw glucose readings as part of the data package.</p>
+
+<h3 id="actors">Actors</h3>
+
+<h4 id="data-submitter">Data Submitter</h4>
+
+<p>The data submitter is a software system that manages CGM data. It typically incorporates a patient-facing app, and may also incorporate a clinician-facing EHR-integrated app and a cloud service.</p>
+
+<p>This IG also refers to Data Submitters as “<strong>apps</strong>” or “<strong>diabetes management platforms</strong>”.</p>
+
+<h4 id="data-receiver">Data Receiver</h4>
+
+<p>The data receiver is a software system that receives and stores the CGM data submitted by the data submitter.</p>
+
+<p>This IG also refers to Data Receivers as “<strong>EHRs</strong>”.</p>
+
+<h3 id="nominal-workflow">Nominal Workflow</h3>
+
+<p><img style="max-width: 400px; float: none;" src="flowchart.png" /></p>
+
+<ol>
+  <li>
+    <p><strong>App Authorization (SMART on FHIR)</strong>: The Data Submitter completes a <a href="https://www.hl7.org/fhir/smart-app-launch/app-launch.html#app-launch-launch-and-authorization">SMART App Launch</a> or <a href="https://www.hl7.org/fhir/smart-app-launch/backend-services.html">SMART Backend Services Authorization</a> to securely access the EHR system.</p>
+  </li>
+  <li>
+    <p><strong>Establish EHR Patient ID</strong>: After successful authorization, the Data Submitter determines the patient’s <code class="language-plaintext highlighter-rouge">id</code>  within the EHR’s FHIR Server. This can be done through the SMART’s <code class="language-plaintext highlighter-rouge">launch/patient</code> context, through FHIR patient search, or using an out-of-band (OOB) process.</p>
+  </li>
+  <li>
+    <p><strong>Learn Submission Preferences</strong>: The Data Submitter determines the EHR’s CGM data submission preferences by:
+a. Querying the EHR FHIR server for a specific <code class="language-plaintext highlighter-rouge">ServiceRequest</code> resource that contains the CGM data submission standing order, or
+b. Learning the submission schedule through an OOB process.</p>
+  </li>
+  <li>
+    <p><strong>Submission Triggers</strong>: The Data Submitter determines when to submit data
+a. Scheduled Submission Interval: Based on the standing order obtained from the submission preferences, the Submitter initiates scheduled submissions of CGM data at the specified intervals.
+b. Manual Trigger: The Submitter may also support manual triggers, such as an in-app button, allowing users to initiate on-demand submissions of CGM data.</p>
+  </li>
+  <li>
+    <p><strong>Prepare FHIR Bundle</strong>: When a submission is triggered (either scheduled or manual), the Data Submitter prepares a FHIR Bundle containing the relevant CGM data, conforming to the specified profiles and requirements.</p>
+  </li>
+  <li>
+    <p><strong>POST Bundle to EHR</strong>: The Data Submitter issues a POST request to send the prepared FHIR Bundle to the EHR’s FHIR Base URL.</p>
+  </li>
+</ol>
+
+<p>This workflow ensures that the Data Submitter is properly authorized, respects the EHR’s submission preferences, and securely transmits CGM data in a standardized format. The combination of scheduled submissions and manual triggers provides flexibility and ensures that the EHR receives up-to-date CGM data as needed.</p>
+
+<h3 id="establishing-connections">Establishing Connections</h3>
+
+<h4 id="patient-app-to-ehr">Patient App to EHR</h4>
+
+<p>In this workflow, a patient-facing app connects directly to the EHR using the SMART on FHIR capabilities of the EHR. The app acts as a SMART on FHIR client and goes through an OAuth process where the patient approves the app to access their EHR, granting write scopes. This ensures that both the patient and the source EHR system agree to allow the app to write data using an appropriate access token.</p>
+
+<p><strong>Technical Details</strong></p>
+
+<ul>
+  <li>SMART on FHIR scopes that enable this scenario include:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">launch/patient</code>: patient app will already know who the patient is, and only requires a corresponding ID from the EHR</li>
+      <li><code class="language-plaintext highlighter-rouge">offline_access</code>: establish persistent access for long-term submissions</li>
+      <li>Data Scopes:
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">patient/Patient.r</code>: it may still be desirable to cross-reference patient demographics, e.g. to confirm a match</li>
+          <li><code class="language-plaintext highlighter-rouge">patient/ServiceRequest.rs?code=cgm-data-submission-standing-order</code>: helps app learn the EHR’s data submission preferences</li>
+          <li><code class="language-plaintext highlighter-rouge">patient/DiagnosticReport.cu?category=laboratory</code>: submit a summary report</li>
+          <li><code class="language-plaintext highlighter-rouge">patient/Observation.cu?category=laboratory</code>: submit a summary observation or sensor reading</li>
+          <li><code class="language-plaintext highlighter-rouge">patient/Device.cu</code>: submit device details associated with a sensor reading</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="provider-app-to-ehr">Provider App to EHR</h4>
+
+<p>For provider-facing apps, the app can be integrated directly into the EHR’s user interface using the SMART on FHIR EHR launch workflow. This workflow is widely supported by EHRs and allows apps to run within the EHR’s screen real estate. The EHR-integrated app might represent a device manufacturer or an independent diabetes management platform. The app can retrieve the patient’s ID and demographics from the EHR in real-time using the FHIR US Core Patient API.</p>
+
+<p>To correlate the patient with a data record in the app’s backend system, an in-brand or out-of-band process can be employed.</p>
+
+<p>Examples include but are not limited to:</p>
+
+<ol>
+  <li>A patient-facing companion app connects to the EHR using SMART on FHIR as described in “Patient App to EHR” above, establishing a record linkage via API</li>
+  <li>A patient-facing companion app sends a push notification to the patient, asking if they want to establish a record linkage</li>
+  <li>A patient-facing companion app generates a sign-up code that the provider enters into the EHR.</li>
+  <li>The provider has an appropriate data sharing agreement in place with the app, allowing the app to match its patient list against  EHR-sourced demographics.</li>
+</ol>
+
+<p><strong>Technical Details</strong></p>
+
+<ul>
+  <li>SMART on FHIR scopes that enable this scenario include:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">launch/patient</code> at linkage time</li>
+      <li>If using <em>patient</em>-level authorization at submission time
+        <ul>
+          <li>“Data Scopes” listed above</li>
+          <li><code class="language-plaintext highlighter-rouge">offline_access</code></li>
+        </ul>
+      </li>
+      <li>If using <em>user</em>-level authorization at submission time
+        <ul>
+          <li>“Data Scopes” listed above, with level of <code class="language-plaintext highlighter-rouge">user/</code></li>
+          <li><code class="language-plaintext highlighter-rouge">offline_access</code></li>
+        </ul>
+      </li>
+      <li>If using <em>system</em>-level authorization at submission time
+        <ul>
+          <li>“Data Scopes” listed above, with level of <code class="language-plaintext highlighter-rouge">system/</code></li>
+          <li>No need for <code class="language-plaintext highlighter-rouge">offline_access</code> because short-lived access tokens are available at any time via client credentials grant</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="cgm-data-submission-bundles">CGM Data Submission: Bundles</h3>
+
+<p><strong>☛ See <a href="StructureDefinition-cgm-data-submission-bundle.html#profile">Data Profile</a> for details</strong></p>
+
+<p><strong>☛ See <a href="Bundle-cgmDataSubmissionBundle.json.html#root">Example CGM Data Submission Bundle</a></strong></p>
+
+<p>Once a Data Submitter is connected to the EHR, it can write data by submitting a <code class="language-plaintext highlighter-rouge">batch</code> Bundle to the EHR FHIR sever’s <code class="language-plaintext highlighter-rouge">/</code> submission endpoint.
+The submission bundle includes a <code class="language-plaintext highlighter-rouge">Bundle.meta.tag</code> value of <code class="language-plaintext highlighter-rouge">cgm-data-submission-bundle</code> to support ingestion workflows on servers with limited data ingestion capabilities. The tag has no impact on the meaning of the bundle, and can safely be ignored by servers that offer a general-purpose <code class="language-plaintext highlighter-rouge">POST /</code> endpoint.</p>
+
+<p>The Bundle <code class="language-plaintext highlighter-rouge">entry</code> array includes any combination of</p>
+
+<ul>
+  <li>CGM Summary PDF Reports (<a href="StructureDefinition-cgm-summary-pdf.html#profile">Profile</a>, <a href="DiagnosticReport-cgmSummaryPDFExample.json.html#root">Example</a>)</li>
+  <li>CGM Summary Observation (<a href="StructureDefinition-cgm-summary.html#profile">Profile</a>, <a href="Observation-cgmSummaryExample.json.html#root">Example</a>)
+    <ul>
+      <li>Mean Glucose (<a href="StructureDefinition-cgm-summary-mean-glucose-mass.html#profile">Profile</a>, <a href="Observation-cgmSummaryMeanGlucoseMassExample.json.html#root">Example</a>)</li>
+      <li>Times in Ranges (<a href="StructureDefinition-cgm-summary-times-in-ranges.html#profile">Profile</a>, <a href="Observation-cgmSummaryTimesInRangesExample.json.html#root">Example</a>)</li>
+      <li>Glucose Management Index (<a href="StructureDefinition-cgm-summary-gmi.html#profile">Profile</a>, <a href="Observation-cgmSummaryGMIExample.json.html#root">Example</a>)</li>
+      <li>Coefficient of Variations (<a href="StructureDefinition-cgm-summary-coefficient-of-variation.html#profile">Profile</a>, <a href="Observation-cgmSummaryCoefficientOfVariationExample.json.html#root">Example</a>)</li>
+      <li>Sensor Days of Wear (<a href="StructureDefinition-cgm-summary-days-of-wear.html#profile">Profile</a>, <a href="Observation-cgmSummaryDaysOfWearExample.json.html#root">Example</a>)</li>
+      <li>Sensor Active Percentage (<a href="StructureDefinition-cgm-summary-sensor-active-percentage.html#profile">Profile</a>, <a href="Observation-cgmSummarySensorActivePercentageExample.json.html#root">Example</a>)</li>
+    </ul>
+  </li>
+  <li>CGM Devices (<a href="StructureDefinition-cgm-device.html#profile">Profile</a>, <a href="Device-cgmDeviceExample.json.html#root">Example</a>)</li>
+  <li>CGM Sensor Readings (<a href="StructureDefinition-cgm-sensor-reading-mass.html#profile">Profile</a>, <a href="Observation-cgmSensorReadingMassExample.json.html#root">Example</a>)</li>
+</ul>
+
+<p><strong>Technical Details</strong></p>
+
+<ul>
+  <li>CGM Submitters and Receivers SHALL support bundle-based submission, and MAY support individual resource submission</li>
+  <li>CGM Receivers MAY choose to store only a subset of resources in a submitted bundle
+    <ul>
+      <li>Each entry in the <code class="language-plaintext highlighter-rouge">batch-response</code> bundle SHALL provide a status code indicating whether the submission was accepted</li>
+      <li>Accepted entries SHOULD be available for read/search immediately after submission, but MAY be subjected to additional ingestion workflow steps</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="cgm-data-submission-standing-orders">CGM Data Submission: Standing Orders</h3>
+
+<p><strong>☛ See <a href="StructureDefinition-cgm-data-submission-standing-order.html#profile">Data Profile</a> for details</strong></p>
+
+<p><strong>☛ See <a href="ServiceRequest-cgmDataSubmissionStandingOrderExample.json.html#root">Example CHM Data Submission Order (“Send a summary every two weeks”)</a></strong></p>
+
+<p>The Data Receiver can expose a standing order indicating:</p>
+
+<ul>
+  <li>how often a Data Submitter should submit CGM data</li>
+  <li>what data a Data Submitter should include in each CGM Data Submission Bundle.</li>
+</ul>
+
+<p><strong>Guiding Data Submission</strong></p>
+
+<p>This standing order is modeled as a FHIR <code class="language-plaintext highlighter-rouge">ServiceRequest</code> resource, which 
+Data Submitters can query to guide their future submissions. The standing order specifyies the patient, the type of data to be submitted, and the desired frequency of submission.</p>
+
+<p><strong>DataSubmissionSchedule</strong></p>
+
+<p>The <code class="language-plaintext highlighter-rouge">DataSubmissionSchedule</code> extension contains:</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">submissionFrequency</code> (1..1): A <code class="language-plaintext highlighter-rouge">Timing</code> element that specifies the frequency or schedule for data submission. It includes elements a <code class="language-plaintext highlighter-rouge">frequency</code>, <code class="language-plaintext highlighter-rouge">period</code>, <code class="language-plaintext highlighter-rouge">periodUnit</code>, and optionally <code class="language-plaintext highlighter-rouge">maxFrequencey</code> define the desired submission schedule.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">submissionDataProfile</code> (1..*): A list of <code class="language-plaintext highlighter-rouge">canonical</code> references to FHIR profiles that represent the types of data to be submitted according to the specified schedule.</p>
+  </li>
+</ul>
+
+<p>Multiple <code class="language-plaintext highlighter-rouge">DataSubmissionSchedule</code> extensions can be included in a single <code class="language-plaintext highlighter-rouge">DataSubmissionRequest</code> resource if the Data Recipient prefers a different schedule for different data types.</p>
+
+<p>It’s important to note that submissions can also be <strong>manually triggered by a patient or provider</strong> within an app. For example, if there is an upcoming appointment, the provider can click a button to manually trigger submission of the most up-to-date results. Out-of-band communication between the app developer and the clinical provider system can also be used to establish preferred submission schedules.</p>
+
+<p><strong>Technical Details</strong></p>
+
+<ul>
+  <li>CGM Submitters SHOULD respect the Receivers’ submission preferences</li>
+  <li>CGM Receivers MAY reject
+    <ul>
+      <li>An entire submission Bundle if the frequency of submissions is too high</li>
+      <li>Any subset of a submission Bundle (as documented above)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="smart-health-links-for-cgm-data-sharing">SMART Health Links for CGM Data Sharing</h3>
+
+<p>The Data Submission protocol defined above enables standardized integration between CGM data sources and receiving systems like EHRs. However, there are situations where tight integration is not feasible or desired. <a href="https://docs.smarthealthit.org/smart-health-links/">SMART Health Links</a> (SHLinks) provide a complementary method for sharing CGM data and reports among patients, caregivers, clinicians, and other authorized parties. SHLinks allow users to easily share selected subsets of CGM data as needed, offering an always up-to-date data feed without the need for direct system integration between the sharing parties. Specific scenarios where SHLinks provide value include:</p>
+
+<ul>
+  <li>Sharing with parties that cannot or do not integrate with the Data Submission protocol, such as schools, camps, temporary caregivers during travel, etc.</li>
+  <li>Allowing patients granular control over what specific data is shared and with whom, beyond just provider-patient contexts.</li>
+  <li>Providing a simple, accessible sharing method for non-technical users like patients and caregivers.</li>
+  <li>Enabling temporary data sharing for finite needs like referrals, research studies, or consultations.</li>
+</ul>
+
+<p>By defining a tightly-orchestrated Data Submission API as well as a more loosely-coupled SHLinks capability, this IG ensures comprehensive interoperability that accommodates diverse real-world requirements across the CGM data sharing landscape.</p>
+
+<h4 id="actors-1">Actors</h4>
+
+<p><strong>SHLink Creator:</strong> A system that can generate SHLinks containing CGM data and reports, acting as a SHLink Sharing Application.</p>
+
+<p><strong>SHLink Receiver:</strong> A system that can receive and process SHLinks containing CGM data and reports, acting as a SHLink Receiving Application.</p>
+
+<h4 id="workflow">Workflow</h4>
+
+<ol>
+  <li>The SHLink Creator allows the user to select the desired CGM data and reports to share, as well as the time period to include. Options include:
+    <ul>
+      <li>Data to include: CGM Summary, CGM Sensor Readings, CGM Devices</li>
+      <li>Time period: Past 2 weeks, 1 month, 3 months, etc.</li>
+      <li>Link expiration time, if any</li>
+    </ul>
+  </li>
+  <li>
+    <p>The SHLink Creator generates a SHLink containing the user-selected content, encrypted with a unique key.</p>
+  </li>
+  <li>
+    <p>The user shares the SHLink with the intended recipient(s), who use a SHLink Receiver to periodically access the shared data and stay up-to-date over time.</p>
+  </li>
+  <li>The shared data conforms to the CGM Data Submission profiles, promoting interoperability and accessibility across different systems and platforms.</li>
+</ol>
+
+<h3 id="note-on-loinc-codes">Note on LOINC Codes</h3>
+
+<p>This IG aims to use LOINC codes for all Observations and DiagnosticReports. However, LOINC does not currently define codes for all required concepts.  We have therefore established the following approach:</p>
+
+<ul>
+  <li><strong>Temporary CodeSystem:</strong> <a href="CodeSystem-cgm-summary-codes-temporary.html">CodeSystem/cgm-summary-codes-temporary</a> represents all concepts used by our resources.  Resource instances include these temporary codes + (whenever possible) equivalent LOINC codes.</li>
+  <li><strong>ConceptMap:</strong> <a href="ConceptMap-CGMSummaryToLoinc.html">ConceptMap/CGMSummaryToLoinc</a> provides mappings between the temporary CodeSystem and existing LOINC codes (for the concepts with available codes).</li>
+  <li><strong>Deprecation Planning:</strong> We will deprecate this CodeSystem when LOINC support exists for the required concepts.</li>
+</ul>
+
+<h4 id="overview-of-loinc-mappings">Overview of LOINC Mappings</h4>
+
+<h5 id="mapping-overview">Mapping Overview</h5>
+
+<ul>
+  <li>Total Concepts Required: 13
+    <ul>
+      <li><strong>Mapped</strong>: 3</li>
+      <li><strong>Unmapped</strong>: 10</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="mapping-table">Mapping Table</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Temporary Code</th>
+      <th>LOINC Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cgm-summary</td>
+      <td>No LOINC Available</td>
+    </tr>
+    <tr>
+      <td>mean-glucose-mass</td>
+      <td>97507-8</td>
+    </tr>
+    <tr>
+      <td>mean-glucose-molar</td>
+      <td>No LOINC Available</td>
+    </tr>
+    <tr>
+      <td>times-in-ranges</td>
+      <td>No LOINC Available</td>
+    </tr>
+    <tr>
+      <td>time-in-very-low</td>
+      <td>No LOINC Available</td>
+    </tr>
+    <tr>
+      <td>time-in-low</td>
+      <td>No LOINC Available</td>
+    </tr>
+    <tr>
+      <td>time-in-target</td>
+      <td>97510-2</td>
+    </tr>
+    <tr>
+      <td>time-in-high</td>
+      <td>No LOINC Available</td>
+    </tr>
+    <tr>
+      <td>time-in-very-high</td>
+      <td>No LOINC Available</td>
+    </tr>
+    <tr>
+      <td>gmi</td>
+      <td>97506-0</td>
+    </tr>
+    <tr>
+      <td>cv</td>
+      <td>No LOINC Available</td>
+    </tr>
+    <tr>
+      <td>days-of-wear</td>
+      <td>No LOINC Available</td>
+    </tr>
+    <tr>
+      <td>sensor-active-percentage</td>
+      <td>No LOINC Available</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="http://argo.run">Argonaut</a>.  Package fhir.argocgm#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, May 6, 2024 14:02-0500">2024-05-06</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+  
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

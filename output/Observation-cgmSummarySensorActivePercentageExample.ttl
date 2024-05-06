@@ -1,0 +1,39 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://argo.run/cgm/Observation/cgmSummarySensorActivePercentageExample> a fhir:Observation ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "cgmSummarySensorActivePercentageExample"] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "laboratory" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "sensor-active-percentage" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://argo.run/cgm/Patient/patientExample> ;
+     fhir:reference [ fhir:v "Patient/patientExample" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:Period ;
+     fhir:start [ fhir:v "2024-05-01"^^xsd:date ] ;
+     fhir:end [ fhir:v "2024-05-31"^^xsd:date ]
+  ] ; # 
+  fhir:value [
+     a fhir:Quantity ;
+     fhir:value [ fhir:v "95"^^xsd:decimal ]
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,96 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://argo.run/cgm/Observation/cgmSummaryTimesInRangesExample> a fhir:Observation ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "cgmSummaryTimesInRangesExample"] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "laboratory" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "times-in-ranges" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <http://argo.run/cgm/Patient/patientExample> ;
+     fhir:reference [ fhir:v "Patient/patientExample" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:Period ;
+     fhir:start [ fhir:v "2024-05-01"^^xsd:date ] ;
+     fhir:end [ fhir:v "2024-05-31"^^xsd:date ]
+  ] ; # 
+  fhir:component ( [
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "time-in-very-low" ]
+       ] )
+     ] ;
+     fhir:value [
+       a fhir:Quantity ;
+       fhir:value [ fhir:v "3"^^xsd:decimal ]
+     ]
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "time-in-low" ]
+       ] )
+     ] ;
+     fhir:value [
+       a fhir:Quantity ;
+       fhir:value [ fhir:v "8"^^xsd:decimal ]
+     ]
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "time-in-target" ]
+       ] [
+         a loinc:97510-2 ;
+         fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "97510-2" ]
+       ] )
+     ] ;
+     fhir:value [
+       a fhir:Quantity ;
+       fhir:value [ fhir:v "65"^^xsd:decimal ]
+     ]
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "time-in-high" ]
+       ] )
+     ] ;
+     fhir:value [
+       a fhir:Quantity ;
+       fhir:value [ fhir:v "20"^^xsd:decimal ]
+     ]
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "time-in-very-high" ]
+       ] )
+     ] ;
+     fhir:value [
+       a fhir:Quantity ;
+       fhir:value [ fhir:v "4"^^xsd:decimal ]
+     ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

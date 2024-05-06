@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="cgm"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This case-sensitive code system <code>http://argo.run/cgm/CodeSystem/cgm</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style="white-space:nowrap">cgm-data-submission-bundle<a name="cgm-cgm-data-submission-bundle"> </a></td><td>CGM Bundle</td></tr><tr><td style="white-space:nowrap">cgm-data-submission-standing-order<a name="cgm-cgm-data-submission-standing-order"> </a></td><td>CGM Submission Standing Order</td></tr></table></div>
+  </text>
+  <url value="http://argo.run/cgm/CodeSystem/cgm"/>
+  <version value="0.1.0"/>
+  <name value="CGMCodes"/>
+  <title value="Codes for CGM"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2024-05-06T14:02:14-05:00"/>
+  <publisher value="Argonaut"/>
+  <contact>
+    <name value="Argonaut"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://argo.run"/>
+    </telecom>
+  </contact>
+  <description value="Codes to identify content associated with this IG"/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+      <display value="United States of America"/>
+    </coding>
+  </jurisdiction>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <count value="2"/>
+  <concept>
+    <code value="cgm-data-submission-bundle"/>
+    <display value="CGM Bundle"/>
+  </concept>
+  <concept>
+    <code value="cgm-data-submission-standing-order"/>
+    <display value="CGM Submission Standing Order"/>
+  </concept>
+</CodeSystem>

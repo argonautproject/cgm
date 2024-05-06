@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="cgmSummaryExample"/>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="laboratory"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"/>
+      <code value="cgm-summary"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/patientExample"/>
+  </subject>
+  <effectivePeriod>
+    <start value="2024-05-01"/>
+    <end value="2024-05-31"/>
+  </effectivePeriod>
+  <hasMember>
+    <reference value="Observation/cgmSummaryMeanGlucoseMassExample"/>
+  </hasMember>
+  <hasMember>
+    <reference value="Observation/cgmSummaryMeanGlucoseMolarExample"/>
+  </hasMember>
+  <hasMember>
+    <reference value="Observation/cgmSummaryTimesInRangesExample"/>
+  </hasMember>
+  <hasMember>
+    <reference value="Observation/cgmSummaryGMIExample"/>
+  </hasMember>
+  <hasMember>
+    <reference value="Observation/cgmSummaryCoefficientOfVariationExample"/>
+  </hasMember>
+  <hasMember>
+    <reference value="Observation/cgmSummaryDaysOfWearExample"/>
+  </hasMember>
+  <hasMember>
+    <reference value="Observation/cgmSummarySensorActivePercentageExample"/>
+  </hasMember>
+</Observation>

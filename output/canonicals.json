@@ -1,0 +1,135 @@
+[
+  {
+    "id" : "cgm",
+    "type" : "CodeSystem",
+    "url" : "http://argo.run/cgm/CodeSystem/cgm",
+    "version" : "0.1.0",
+    "name" : "CGMCodes"
+  },
+  {
+    "id" : "cgm-summary-codes-temporary",
+    "type" : "CodeSystem",
+    "url" : "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary",
+    "version" : "0.1.0",
+    "name" : "CGMSummaryCodesTemporary"
+  },
+  {
+    "id" : "CGMSummaryToLoinc",
+    "type" : "ConceptMap",
+    "url" : "http://argo.run/cgm/ConceptMap/CGMSummaryToLoinc",
+    "version" : "0.1.0",
+    "name" : "CGMSummaryToLoinc"
+  },
+  {
+    "id" : "fhir.argocgm",
+    "type" : "ImplementationGuide",
+    "url" : "http://argo.run/cgm/ImplementationGuide/fhir.argocgm",
+    "version" : "0.1.0",
+    "name" : "ArgoCGM"
+  },
+  {
+    "id" : "cgm-data-submission-bundle",
+    "type" : "StructureDefinition",
+    "url" : "http://argo.run/cgm/StructureDefinition/cgm-data-submission-bundle",
+    "version" : "0.1.0",
+    "name" : "CGMDataSubmissionBundle"
+  },
+  {
+    "id" : "cgm-data-submission-standing-order",
+    "type" : "StructureDefinition",
+    "url" : "http://argo.run/cgm/StructureDefinition/cgm-data-submission-standing-order",
+    "version" : "0.1.0",
+    "name" : "CGMDataSubmissionStandingOrder"
+  },
+  {
+    "id" : "cgm-device",
+    "type" : "StructureDefinition",
+    "url" : "http://argo.run/cgm/StructureDefinition/cgm-device",
+    "version" : "0.1.0",
+    "name" : "CGMDevice"
+  },
+  {
+    "id" : "cgm-sensor-reading-mass",
+    "type" : "StructureDefinition",
+    "url" : "http://argo.run/cgm/StructureDefinition/cgm-sensor-reading-mass",
+    "version" : "0.1.0",
+    "name" : "CGMSensorReadingMass"
+  },
+  {
+    "id" : "cgm-sensor-reading-molar",
+    "type" : "StructureDefinition",
+    "url" : "http://argo.run/cgm/StructureDefinition/cgm-sensor-reading-molar",
+    "version" : "0.1.0",
+    "name" : "CGMSensorReadingMolar"
+  },
+  {
+    "id" : "cgm-summary",
+    "type" : "StructureDefinition",
+    "url" : "http://argo.run/cgm/StructureDefinition/cgm-summary",
+    "version" : "0.1.0",
+    "name" : "CGMSummaryObservation"
+  },
+  {
+    "id" : "cgm-summary-coefficient-of-variation",
+    "type" : "StructureDefinition",
+    "url" : "http://argo.run/cgm/StructureDefinition/cgm-summary-coefficient-of-variation",
+    "version" : "0.1.0",
+    "name" : "CGMSummaryCoefficientOfVariation"
+  },
+  {
+    "id" : "cgm-summary-days-of-wear",
+    "type" : "StructureDefinition",
+    "url" : "http://argo.run/cgm/StructureDefinition/cgm-summary-days-of-wear",
+    "version" : "0.1.0",
+    "name" : "CGMSummaryDaysOfWear"
+  },
+  {
+    "id" : "cgm-summary-gmi",
+    "type" : "StructureDefinition",
+    "url" : "http://argo.run/cgm/StructureDefinition/cgm-summary-gmi",
+    "version" : "0.1.0",
+    "name" : "CGMSummaryGMI"
+  },
+  {
+    "id" : "cgm-summary-mean-glucose-mass",
+    "type" : "StructureDefinition",
+    "url" : "http://argo.run/cgm/StructureDefinition/cgm-summary-mean-glucose-mass",
+    "version" : "0.1.0",
+    "name" : "CGMSummaryMeanGlucoseMass"
+  },
+  {
+    "id" : "cgm-summary-mean-glucose-molar",
+    "type" : "StructureDefinition",
+    "url" : "http://argo.run/cgm/StructureDefinition/cgm-summary-mean-glucose-molar",
+    "version" : "0.1.0",
+    "name" : "CGMSummaryMeanGlucoseMolar"
+  },
+  {
+    "id" : "cgm-summary-pdf",
+    "type" : "StructureDefinition",
+    "url" : "http://argo.run/cgm/StructureDefinition/cgm-summary-pdf",
+    "version" : "0.1.0",
+    "name" : "CGMSummaryPDF"
+  },
+  {
+    "id" : "cgm-summary-sensor-active-percentage",
+    "type" : "StructureDefinition",
+    "url" : "http://argo.run/cgm/StructureDefinition/cgm-summary-sensor-active-percentage",
+    "version" : "0.1.0",
+    "name" : "CGMSummarySensorActivePercentage"
+  },
+  {
+    "id" : "cgm-summary-times-in-ranges",
+    "type" : "StructureDefinition",
+    "url" : "http://argo.run/cgm/StructureDefinition/cgm-summary-times-in-ranges",
+    "version" : "0.1.0",
+    "name" : "CGMSummaryTimesInRanges"
+  },
+  {
+    "id" : "data-submission-schedule",
+    "type" : "StructureDefinition",
+    "url" : "http://argo.run/cgm/StructureDefinition/data-submission-schedule",
+    "version" : "0.1.0",
+    "name" : "DataSubmissionSchedule"
+  }
+]

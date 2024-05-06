@@ -1,0 +1,83 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "cgm-summary-codes-temporary"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This case-sensitive code system <code>http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">cgm-summary<a name=\"cgm-summary-codes-temporary-cgm-summary\"> </a></td><td>CGM Summary</td></tr><tr><td style=\"white-space:nowrap\">mean-glucose-mass<a name=\"cgm-summary-codes-temporary-mean-glucose-mass\"> </a></td><td>Mean Glucose (Mass per Volume)</td></tr><tr><td style=\"white-space:nowrap\">mean-glucose-molar<a name=\"cgm-summary-codes-temporary-mean-glucose-molar\"> </a></td><td>Mean Glucose (Moles per Volume)</td></tr><tr><td style=\"white-space:nowrap\">times-in-ranges<a name=\"cgm-summary-codes-temporary-times-in-ranges\"> </a></td><td>Times in Glucose Ranges</td></tr><tr><td style=\"white-space:nowrap\">time-in-very-low<a name=\"cgm-summary-codes-temporary-time-in-very-low\"> </a></td><td>Time in Very Low Range (%)</td></tr><tr><td style=\"white-space:nowrap\">time-in-low<a name=\"cgm-summary-codes-temporary-time-in-low\"> </a></td><td>Time in Low Range (%)</td></tr><tr><td style=\"white-space:nowrap\">time-in-target<a name=\"cgm-summary-codes-temporary-time-in-target\"> </a></td><td>Time in Target Range (%)</td></tr><tr><td style=\"white-space:nowrap\">time-in-high<a name=\"cgm-summary-codes-temporary-time-in-high\"> </a></td><td>Time in High Range (%)</td></tr><tr><td style=\"white-space:nowrap\">time-in-very-high<a name=\"cgm-summary-codes-temporary-time-in-very-high\"> </a></td><td>Time in Very High Range (%)</td></tr><tr><td style=\"white-space:nowrap\">gmi<a name=\"cgm-summary-codes-temporary-gmi\"> </a></td><td>Glucose Management Indicator (GMI)</td></tr><tr><td style=\"white-space:nowrap\">cv<a name=\"cgm-summary-codes-temporary-cv\"> </a></td><td>Coefficient of Variation (CV)</td></tr><tr><td style=\"white-space:nowrap\">days-of-wear<a name=\"cgm-summary-codes-temporary-days-of-wear\"> </a></td><td>Days of Wear</td></tr><tr><td style=\"white-space:nowrap\">sensor-active-percentage<a name=\"cgm-summary-codes-temporary-sensor-active-percentage\"> </a></td><td>Sensor Active Percentage</td></tr></table></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "CGMSummaryCodesTemporary"] ; # 
+  fhir:title [ fhir:v "CGM Summary Code System"] ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:experimental [ fhir:v "false"^^xsd:boolean] ; # 
+  fhir:date [ fhir:v "2024-05-06T14:02:14-05:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "Argonaut"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Argonaut" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://argo.run" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Temporary code system for CGM summary observations."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "US" ] ;
+       fhir:display [ fhir:v "United States of America" ]
+     ] )
+  ] ) ; # 
+  fhir:caseSensitive [ fhir:v "true"^^xsd:boolean] ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "13"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "cgm-summary" ] ;
+     fhir:display [ fhir:v "CGM Summary" ]
+  ] [
+     fhir:code [ fhir:v "mean-glucose-mass" ] ;
+     fhir:display [ fhir:v "Mean Glucose (Mass per Volume)" ]
+  ] [
+     fhir:code [ fhir:v "mean-glucose-molar" ] ;
+     fhir:display [ fhir:v "Mean Glucose (Moles per Volume)" ]
+  ] [
+     fhir:code [ fhir:v "times-in-ranges" ] ;
+     fhir:display [ fhir:v "Times in Glucose Ranges" ]
+  ] [
+     fhir:code [ fhir:v "time-in-very-low" ] ;
+     fhir:display [ fhir:v "Time in Very Low Range (%)" ]
+  ] [
+     fhir:code [ fhir:v "time-in-low" ] ;
+     fhir:display [ fhir:v "Time in Low Range (%)" ]
+  ] [
+     fhir:code [ fhir:v "time-in-target" ] ;
+     fhir:display [ fhir:v "Time in Target Range (%)" ]
+  ] [
+     fhir:code [ fhir:v "time-in-high" ] ;
+     fhir:display [ fhir:v "Time in High Range (%)" ]
+  ] [
+     fhir:code [ fhir:v "time-in-very-high" ] ;
+     fhir:display [ fhir:v "Time in Very High Range (%)" ]
+  ] [
+     fhir:code [ fhir:v "gmi" ] ;
+     fhir:display [ fhir:v "Glucose Management Indicator (GMI)" ]
+  ] [
+     fhir:code [ fhir:v "cv" ] ;
+     fhir:display [ fhir:v "Coefficient of Variation (CV)" ]
+  ] [
+     fhir:code [ fhir:v "days-of-wear" ] ;
+     fhir:display [ fhir:v "Days of Wear" ]
+  ] [
+     fhir:code [ fhir:v "sensor-active-percentage" ] ;
+     fhir:display [ fhir:v "Sensor Active Percentage" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

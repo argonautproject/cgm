@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Patient xmlns="http://hl7.org/fhir">
+  <id value="patientExample"/>
+  <identifier>
+    <use value="official"/>
+    <system value="http://example.org"/>
+    <value value="ee8d4ac0-545c-4501-8d7e-646bfbda1db5"/>
+  </identifier>
+  <name>
+    <family value="Peters"/>
+    <given value="Amy"/>
+  </name>
+  <gender value="female"/>
+  <birthDate value="1964-06-20"/>
+</Patient>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>CGM Data Submission Bundle Example - Argo CGM Write v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+
+    <style type="text/css">h2{--heading-prefix:"2.19"}
+    h3,h4,h5,h6{--heading-prefix:"2.19"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Argo CGM Write</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - ci-build
+
+
+
+  <img alt="United States of America flag" src="assets/images/usa.svg" height="16" title="United States of America"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Specification</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artifacts</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><a href='artifacts.html'><b>Artifacts Summary</b></a></li><li><b>CGM Data Submission Bundle Example</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Argo CGM Write - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href="http://argo.run/cgm/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
+
+  
+
+
+
+
+
+
+
+
+<ul class="nav nav-tabs">
+
+  <li class="active">
+    <a href="#">Narrative Content</a>
+  </li>
+
+
+
+  
+    <li>
+      <a href="Bundle-cgmDataSubmissionBundle.xml.html">XML</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="Bundle-cgmDataSubmissionBundle.json.html">JSON</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="Bundle-cgmDataSubmissionBundle.ttl.html">TTL</a>
+    </li>
+  
+
+
+
+</ul>
+
+
+  <a name="root"> </a>
+
+
+  <h2 id="root">Example Bundle: CGM Data Submission Bundle Example</h2>
+
+
+
+
+  <!-- insert intro if present -->
+  
+
+
+
+  <div><p>Bundle cgmDataSubmissionBundle of type batch</p><a name="https-//example.org/DiagnosticReport/cgmSummaryPDFExample"> </a><a name="DiagnosticReport_cgmSummaryPDFExample"> </a><a name="hcDiagnosticReport_cgmSummaryPDFExample"> </a><hr/><p>Entry 1 - fullUrl = https://example.org/DiagnosticReport/cgmSummaryPDFExample</p><p>Request:</p><pre>POST DiagnosticReport
+</pre><p>Resource DiagnosticReport:</p><blockquote><p><h2><span title="Codes: {http://argo.run/cgm/CodeSystem/cgm-summary-codes-temporary cgm-summary}">CGM Summary</span> (<span title="Codes: {http://terminology.hl7.org/CodeSystem/v2-0074 LAB}">Laboratory</span>) </h2><table class="grid"><tr><td>Subject</td><td><b>Amy Peters </b> Female, DoB: 1964-06-20 ( <code>http://example.org</code>/ee8d4ac0-545c-4501-8d7e-646bfbda1db5 (use: official))</td></tr><tr><td>When For</td><td>2024-05-01 --&gt; 2024-05-14</td></tr><tr><td>Reported</td><td>2024-05-15 14:30:00+0000</td></tr></table><p><b>Report Details</b></p></p></blockquote><a name="https-//example.org/Observation/cgmSummaryExample"> </a><a name="Observation_cgmSummaryExample"> </a><a name="hcObservation_cgmSummaryExample"> </a><hr/><p>Entry 2 - fullUrl = https://example.org/Observation/cgmSummaryExample</p><p>Request:</p><pre>POST Observation
+</pre><p>Resource Observation:</p><blockquote><p><p><b>Generated Narrative: Observation</b><a name="cgmSummaryExample"> </a><a name="hccgmSummaryExample"> </a></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource Observation &quot;cgmSummaryExample&quot; </p></div><p><b>status</b>: FINAL</p><p><b>category</b>: Laboratory <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: CGM Summary <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="CodeSystem-cgm-summary-codes-temporary.html">CGM Summary Code System</a>#cgm-summary)</span></p><p><b>subject</b>: <a href="Patient-patientExample.html">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-01 --&gt; 2024-05-31</p><p><b>hasMember</b>: </p><ul><li><a href="#hcObservation_cgmSummaryMeanGlucoseMassExample">See on this page: Observation/cgmSummaryMeanGlucoseMassExample</a></li><li><a href="Observation-cgmSummaryMeanGlucoseMolarExample.html">Observation/cgmSummaryMeanGlucoseMolarExample</a></li><li><a href="#hcObservation_cgmSummaryTimesInRangesExample">See on this page: Observation/cgmSummaryTimesInRangesExample</a></li><li><a href="#hcObservation_cgmSummaryGMIExample">See on this page: Observation/cgmSummaryGMIExample</a></li><li><a href="#hcObservation_cgmSummaryCoefficientOfVariationExample">See on this page: Observation/cgmSummaryCoefficientOfVariationExample</a></li><li><a href="#hcObservation_cgmSummaryDaysOfWearExample">See on this page: Observation/cgmSummaryDaysOfWearExample</a></li><li><a href="#hcObservation_cgmSummarySensorActivePercentageExample">See on this page: Observation/cgmSummarySensorActivePercentageExample</a></li></ul></p></blockquote><a name="https-//example.org/Observation/cgmSummaryMeanGlucoseMassExample"> </a><a name="Observation_cgmSummaryMeanGlucoseMassExample"> </a><a name="hcObservation_cgmSummaryMeanGlucoseMassExample"> </a><hr/><p>Entry 3 - fullUrl = https://example.org/Observation/cgmSummaryMeanGlucoseMassExample</p><p>Request:</p><pre>POST Observation
+</pre><p>Resource Observation:</p><blockquote><p><p><b>Generated Narrative: Observation</b><a name="cgmSummaryMeanGlucoseMassExample"> </a><a name="hccgmSummaryMeanGlucoseMassExample"> </a></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource Observation &quot;cgmSummaryMeanGlucoseMassExample&quot; </p></div><p><b>status</b>: FINAL</p><p><b>category</b>: Laboratory <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: Mean Glucose (Mass per Volume) <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="CodeSystem-cgm-summary-codes-temporary.html">CGM Summary Code System</a>#mean-glucose-mass; <a href="https://loinc.org/">LOINC</a>#97507-8)</span></p><p><b>subject</b>: <a href="Patient-patientExample.html">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-01 --&gt; 2024-05-31</p><p><b>value</b>: 145</p></p></blockquote><a name="https-//example.org/Observation/cgmSummaryTimesInRangesExample"> </a><a name="Observation_cgmSummaryTimesInRangesExample"> </a><a name="hcObservation_cgmSummaryTimesInRangesExample"> </a><hr/><p>Entry 4 - fullUrl = https://example.org/Observation/cgmSummaryTimesInRangesExample</p><p>Request:</p><pre>POST Observation
+</pre><p>Resource Observation:</p><blockquote><p><p><b>Generated Narrative: Observation</b><a name="cgmSummaryTimesInRangesExample"> </a><a name="hccgmSummaryTimesInRangesExample"> </a></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource Observation &quot;cgmSummaryTimesInRangesExample&quot; </p></div><p><b>status</b>: FINAL</p><p><b>category</b>: Laboratory <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: Times in Glucose Ranges <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="CodeSystem-cgm-summary-codes-temporary.html">CGM Summary Code System</a>#times-in-ranges)</span></p><p><b>subject</b>: <a href="Patient-patientExample.html">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-01 --&gt; 2024-05-31</p><blockquote><p><b>component</b></p><p><b>code</b>: Time in Very Low Range (%) <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="CodeSystem-cgm-summary-codes-temporary.html">CGM Summary Code System</a>#time-in-very-low)</span></p><p><b>value</b>: 3</p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: Time in Low Range (%) <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="CodeSystem-cgm-summary-codes-temporary.html">CGM Summary Code System</a>#time-in-low)</span></p><p><b>value</b>: 8</p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: Time in Target Range (%) <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="CodeSystem-cgm-summary-codes-temporary.html">CGM Summary Code System</a>#time-in-target; <a href="https://loinc.org/">LOINC</a>#97510-2)</span></p><p><b>value</b>: 65</p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: Time in High Range (%) <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="CodeSystem-cgm-summary-codes-temporary.html">CGM Summary Code System</a>#time-in-high)</span></p><p><b>value</b>: 20</p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: Time in Very High Range (%) <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="CodeSystem-cgm-summary-codes-temporary.html">CGM Summary Code System</a>#time-in-very-high)</span></p><p><b>value</b>: 4</p></blockquote></p></blockquote><a name="https-//example.org/Observation/cgmSummaryGMIExample"> </a><a name="Observation_cgmSummaryGMIExample"> </a><a name="hcObservation_cgmSummaryGMIExample"> </a><hr/><p>Entry 5 - fullUrl = https://example.org/Observation/cgmSummaryGMIExample</p><p>Request:</p><pre>POST Observation
+</pre><p>Resource Observation:</p><blockquote><p><p><b>Generated Narrative: Observation</b><a name="cgmSummaryGMIExample"> </a><a name="hccgmSummaryGMIExample"> </a></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource Observation &quot;cgmSummaryGMIExample&quot; </p></div><p><b>status</b>: FINAL</p><p><b>category</b>: Laboratory <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: Glucose Management Indicator (GMI) <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="CodeSystem-cgm-summary-codes-temporary.html">CGM Summary Code System</a>#gmi; <a href="https://loinc.org/">LOINC</a>#97506-0)</span></p><p><b>subject</b>: <a href="Patient-patientExample.html">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-01 --&gt; 2024-05-31</p><p><b>value</b>: 6.8</p></p></blockquote><a name="https-//example.org/Observation/cgmSummaryCoefficientOfVariationExample"> </a><a name="Observation_cgmSummaryCoefficientOfVariationExample"> </a><a name="hcObservation_cgmSummaryCoefficientOfVariationExample"> </a><hr/><p>Entry 6 - fullUrl = https://example.org/Observation/cgmSummaryCoefficientOfVariationExample</p><p>Request:</p><pre>POST Observation
+</pre><p>Resource Observation:</p><blockquote><p><p><b>Generated Narrative: Observation</b><a name="cgmSummaryCoefficientOfVariationExample"> </a><a name="hccgmSummaryCoefficientOfVariationExample"> </a></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource Observation &quot;cgmSummaryCoefficientOfVariationExample&quot; </p></div><p><b>status</b>: FINAL</p><p><b>category</b>: Laboratory <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: Coefficient of Variation (CV) <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="CodeSystem-cgm-summary-codes-temporary.html">CGM Summary Code System</a>#cv)</span></p><p><b>subject</b>: <a href="Patient-patientExample.html">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-01 --&gt; 2024-05-31</p><p><b>value</b>: 34</p></p></blockquote><a name="https-//example.org/Observation/cgmSummaryDaysOfWearExample"> </a><a name="Observation_cgmSummaryDaysOfWearExample"> </a><a name="hcObservation_cgmSummaryDaysOfWearExample"> </a><hr/><p>Entry 7 - fullUrl = https://example.org/Observation/cgmSummaryDaysOfWearExample</p><p>Request:</p><pre>POST Observation
+</pre><p>Resource Observation:</p><blockquote><p><p><b>Generated Narrative: Observation</b><a name="cgmSummaryDaysOfWearExample"> </a><a name="hccgmSummaryDaysOfWearExample"> </a></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource Observation &quot;cgmSummaryDaysOfWearExample&quot; </p></div><p><b>status</b>: FINAL</p><p><b>category</b>: Laboratory <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: Days of Wear <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="CodeSystem-cgm-summary-codes-temporary.html">CGM Summary Code System</a>#days-of-wear)</span></p><p><b>subject</b>: <a href="Patient-patientExample.html">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-01 --&gt; 2024-05-31</p><p><b>value</b>: 28</p></p></blockquote><a name="https-//example.org/Observation/cgmSummarySensorActivePercentageExample"> </a><a name="Observation_cgmSummarySensorActivePercentageExample"> </a><a name="hcObservation_cgmSummarySensorActivePercentageExample"> </a><hr/><p>Entry 8 - fullUrl = https://example.org/Observation/cgmSummarySensorActivePercentageExample</p><p>Request:</p><pre>POST Observation
+</pre><p>Resource Observation:</p><blockquote><p><p><b>Generated Narrative: Observation</b><a name="cgmSummarySensorActivePercentageExample"> </a><a name="hccgmSummarySensorActivePercentageExample"> </a></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource Observation &quot;cgmSummarySensorActivePercentageExample&quot; </p></div><p><b>status</b>: FINAL</p><p><b>category</b>: Laboratory <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: Sensor Active Percentage <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="CodeSystem-cgm-summary-codes-temporary.html">CGM Summary Code System</a>#sensor-active-percentage)</span></p><p><b>subject</b>: <a href="Patient-patientExample.html">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-01 --&gt; 2024-05-31</p><p><b>value</b>: 95</p></p></blockquote><a name="https-//example.org/Observation/cgmSensorReadingMassExample"> </a><a name="Observation_cgmSensorReadingMassExample"> </a><a name="hcObservation_cgmSensorReadingMassExample"> </a><hr/><p>Entry 9 - fullUrl = https://example.org/Observation/cgmSensorReadingMassExample</p><p>Request:</p><pre>POST Observation
+</pre><p>Resource Observation:</p><blockquote><p><p><b>Generated Narrative: Observation</b><a name="cgmSensorReadingMassExample"> </a><a name="hccgmSensorReadingMassExample"> </a></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource Observation &quot;cgmSensorReadingMassExample&quot; </p></div><p><b>status</b>: FINAL</p><p><b>category</b>: Laboratory <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="http://terminology.hl7.org/5.5.0/CodeSystem-observation-category.html">Observation Category Codes</a>#laboratory)</span></p><p><b>code</b>: Glucose Interstitial fld-mCnc <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="https://loinc.org/">LOINC</a>#99504-3)</span></p><p><b>subject</b>: <a href="Patient-patientExample.html">Patient/patientExample</a> &quot; PETERS&quot;</p><p><b>effective</b>: 2024-05-02 10:15:00+0000</p><p><b>value</b>: 120</p></p></blockquote></div>
+
+  
+
+  <!-- insert notes if present -->
+  
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="http://argo.run">Argonaut</a>.  Package fhir.argocgm#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, May 6, 2024 14:02-0500">2024-05-06</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+  
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+
