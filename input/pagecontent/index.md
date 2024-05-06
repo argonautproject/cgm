@@ -188,16 +188,8 @@ WHERE
   r.json->>'$.url' LIKE '%temporary'
 %}
 
-{% assign mappedCodes = 0 %}
-{% assign unmappedCodes = 0 %}
-
-{% for row in mappingCodes %}
-  {% if row["LOINC Code"] == "No LOINC Available" %}
-    {% assign unmappedCodes = unmappedCodes | plus: 1 %}
-  {% else %}
-    {% assign mappedCodes = mappedCodes | plus: 1 %}
-  {% endif %}
-{% endfor %}
+{% assign unmappedCodes = mappingCodes | where: "LOINC Code", "No LOINC Available" | size %}
+{% assign mappedCodes = mappingCodes.size | minus: unmappedCodes %}
 
 ##### Mapping Overview
 

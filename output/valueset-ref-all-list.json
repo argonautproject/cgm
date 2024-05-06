@@ -13,16 +13,16 @@
       "uses" : {
       },
       "StructureDefinition-cgm-data-submission-standing-order.html" : "Data Submission Standing Order",
-      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)",
-      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
-      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
       "StructureDefinition-cgm-sensor-reading-molar.html" : "CGM Sensor Reading (Molar)",
-      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
-      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
       "StructureDefinition-cgm-summary.html" : "CGM Summary Observation",
-      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)",
       "StructureDefinition-cgm-summary-sensor-active-percentage.html" : "Sensor Active Percentage",
-      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)"
+      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
+      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
+      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
+      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
+      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)"
     },
     {
       "url" : "http://hl7.org/fhir/ValueSet/bundle-type",
@@ -78,16 +78,16 @@
       "sources" : ["2.16.840.1.113883.4.642.3.5"],
       "uses" : {
       },
-      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)",
-      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
-      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
       "StructureDefinition-cgm-sensor-reading-molar.html" : "CGM Sensor Reading (Molar)",
-      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
-      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
       "StructureDefinition-cgm-summary.html" : "CGM Summary Observation",
-      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)",
       "StructureDefinition-cgm-summary-sensor-active-percentage.html" : "Sensor Active Percentage",
-      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)"
+      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
+      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
+      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
+      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
+      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)"
     },
     {
       "url" : "http://hl7.org/fhir/ValueSet/days-of-week",
@@ -230,20 +230,20 @@
       "sources" : ["2.16.840.1.113883.4.642.3.20"],
       "uses" : {
       },
-      "StructureDefinition-cgm-data-submission-bundle.html" : "CGM Data Submission Bundle",
       "StructureDefinition-cgm-data-submission-standing-order.html" : "Data Submission Standing Order",
-      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)",
-      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
-      "StructureDefinition-cgm-summary.html" : "CGM Summary Observation",
-      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
       "StructureDefinition-cgm-device.html" : "CGM Device",
-      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)",
-      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
-      "StructureDefinition-cgm-summary-pdf.html" : "CGM Summary PDF Report",
-      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
       "StructureDefinition-cgm-sensor-reading-molar.html" : "CGM Sensor Reading (Molar)",
+      "StructureDefinition-cgm-summary-sensor-active-percentage.html" : "Sensor Active Percentage",
+      "StructureDefinition-cgm-summary-pdf.html" : "CGM Summary PDF Report",
+      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
       "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
-      "StructureDefinition-cgm-summary-sensor-active-percentage.html" : "Sensor Active Percentage"
+      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)",
+      "StructureDefinition-cgm-summary.html" : "CGM Summary Observation",
+      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)",
+      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
+      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
+      "StructureDefinition-cgm-data-submission-bundle.html" : "CGM Data Submission Bundle",
+      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)"
     },
     {
       "url" : "http://hl7.org/fhir/ValueSet/medication-as-needed-reason",
@@ -285,16 +285,16 @@
       "sources" : ["2.16.840.1.113883.4.642.3.403"],
       "uses" : {
       },
-      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)",
-      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
-      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
       "StructureDefinition-cgm-sensor-reading-molar.html" : "CGM Sensor Reading (Molar)",
-      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
-      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
       "StructureDefinition-cgm-summary.html" : "CGM Summary Observation",
-      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)",
       "StructureDefinition-cgm-summary-sensor-active-percentage.html" : "Sensor Active Percentage",
-      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)"
+      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
+      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
+      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
+      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
+      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)"
     },
     {
       "url" : "http://hl7.org/fhir/ValueSet/observation-codes",
@@ -308,16 +308,16 @@
       "sources" : ["2.16.840.1.113883.4.642.3.396"],
       "uses" : {
       },
-      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)",
-      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
-      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
       "StructureDefinition-cgm-sensor-reading-molar.html" : "CGM Sensor Reading (Molar)",
-      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
-      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
       "StructureDefinition-cgm-summary.html" : "CGM Summary Observation",
-      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)",
       "StructureDefinition-cgm-summary-sensor-active-percentage.html" : "Sensor Active Percentage",
-      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)"
+      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
+      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
+      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
+      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
+      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)"
     },
     {
       "url" : "http://hl7.org/fhir/ValueSet/observation-interpretation",
@@ -333,16 +333,16 @@
       "sources" : ["2.16.840.1.113883.4.642.3.399"],
       "uses" : {
       },
-      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)",
-      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
-      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
       "StructureDefinition-cgm-sensor-reading-molar.html" : "CGM Sensor Reading (Molar)",
-      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
-      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
       "StructureDefinition-cgm-summary.html" : "CGM Summary Observation",
-      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)",
       "StructureDefinition-cgm-summary-sensor-active-percentage.html" : "Sensor Active Percentage",
-      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)"
+      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
+      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
+      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
+      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
+      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)"
     },
     {
       "url" : "http://hl7.org/fhir/ValueSet/observation-methods",
@@ -356,16 +356,16 @@
       "sources" : ["2.16.840.1.113883.4.642.3.395"],
       "uses" : {
       },
-      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)",
-      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
-      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
       "StructureDefinition-cgm-sensor-reading-molar.html" : "CGM Sensor Reading (Molar)",
-      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
-      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
       "StructureDefinition-cgm-summary.html" : "CGM Summary Observation",
-      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)",
       "StructureDefinition-cgm-summary-sensor-active-percentage.html" : "Sensor Active Percentage",
-      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)"
+      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
+      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
+      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
+      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
+      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)"
     },
     {
       "url" : "http://hl7.org/fhir/ValueSet/observation-status",
@@ -379,16 +379,16 @@
       "sources" : ["2.16.840.1.113883.4.642.3.400"],
       "uses" : {
       },
-      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)",
-      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
-      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
       "StructureDefinition-cgm-sensor-reading-molar.html" : "CGM Sensor Reading (Molar)",
-      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
-      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
       "StructureDefinition-cgm-summary.html" : "CGM Summary Observation",
-      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)",
       "StructureDefinition-cgm-summary-sensor-active-percentage.html" : "Sensor Active Percentage",
-      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)"
+      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
+      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
+      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
+      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
+      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)"
     },
     {
       "url" : "http://hl7.org/fhir/ValueSet/participant-role",
@@ -416,15 +416,15 @@
       "sources" : ["2.16.840.1.113883.4.642.3.59"],
       "uses" : {
       },
-      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)",
-      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
-      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
       "StructureDefinition-cgm-sensor-reading-molar.html" : "CGM Sensor Reading (Molar)",
-      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
-      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
-      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)",
       "StructureDefinition-cgm-summary-sensor-active-percentage.html" : "Sensor Active Percentage",
-      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)"
+      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
+      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
+      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
+      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
+      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)"
     },
     {
       "url" : "http://hl7.org/fhir/ValueSet/referencerange-appliesto",
@@ -441,16 +441,16 @@
       "sources" : ["2.16.840.1.113883.4.642.3.407"],
       "uses" : {
       },
-      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)",
-      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
-      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
       "StructureDefinition-cgm-sensor-reading-molar.html" : "CGM Sensor Reading (Molar)",
-      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
-      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
       "StructureDefinition-cgm-summary.html" : "CGM Summary Observation",
-      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)",
       "StructureDefinition-cgm-summary-sensor-active-percentage.html" : "Sensor Active Percentage",
-      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)"
+      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
+      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
+      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
+      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
+      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)"
     },
     {
       "url" : "http://hl7.org/fhir/ValueSet/referencerange-meaning",
@@ -466,16 +466,16 @@
       "sources" : ["2.16.840.1.113883.4.642.3.397"],
       "uses" : {
       },
-      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)",
-      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
-      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
       "StructureDefinition-cgm-sensor-reading-molar.html" : "CGM Sensor Reading (Molar)",
-      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
-      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
       "StructureDefinition-cgm-summary.html" : "CGM Summary Observation",
-      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)",
       "StructureDefinition-cgm-summary-sensor-active-percentage.html" : "Sensor Active Percentage",
-      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)"
+      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
+      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
+      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
+      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
+      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)"
     },
     {
       "url" : "http://hl7.org/fhir/ValueSet/request-intent",
@@ -633,16 +633,16 @@
       "systems" : ["http://terminology.hl7.org/CodeSystem/observation-category"],
       "uses" : {
       },
-      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)",
-      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
-      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
       "StructureDefinition-cgm-sensor-reading-molar.html" : "CGM Sensor Reading (Molar)",
-      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
-      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
       "StructureDefinition-cgm-summary.html" : "CGM Summary Observation",
-      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)",
       "StructureDefinition-cgm-summary-sensor-active-percentage.html" : "Sensor Active Percentage",
-      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)"
+      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
+      "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
+      "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
+      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
+      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
+      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)"
     },
     {
       "url" : "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code",
@@ -670,17 +670,17 @@
       "systems" : ["http://loinc.org"],
       "uses" : {
       },
-      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)",
-      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
+      "StructureDefinition-cgm-sensor-reading-molar.html" : "CGM Sensor Reading (Molar)",
+      "StructureDefinition-cgm-summary.html" : "CGM Summary Observation",
+      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)",
+      "StructureDefinition-cgm-summary-sensor-active-percentage.html" : "Sensor Active Percentage",
+      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
       "StructureDefinition-cgm-summary-pdf.html" : "CGM Summary PDF Report",
       "StructureDefinition-cgm-summary-times-in-ranges.html" : "CGM Summary Times in Ranges",
-      "StructureDefinition-cgm-sensor-reading-molar.html" : "CGM Sensor Reading (Molar)",
-      "StructureDefinition-cgm-summary-mean-glucose-molar.html" : "Mean Glucose (Molar)",
-      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
-      "StructureDefinition-cgm-summary.html" : "CGM Summary Observation",
       "StructureDefinition-cgm-summary-days-of-wear.html" : "Days of Wear",
-      "StructureDefinition-cgm-summary-sensor-active-percentage.html" : "Sensor Active Percentage",
-      "StructureDefinition-cgm-summary-mean-glucose-mass.html" : "Mean Glucose (Mass)"
+      "StructureDefinition-cgm-summary-gmi.html" : "Glucose Management Indicator (GMI)",
+      "StructureDefinition-cgm-summary-coefficient-of-variation.html" : "Coefficient of Variation (CV)",
+      "StructureDefinition-cgm-sensor-reading-mass.html" : "CGM Sensor Reading (Mass)"
     },
     {
       "url" : "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code",

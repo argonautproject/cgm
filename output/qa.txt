@@ -3,7 +3,7 @@ ArgoCGM : Validation Results
 
 err = 0, warn = 2, info = 0
 IG Publisher Version: 1.6.7-SNAPSHOT Out of date - current version is 1.6.6
-Generated Mon May 06 14:03:29 CDT 2024. FHIR version 4.0.1 for fhir.argocgm#0.1.0 (canonical = http://argo.run/cgm)
+Generated Mon May 06 15:50:56 CDT 2024. FHIR version 4.0.1 for fhir.argocgm#0.1.0 (canonical = http://argo.run/cgm)
  Build Errors : 0 / 0 / 0
  /home/jmandel/work/ArgoCGM/fsh-generated/resources/Bundle-cgmDataSubmissionBundle : 0 / 16 / 27
  /home/jmandel/work/ArgoCGM/fsh-generated/resources/CodeSystem-cgm : 0 / 0 / 1
