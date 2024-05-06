@@ -165,6 +165,14 @@ By defining a tightly-orchestrated Data Submission API as well as a more loosely
 
 ### Note on LOINC Codes
 
+This IG aims to use LOINC codes for all Observations and DiagnosticReports. However, LOINC does not currently define codes for all required concepts.  We have therefore established the following approach:
+
+* **Temporary CodeSystem:** [CodeSystem/cgm-summary-codes-temporary](CodeSystem-cgm-summary-codes-temporary.html) represents all 14 concepts used by our resources.  Resource instances include these temporary codes + (whenever possible) equivalent LOINC codes.
+* **ConceptMap:** [ConceptMap/CGMSummaryToLoinc](ConceptMap-CGMSummaryToLoinc.html) provides mappings between the temporary CodeSystem and existing LOINC codes (for the 3 concepts with available codes).
+* **Deprecation Planning:** We will deprecate this CodeSystem when LOINC support exists for the required concepts.
+
+#### Overview of LOINC Mappings
+
 {% sql SELECT
     c.code as "Temporary Code",
     CASE
@@ -178,11 +186,4 @@ FROM
 WHERE
     r.json->>'$.url' LIKE '%temporary'
 %}
-
-This IG aims to use LOINC codes for all Observations and DiagnosticReports. However, LOINC does not currently define codes for all required concepts.  We have therefore established the following approach:
-
-* **Temporary CodeSystem:** [CodeSystem/cgm-summary-codes-temporary](CodeSystem-cgm-summary-codes-temporary.html) represents all 14 concepts used by our resources.  Resource instances include these temporary codes + (whenever possible) equivalent LOINC codes.
-* **ConceptMap:** [ConceptMap/CGMSummaryToLoinc](ConceptMap-CGMSummaryToLoinc.html) provides mappings between the temporary CodeSystem and existing LOINC codes (for the 3 concepts with available codes).
-* **Deprecation Planning:** We will deprecate this CodeSystem when LOINC support exists for the required concepts.
-
 
