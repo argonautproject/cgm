@@ -165,11 +165,24 @@ By defining a tightly-orchestrated Data Submission API as well as a more loosely
 
 ### Note on LOINC Codes
 
+{% sql SELECT
+    c.code as "Temporary Code",
+    CASE
+        WHEN cm.TargetCode IS NOT NULL THEN cm.TargetCode
+        ELSE 'No LOINC Available'
+    END as "LOINC Code"
+FROM
+    Concepts c
+    JOIN Resources r ON c.ResourceKey = r.key
+    LEFT JOIN ConceptMappings cm ON c.code = cm.SourceCode AND cm.SourceSystem LIKE '%cgm-summary-codes-temporary'
+WHERE
+    r.json->>'$.url' LIKE '%temporary'
+%}
+
 This IG aims to use LOINC codes for all Observations and DiagnosticReports. However, LOINC does not currently define codes for all required concepts.  We have therefore established the following approach:
 
 * **Temporary CodeSystem:** [CodeSystem/cgm-summary-codes-temporary](CodeSystem-cgm-summary-codes-temporary.html) represents all 14 concepts used by our resources.  Resource instances include these temporary codes + (whenever possible) equivalent LOINC codes.
 * **ConceptMap:** [ConceptMap/CGMSummaryToLoinc](ConceptMap-CGMSummaryToLoinc.html) provides mappings between the temporary CodeSystem and existing LOINC codes (for the 3 concepts with available codes).
 * **Deprecation Planning:** We will deprecate this CodeSystem when LOINC support exists for the required concepts.
 
-{% sql select Name, Value from Metadata %}
 
