@@ -170,3 +170,6 @@ This IG aims to use LOINC codes for all Observations and DiagnosticReports. Howe
 * **Temporary CodeSystem:** [CodeSystem/cgm-summary-codes-temporary](CodeSystem-cgm-summary-codes-temporary.html) represents all 14 concepts used by our resources.  Resource instances include these temporary codes + (whenever possible) equivalent LOINC codes.
 * **ConceptMap:** [ConceptMap/CGMSummaryToLoinc](ConceptMap-CGMSummaryToLoinc.html) provides mappings between the temporary CodeSystem and existing LOINC codes (for the 3 concepts with available codes).
 * **Deprecation Planning:** We will deprecate this CodeSystem when LOINC support exists for the required concepts.
+
+{% sql select Name, Value from Metadata %}
+
