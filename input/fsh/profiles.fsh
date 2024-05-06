@@ -182,7 +182,7 @@ RuleSet: QuantityPercent
 * valueQuantity 1..1
   * unit = "%" (exactly)
     * ^short = "Percentage unit"
-  * code = #d (exactly)
+  * code = #"%" (exactly)
     * ^short = "Dimensionless UCUM code"
   * system = $UCUM (exactly)
     * ^short = "UCUM code system"
