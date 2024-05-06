@@ -52,7 +52,8 @@ dependencies:
 # http://build.fhir.org/ig/FHIR/fhir-tools-ig/branches/master/CodeSystem-ig-parameters.html
 #
 parameters:
-  no-narrative: "*/*"
+  no-narrative: ["Observation/*", "DiagnosticReport/*", "Device/*", "Patient/*"]
+  path-data: "input/_data"
 #
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │ The menu property will be used to generate the input/menu.xml file. The menu is represented    │
