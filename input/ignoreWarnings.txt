@@ -12,3 +12,4 @@ WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in 
 %narrative for robust management%
 %all observations should have a performer%
 %http://hl7.org/fhir/1.0/StructureDefinition/extension-ConceptMap.element.target.equivalence%
+%not validated for performance reasons%

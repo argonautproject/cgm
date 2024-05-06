@@ -294,8 +294,9 @@ Description: "Temporary code system for CGM summary observations."
 Instance: CGMSummaryToLoinc
 InstanceOf: ConceptMap
 Usage: #definition
-Title: "Mapping from CGM Summary to LOINC"
+Title: "Mapping from CGM Temporary Codes to LOINC"
 Description: "Mapping concepts from the CGM Summary code system to LOINC codes."
+* name  = "CGMSummaryToLoinc"
 * status = #draft
 * group[+].source = Canonical(CGMSummaryCodesTemporary)
 * group[=].target = $LNC
