@@ -15,26 +15,18 @@ InstanceOf: CGMSensorReadingMass
 Title: "CGM Sensor Reading (Mass) Example"
 Usage: #example
 * status = #final 
-* code = $LNC#99504-3
 * subject = Reference(patientExample)
 * effectiveDateTime = "2024-05-02T10:15:00Z"
 * valueQuantity.value = 120
-* valueQuantity.unit = "mg/dl"
-* valueQuantity.system = $UCUM
-* valueQuantity.code = #mg/dL
 
 Instance: cgmSensorReadingMolarExample
 InstanceOf: CGMSensorReadingMolar
 Title: "CGM Sensor Reading (Molar) Example" 
 Usage: #example
 * status = #final
-* code = $LNC#14745-4  
 * subject = Reference(patientExample)
 * effectiveDateTime = "2024-05-02T10:30:00Z"
 * valueQuantity.value = 6.7
-* valueQuantity.unit = "mmol/l"
-* valueQuantity.system = $UCUM
-* valueQuantity.code = #mmol/L
 
 Instance: cgmSummaryMeanGlucoseMassExample
 InstanceOf: CGMSummaryMeanGlucoseMass
@@ -44,12 +36,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
-* code.coding[0] = CGMSummaryCodesTemporary#mean-glucose-mass
-* code.coding[1] = $LNC#97507-8
 * valueQuantity.value = 145
-* valueQuantity.unit = "mg/dl" 
-* valueQuantity.system = $UCUM
-* valueQuantity.code = #mg/dL
 
 Instance: cgmSummaryMeanGlucoseMolarExample
 InstanceOf: CGMSummaryMeanGlucoseMolar
@@ -59,11 +46,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01" 
 * effectivePeriod.end = "2024-05-31"
-* code = CGMSummaryCodesTemporary#mean-glucose-molar
 * valueQuantity.value = 8.1
-* valueQuantity.unit = "mmol/l"
-* valueQuantity.system = $UCUM 
-* valueQuantity.code = #mmol/L
 
 Instance: cgmSummaryTimesInRangesExample
 InstanceOf: CGMSummaryTimesInRanges
@@ -73,33 +56,11 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"  
-* code = CGMSummaryCodesTemporary#times-in-ranges
-* component[timeInVeryLow].code = CGMSummaryCodesTemporary#time-in-very-low  
 * component[timeInVeryLow].valueQuantity.value = 3
-* component[timeInVeryLow].valueQuantity.unit = "%"
-* component[timeInVeryLow].valueQuantity.system = $UCUM
-* component[timeInVeryLow].valueQuantity.code = #"%"
-* component[timeInLow].code = CGMSummaryCodesTemporary#time-in-low
 * component[timeInLow].valueQuantity.value = 8
-* component[timeInLow].valueQuantity.unit = "%"
-* component[timeInLow].valueQuantity.system = $UCUM
-* component[timeInLow].valueQuantity.code = #"%"
-* component[timeInTarget].code.coding[0] = CGMSummaryCodesTemporary#time-in-target
-* component[timeInTarget].code.coding[1] = $LNC#97510-2
 * component[timeInTarget].valueQuantity.value = 65
-* component[timeInTarget].valueQuantity.unit = "%"
-* component[timeInTarget].valueQuantity.system = $UCUM
-* component[timeInTarget].valueQuantity.code = #"%"
-* component[timeInHigh].code = CGMSummaryCodesTemporary#time-in-high
 * component[timeInHigh].valueQuantity.value = 20
-* component[timeInHigh].valueQuantity.unit = "%"
-* component[timeInHigh].valueQuantity.system = $UCUM
-* component[timeInHigh].valueQuantity.code = #"%"
-* component[timeInVeryHigh].code = CGMSummaryCodesTemporary#time-in-very-high
 * component[timeInVeryHigh].valueQuantity.value = 4
-* component[timeInVeryHigh].valueQuantity.unit = "%"
-* component[timeInVeryHigh].valueQuantity.system = $UCUM
-* component[timeInVeryHigh].valueQuantity.code = #"%"
 
 Instance: cgmSummaryGMIExample
 InstanceOf: CGMSummaryGMI  
@@ -109,12 +70,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31" 
-* code.coding[0] = CGMSummaryCodesTemporary#gmi
-* code.coding[1] = $LNC#97506-0
 * valueQuantity.value = 6.8
-* valueQuantity.unit = "%"
-* valueQuantity.system = $UCUM
-* valueQuantity.code = #"%"
 
 Instance: cgmSummaryCoefficientOfVariationExample
 InstanceOf: CGMSummaryCoefficientOfVariation
@@ -124,11 +80,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
-* code = CGMSummaryCodesTemporary#cv
 * valueQuantity.value = 34
-* valueQuantity.unit = "%"
-* valueQuantity.system = $UCUM
-* valueQuantity.code = #"%"
 
 Instance: cgmSummaryDaysOfWearExample
 InstanceOf: CGMSummaryDaysOfWear
@@ -138,11 +90,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31" 
-* code = CGMSummaryCodesTemporary#days-of-wear
 * valueQuantity.value = 28
-* valueQuantity.unit = "days"
-* valueQuantity.system = $UCUM
-* valueQuantity.code = #d
 
 Instance: cgmSummarySensorActivePercentageExample  
 InstanceOf: CGMSummarySensorActivePercentage
@@ -152,11 +100,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
-* code = CGMSummaryCodesTemporary#sensor-active-percentage
 * valueQuantity.value = 95
-* valueQuantity.unit = "%"
-* valueQuantity.system = $UCUM
-* valueQuantity.code = #"%"
 
 Instance: cgmSummaryExample
 InstanceOf: CGMSummaryObservation
@@ -164,7 +108,6 @@ Title: "CGM Summary Example"
 Usage: #example
 * status = #final
 * subject = Reference(patientExample)
-* code = CGMSummaryCodesTemporary#cgm-summary
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
 * hasMember[meanGlucoseMass] = Reference(cgmSummaryMeanGlucoseMassExample)
