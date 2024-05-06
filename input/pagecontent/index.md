@@ -32,7 +32,7 @@ This IG also refers to Data Receivers as "**EHRs**".
 
 ### Nominal Workflow
 
-<img style="max-width: 400px; float: none;" src="flowchart.svg">
+<img style="max-width: 400px; float: none;" src="flowchart.png">
 
 1. **App Authorization (SMART on FHIR)**: The Data Submitter completes a [SMART App Launch](https://www.hl7.org/fhir/smart-app-launch/app-launch.html#app-launch-launch-and-authorization) or [SMART Backend Services Authorization](https://www.hl7.org/fhir/smart-app-launch/backend-services.html) to securely access the EHR system.
 
