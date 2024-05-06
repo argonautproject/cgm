@@ -78,28 +78,28 @@ Usage: #example
 * component[timeInVeryLow].valueQuantity.value = 3
 * component[timeInVeryLow].valueQuantity.unit = "%"
 * component[timeInVeryLow].valueQuantity.system = $UCUM
-* component[timeInVeryLow].valueQuantity.code = #d
+* component[timeInVeryLow].valueQuantity.code = #"%"
 * component[timeInLow].code = CGMSummaryCodesTemporary#time-in-low
 * component[timeInLow].valueQuantity.value = 8
 * component[timeInLow].valueQuantity.unit = "%"
 * component[timeInLow].valueQuantity.system = $UCUM
-* component[timeInLow].valueQuantity.code = #d
+* component[timeInLow].valueQuantity.code = #"%"
 * component[timeInTarget].code.coding[0] = CGMSummaryCodesTemporary#time-in-target
 * component[timeInTarget].code.coding[1] = $LNC#97510-2
 * component[timeInTarget].valueQuantity.value = 65
 * component[timeInTarget].valueQuantity.unit = "%"
 * component[timeInTarget].valueQuantity.system = $UCUM
-* component[timeInTarget].valueQuantity.code = #d
+* component[timeInTarget].valueQuantity.code = #"%"
 * component[timeInHigh].code = CGMSummaryCodesTemporary#time-in-high
 * component[timeInHigh].valueQuantity.value = 20
 * component[timeInHigh].valueQuantity.unit = "%"
 * component[timeInHigh].valueQuantity.system = $UCUM
-* component[timeInHigh].valueQuantity.code = #d  
+* component[timeInHigh].valueQuantity.code = #"%"
 * component[timeInVeryHigh].code = CGMSummaryCodesTemporary#time-in-very-high
 * component[timeInVeryHigh].valueQuantity.value = 4
 * component[timeInVeryHigh].valueQuantity.unit = "%"
 * component[timeInVeryHigh].valueQuantity.system = $UCUM
-* component[timeInVeryHigh].valueQuantity.code = #d
+* component[timeInVeryHigh].valueQuantity.code = #"%"
 
 Instance: cgmSummaryGMIExample
 InstanceOf: CGMSummaryGMI  
@@ -114,7 +114,7 @@ Usage: #example
 * valueQuantity.value = 6.8
 * valueQuantity.unit = "%"
 * valueQuantity.system = $UCUM
-* valueQuantity.code = #d
+* valueQuantity.code = #"%"
 
 Instance: cgmSummaryCoefficientOfVariationExample
 InstanceOf: CGMSummaryCoefficientOfVariation
@@ -128,7 +128,7 @@ Usage: #example
 * valueQuantity.value = 34
 * valueQuantity.unit = "%"
 * valueQuantity.system = $UCUM
-* valueQuantity.code = #d
+* valueQuantity.code = #"%"
 
 Instance: cgmSummaryDaysOfWearExample
 InstanceOf: CGMSummaryDaysOfWear
@@ -156,7 +156,7 @@ Usage: #example
 * valueQuantity.value = 95
 * valueQuantity.unit = "%"
 * valueQuantity.system = $UCUM
-* valueQuantity.code = #d
+* valueQuantity.code = #"%"
 
 Instance: cgmSummaryExample
 InstanceOf: CGMSummaryObservation
