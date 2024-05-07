@@ -107,7 +107,7 @@ Examples include but are not limited to:
 
 **☛ See [Example CGM Data Submission Bundle](Bundle-cgmDataSubmissionBundle.json.html#root)**
 
-{% include StructureDefinition-cgm-data-submission-bundle-header.xhtml %}
+{{ site.data.resources["StructureDefinition/cgm-data-submission-bundle"].description }}
 
 **Technical Details**
 
@@ -122,7 +122,7 @@ Examples include but are not limited to:
 
 **☛ See [Example CHM Data Submission Order ("Send a summary every two weeks")](ServiceRequest-cgmDataSubmissionStandingOrderExample.json.html#root)**
 
-{% include StructureDefinition-cgm-data-submission-standing-order-header.xhtml %}
+{{ site.data.resources["StructureDefinition/cgm-data-submission-standing-order"].description }}
 
 **Technical Details**
 
