@@ -59,7 +59,7 @@ Description: "An observation representing a summary of continuous glucose monito
     * ^short = "Start date of the reporting period (YYYY-MM-DD)" 
   * end 1..1 MS
     * ^short = "End date of the reporting period (YYYY-MM-DD)"
-* hasMember ^slicing.discriminator.type = #pattern
+* hasMember ^slicing.discriminator.type = #value
   * ^short = "Slicing based on the profile of the referenced resource"
 * hasMember ^slicing.discriminator.path = "resolve().code"
   * ^short = "Path used to identify the slices"
@@ -120,7 +120,7 @@ Description: "An observation representing the times in various ranges from a con
 * insert CGMSummaryBase
 * code = CGMSummaryCodesTemporary#times-in-ranges
   * ^short = "Code for Times in Ranges observation"
-* component ^slicing.discriminator.type = #pattern
+* component ^slicing.discriminator.type = #value
   * ^short = "Slicing based on the pattern of the component.code"
 * component ^slicing.discriminator.path = "code"
   * ^short = "Path used to identify the slices"
@@ -355,7 +355,7 @@ The Bundle `entry` array includes any combination of
 
 * meta.tag
   * ^slicing.discriminator.path = "$this"
-  * ^slicing.discriminator.type = #pattern
+  * ^slicing.discriminator.type = #value
   * ^slicing.rules = #open
 * meta.tag contains cgmSubmissionBundle 1..1 MS
 * meta.tag[cgmSubmissionBundle] = CGMCodes#cgm-data-submission-bundle
@@ -364,7 +364,7 @@ The Bundle `entry` array includes any combination of
   * ^short = "Instant the bundle was created"
 * entry ^slicing.discriminator[+].type = #type
 * entry ^slicing.discriminator[=].path = "resource"
-* entry ^slicing.discriminator[+].type = #pattern
+* entry ^slicing.discriminator[+].type = #value
 * entry ^slicing.discriminator[=].path = "resource.ofType(Observation).code"
 * entry ^slicing.rules = #open
 * entry 1..* MS
