@@ -103,9 +103,9 @@ Examples include but are not limited to:
 
 ### CGM Data Submission: Bundles
 
-**☛ See [Data Profile](StructureDefinition-cgm-data-submission-bundle.html#profile) for details**
-
 **☛ See [Example CGM Data Submission Bundle](Bundle-cgmDataSubmissionBundle.json.html#root)**
+
+**☛ See [Full Data Profile](StructureDefinition-cgm-data-submission-bundle.html#profile)**
 
 {{ site.data.resources["StructureDefinition/cgm-data-submission-bundle"].description }}
 
@@ -118,9 +118,9 @@ Examples include but are not limited to:
 
 ### CGM Data Submission: Standing Orders
 
-**☛ See [Data Profile](StructureDefinition-cgm-data-submission-standing-order.html#profile) for details**
-
 **☛ See [Example CHM Data Submission Order ("Send a summary every two weeks")](ServiceRequest-cgmDataSubmissionStandingOrderExample.json.html#root)**
+
+**☛ See [Full Data Profile](StructureDefinition-cgm-data-submission-standing-order.html#profile)**
 
 {{ site.data.resources["StructureDefinition/cgm-data-submission-standing-order"].description }}
 
@@ -130,7 +130,6 @@ Examples include but are not limited to:
 * CGM Receivers MAY reject
   * An entire submission Bundle if the frequency of submissions is too high
   * Any subset of a submission Bundle (as documented above)
-
 
 ### SMART Health Links for CGM Data Sharing
 
@@ -186,4 +185,3 @@ FROM
 WHERE
     r.json->>'$.url' LIKE '%temporary'
 %}
-
