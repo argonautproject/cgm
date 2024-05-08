@@ -52,7 +52,13 @@ dependencies:
 # http://build.fhir.org/ig/FHIR/fhir-tools-ig/branches/master/CodeSystem-ig-parameters.html
 #
 parameters:
-  no-narrative: ["Observation/*", "DiagnosticReport/*", "Device/*", "Patient/*"]
+  no-narrative:
+    - "Bundle/*"
+    - "Observation/*"
+    - "DiagnosticReport/*"
+    - "Device/*"
+    - "Patient/*"
+    - "ServiceRequest/*"
   path-data: "input/_data"
 #
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
