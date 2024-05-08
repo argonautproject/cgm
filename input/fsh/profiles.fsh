@@ -424,8 +424,8 @@ Title: "Data Submission Standing Order"
 Description: """
 The Data Receiver can expose a standing order indicating:
 
-* how often a Data Submitter should submit CGM data
-* what data a Data Submitter should include in each CGM Data Submission Bundle.
+* How often a Data Submitter should submit CGM data
+* What data a Data Submitter should include in each CGM Data Submission Bundle.
 
 
 **Guiding Data Submission**
