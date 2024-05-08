@@ -1,36 +1,36 @@
 Alias: $UCUM = http://unitsofmeasure.org
 Alias: $LNC = http://loinc.org
 
-RuleSet: GlucoseMass
+RuleSet: GlucoseMassPerVolume
 * value[x] only Quantity
 * valueQuantity
   * code = #mg/dL
   * unit = "mg/dl"
   * ^short = "Glucose value in mg/dL"
 
-RuleSet: GlucoseMolar
+RuleSet: GlucoseMolesPerVolume
 * value[x] only Quantity
 * valueQuantity
   * code = #mmol/L
   * unit = "mmol/l"
   * ^short = "Glucose value in mmol/L"
 
-Profile: CGMSensorReadingMass
+Profile: CGMSensorReadingMassPerVolume
 Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
-Id: cgm-sensor-reading-mass
+Id: cgm-sensor-reading-mass-per-volume
 Title: "CGM Sensor Reading (Mass)"
 Description: "A continuous glucose monitoring (CGM) sensor reading represented in mass units."
-* insert GlucoseMass
+* insert GlucoseMassPerVolume
 * code = $LNC#99504-3
 * effectiveDateTime 1..1 MS
   * ^short = "Time the measurement was taken"
 
-Profile: CGMSensorReadingMolar
+Profile: CGMSensorReadingMolesPerVolume
 Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
-Id: cgm-sensor-reading-molar
+Id: cgm-sensor-reading-moles-per-volume
 Title: "CGM Sensor Reading (Molar)"
 Description: "A continuous glucose monitoring (CGM) sensor reading represented in molar units."
-* insert GlucoseMolar
+* insert GlucoseMolesPerVolume
 * code = $LNC#14745-4
 * effectiveDateTime 1..1 MS
   * ^short = "Time the measurement was taken"
@@ -67,17 +67,17 @@ Description: "An observation representing a summary of continuous glucose monito
   * ^short = "Open slicing allowing additional slices"  
 * hasMember 6..*
 * hasMember contains
-    meanGlucoseMass 0..1 MS and
-    meanGlucoseMolar 0..1 MS and
+    meanGlucoseMassPerVolume 0..1 MS and
+    meanGlucoseMolesPerVolume 0..1 MS and
     timesInRanges 1..1 MS and 
     gmi 1..1 MS and
     cv 1..1 MS and
     daysOfWear 1..1 MS and
     sensorActivePercentage 1..1 MS
   * ^short = "CGM summary observations"
-* hasMember[meanGlucoseMass] only Reference(CGMSummaryMeanGlucoseMass)
+* hasMember[meanGlucoseMassPerVolume] only Reference(CGMSummaryMeanGlucoseMassPerVolume)
   * ^short = "Mean Glucose (Mass) observation"
-* hasMember[meanGlucoseMolar] only Reference(CGMSummaryMeanGlucoseMolar)
+* hasMember[meanGlucoseMolesPerVolume] only Reference(CGMSummaryMeanGlucoseMolesPerVolume)
   * ^short = "Mean Glucose (Molar) observation" 
 * hasMember[timesInRanges] only Reference(CGMSummaryTimesInRanges)
   * ^short = "Times in Ranges observation"
@@ -150,32 +150,32 @@ Description: "An observation representing the times in various ranges from a con
   * code = CGMSummaryCodesTemporary#time-in-very-high
   * insert QuantityPercent
  
-Instance: MeanGlucoseMassWithLoinc
+Instance: MeanGlucoseMassPerVolumeWithLoinc
 InstanceOf: CodeableConcept
 Usage: #inline
-* coding[+] = CGMSummaryCodesTemporary#mean-glucose-mass
+* coding[+] = CGMSummaryCodesTemporary#mean-glucose-mass-per-volume
 * coding[+] =  $LNC#97507-8
 
-Profile: CGMSummaryMeanGlucoseMass
+Profile: CGMSummaryMeanGlucoseMassPerVolume
 Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
-Id: cgm-summary-mean-glucose-mass
+Id: cgm-summary-mean-glucose-mass-per-volume
 Title: "Mean Glucose (Mass)"
 Description: "The mean glucose value from a continuous glucose monitoring (CGM) summary, represented in mass units."
 * insert CGMSummaryBase
-* code = MeanGlucoseMassWithLoinc
+* code = MeanGlucoseMassPerVolumeWithLoinc
   * ^short = "Code for Mean Glucose observation"
-* insert GlucoseMass
+* insert GlucoseMassPerVolume
 
 
-Profile: CGMSummaryMeanGlucoseMolar
+Profile: CGMSummaryMeanGlucoseMolesPerVolume
 Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
-Id: cgm-summary-mean-glucose-molar
+Id: cgm-summary-mean-glucose-moles-per-volume
 Title: "Mean Glucose (Molar)"
 Description: "The mean glucose value from a continuous glucose monitoring (CGM) summary, represented in molar units."
 * insert CGMSummaryBase
-* code = CGMSummaryCodesTemporary#mean-glucose-molar
+* code = CGMSummaryCodesTemporary#mean-glucose-moles-per-volume
   * ^short = "Code for Mean Glucose observation"
-* insert GlucoseMolar
+* insert GlucoseMolesPerVolume
 
 RuleSet: QuantityPercent
 * value[x] only Quantity
@@ -278,8 +278,8 @@ Description: "Temporary code system for CGM summary observations."
 * ^experimental = false
 * ^status = #active
 * #cgm-summary "CGM Summary"
-* #mean-glucose-mass "Mean Glucose (Mass per Volume)"
-* #mean-glucose-molar "Mean Glucose (Moles per Volume)"
+* #mean-glucose-mass-per-volume "Mean Glucose (Mass per Volume)"
+* #mean-glucose-moles-per-volume "Mean Glucose (Moles per Volume)"
 * #times-in-ranges "Times in Glucose Ranges"
 * #time-in-very-low "Time in Very Low Range (%)"
 * #time-in-low "Time in Low Range (%)"
@@ -297,15 +297,16 @@ Usage: #definition
 Title: "Mapping from CGM Temporary Codes to LOINC"
 Description: "Mapping concepts from the CGM Summary code system to LOINC codes."
 * name  = "CGMSummaryToLoinc"
+* experimental = false
 * status = #draft
 * group[+].source = Canonical(CGMSummaryCodesTemporary)
 * group[=].target = $LNC
 * group[=].element[+]
-  * code = #mean-glucose-mass
+  * code = #mean-glucose-mass-per-volume
   * target[+].code = #97507-8
   * target[=].equivalence = #equivalent
 * group[=].element[+]
-  * code = #mean-glucose-molar
+  * code = #mean-glucose-moles-per-volume
 * group[=].element[+]
   * code = #time-in-very-low
 * group[=].element[+]
@@ -342,14 +343,16 @@ The Bundle `entry` array includes any combination of
 
 * CGM Summary PDF Reports ([Profile](StructureDefinition-cgm-summary-pdf.html#profile), [Example](DiagnosticReport-cgmSummaryPDFExample.json.html#root))
 * CGM Summary Observation ([Profile](StructureDefinition-cgm-summary.html#profile), [Example](Observation-cgmSummaryExample.json.html#root))
-  * Mean Glucose ([Profile](StructureDefinition-cgm-summary-mean-glucose-mass.html#profile), [Example](Observation-cgmSummaryMeanGlucoseMassExample.json.html#root))
+  * Mean Glucose (Mass per Volume) ([Profile](StructureDefinition-cgm-summary-mean-glucose-mass-per-volume.html#profile), [Example](Observation-cgmSummaryMeanGlucoseMassPerVolumeExample.json.html#root))
+  * Mean Glucose (Moles per Volume) ([Profile](StructureDefinition-cgm-summary-mean-glucose-moles-per-volume.html#profile), [Example](Observation-cgmSummaryMeanGlucoseMolesPerVolumeExample.json.html#root))
   * Times in Ranges ([Profile](StructureDefinition-cgm-summary-times-in-ranges.html#profile), [Example](Observation-cgmSummaryTimesInRangesExample.json.html#root))
   * Glucose Management Index ([Profile](StructureDefinition-cgm-summary-gmi.html#profile), [Example](Observation-cgmSummaryGMIExample.json.html#root))
   * Coefficient of Variations ([Profile](StructureDefinition-cgm-summary-coefficient-of-variation.html#profile), [Example](Observation-cgmSummaryCoefficientOfVariationExample.json.html#root))
   * Sensor Days of Wear ([Profile](StructureDefinition-cgm-summary-days-of-wear.html#profile), [Example](Observation-cgmSummaryDaysOfWearExample.json.html#root))
   * Sensor Active Percentage ([Profile](StructureDefinition-cgm-summary-sensor-active-percentage.html#profile), [Example](Observation-cgmSummarySensorActivePercentageExample.json.html#root))
 * CGM Devices ([Profile](StructureDefinition-cgm-device.html#profile), [Example](Device-cgmDeviceExample.json.html#root))
-* CGM Sensor Readings ([Profile](StructureDefinition-cgm-sensor-reading-mass.html#profile), [Example](Observation-cgmSensorReadingMassExample.json.html#root))
+* CGM Sensor Readingss (Mass per Volume) ([Profile](StructureDefinition-cgm-sensor-reading-mass-per-volume.html#profile), [Example](Observation-cgmSensorReadingMassPerVolumeExample.json.html#root))
+* CGM Sensor Readingss (Moles per Volume) ([Profile](StructureDefinition-cgm-sensor-reading-moles-per-volume.html#profile), [Example](Observation-cgmSensorReadingMolesPerVolumeExample.json.html#root))
 """
 
 
@@ -381,26 +384,26 @@ The Bundle `entry` array includes any combination of
   * ^short = "CGM summary PDF entry must conform to CGMSummaryPDF profile"
 * entry[observation] contains
     cgmSummary 0..* MS and
-    cgmSummaryMeanGlucoseMass 0..* MS  and
-    cgmSummaryMeanGlucoseMolar 0..* MS and
+    cgmSummaryMeanGlucoseMassPerVolume 0..* MS  and
+    cgmSummaryMeanGlucoseMolesPerVolume 0..* MS and
     cgmSummaryTimesInRanges 0..* MS and
     cgmSummaryGMI 0..* MS and
     cgmSummaryCoefficientOfVariation 0..* MS and
     cgmSummaryDaysOfWear 0..* MS and
     cgmSummarySensorActivePercentage 0..* MS and
     device 0..* MS and
-    cgmSensorReadingMass 0..* MS and
-    cgmSensorReadingMolar 0..* MS
+    cgmSensorReadingMassPerVolume 0..* MS and
+    cgmSensorReadingMolesPerVolume 0..* MS
 * entry[observation][cgmSummary].resource only CGMSummaryObservation
-* entry[observation][cgmSummaryMeanGlucoseMass].resource only CGMSummaryMeanGlucoseMass
-* entry[observation][cgmSummaryMeanGlucoseMolar].resource only CGMSummaryMeanGlucoseMolar
+* entry[observation][cgmSummaryMeanGlucoseMassPerVolume].resource only CGMSummaryMeanGlucoseMassPerVolume
+* entry[observation][cgmSummaryMeanGlucoseMolesPerVolume].resource only CGMSummaryMeanGlucoseMolesPerVolume
 * entry[observation][cgmSummaryTimesInRanges].resource only CGMSummaryTimesInRanges
 * entry[observation][cgmSummaryGMI].resource only CGMSummaryGMI
 * entry[observation][cgmSummaryCoefficientOfVariation].resource only CGMSummaryCoefficientOfVariation
 * entry[observation][cgmSummaryDaysOfWear].resource only CGMSummaryDaysOfWear
 * entry[observation][cgmSummarySensorActivePercentage].resource only CGMSummarySensorActivePercentage
-* entry[observation][cgmSensorReadingMass].resource only CGMSensorReadingMass
-* entry[observation][cgmSensorReadingMolar].resource only CGMSensorReadingMolar
+* entry[observation][cgmSensorReadingMassPerVolume].resource only CGMSensorReadingMassPerVolume
+* entry[observation][cgmSensorReadingMolesPerVolume].resource only CGMSensorReadingMolesPerVolume
 
   
 Profile: CGMDataSubmissionStandingOrder
@@ -445,6 +448,7 @@ Extension: DataSubmissionSchedule
 Id: data-submission-schedule
 Title: "Data Submission Schedule"
 Description: "Schedule and type of data to be submitted"
+Context: ServiceRequest
 * extension contains
     submissionFrequency 1..1 MS and
     submissionDataProfile 1..*  MS

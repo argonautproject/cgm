@@ -10,8 +10,8 @@ Usage: #example
 * gender = #female
 * birthDate = "1964-06-20"
 
-Instance: cgmSensorReadingMassExample
-InstanceOf: CGMSensorReadingMass
+Instance: cgmSensorReadingMassPerVolumeExample
+InstanceOf: CGMSensorReadingMassPerVolume
 Title: "CGM Sensor Reading (Mass) Example"
 Usage: #example
 * status = #final 
@@ -19,8 +19,8 @@ Usage: #example
 * effectiveDateTime = "2024-05-02T10:15:00Z"
 * valueQuantity.value = 120
 
-Instance: cgmSensorReadingMolarExample
-InstanceOf: CGMSensorReadingMolar
+Instance: cgmSensorReadingMolesPerVolumeExample
+InstanceOf: CGMSensorReadingMolesPerVolume
 Title: "CGM Sensor Reading (Molar) Example" 
 Usage: #example
 * status = #final
@@ -28,8 +28,8 @@ Usage: #example
 * effectiveDateTime = "2024-05-02T10:30:00Z"
 * valueQuantity.value = 6.7
 
-Instance: cgmSummaryMeanGlucoseMassExample
-InstanceOf: CGMSummaryMeanGlucoseMass
+Instance: cgmSummaryMeanGlucoseMassPerVolumeExample
+InstanceOf: CGMSummaryMeanGlucoseMassPerVolume
 Title: "Mean Glucose (Mass) Example"
 Usage: #example
 * status = #final
@@ -38,8 +38,8 @@ Usage: #example
 * effectivePeriod.end = "2024-05-31"
 * valueQuantity.value = 145
 
-Instance: cgmSummaryMeanGlucoseMolarExample
-InstanceOf: CGMSummaryMeanGlucoseMolar
+Instance: cgmSummaryMeanGlucoseMolesPerVolumeExample
+InstanceOf: CGMSummaryMeanGlucoseMolesPerVolume
 Title: "Mean Glucose (Molar) Example"
 Usage: #example
 * status = #final
@@ -110,8 +110,8 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
-* hasMember[meanGlucoseMass] = Reference(cgmSummaryMeanGlucoseMassExample)
-* hasMember[meanGlucoseMolar] = Reference(cgmSummaryMeanGlucoseMolarExample)  
+* hasMember[meanGlucoseMassPerVolume] = Reference(cgmSummaryMeanGlucoseMassPerVolumeExample)
+* hasMember[meanGlucoseMolesPerVolume] = Reference(cgmSummaryMeanGlucoseMolesPerVolumeExample)  
 * hasMember[timesInRanges] = Reference(cgmSummaryTimesInRangesExample)
 * hasMember[gmi] = Reference(cgmSummaryGMIExample)
 * hasMember[cv] = Reference(cgmSummaryCoefficientOfVariationExample)
@@ -145,8 +145,8 @@ Usage: #example
 * entry[=].fullUrl = "https://example.org/Observation/cgmSummaryExample"
 * entry[=].request.method = #POST
 * entry[=].request.url = "Observation"
-* entry[+].resource = cgmSummaryMeanGlucoseMassExample
-* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryMeanGlucoseMassExample"
+* entry[+].resource = cgmSummaryMeanGlucoseMassPerVolumeExample
+* entry[=].fullUrl = "https://example.org/Observation/cgmSummaryMeanGlucoseMassPerVolumeExample"
 * entry[=].request.method = #POST
 * entry[=].request.url = "Observation"
 * entry[+].resource = cgmSummaryTimesInRangesExample
@@ -169,8 +169,8 @@ Usage: #example
 * entry[=].fullUrl = "https://example.org/Observation/cgmSummarySensorActivePercentageExample"
 * entry[=].request.method = #POST
 * entry[=].request.url = "Observation"
-* entry[+].resource = cgmSensorReadingMassExample
-* entry[=].fullUrl = "https://example.org/Observation/cgmSensorReadingMassExample"
+* entry[+].resource = cgmSensorReadingMassPerVolumeExample
+* entry[=].fullUrl = "https://example.org/Observation/cgmSensorReadingMassPerVolumeExample"
 * entry[=].request.method = #POST
 * entry[=].request.url = "Observation"
 
