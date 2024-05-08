@@ -103,7 +103,7 @@ Examples include but are not limited to:
 
 ### CGM Data Submission: Bundles
 
-**☛ See [Example CGM Data Submission Bundle](Bundle-cgmDataSubmissionBundle.json.html#root)**
+**☛ See [Example Bundle](Bundle-cgmDataSubmissionBundle.json.html#root)**
 
 **☛ See [Full Data Profile](StructureDefinition-cgm-data-submission-bundle.html#profile)**
 
@@ -118,7 +118,7 @@ Examples include but are not limited to:
 
 ### CGM Data Submission: Standing Orders
 
-**☛ See [Example CHM Data Submission Order ("Send a summary every two weeks")](ServiceRequest-cgmDataSubmissionStandingOrderExample.json.html#root)**
+**☛ See [Example Order ("Send a summary every two weeks")](ServiceRequest-cgmDataSubmissionStandingOrderExample.json.html#root)**
 
 **☛ See [Full Data Profile](StructureDefinition-cgm-data-submission-standing-order.html#profile)**
 
