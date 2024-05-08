@@ -166,8 +166,8 @@ By defining a tightly-orchestrated Data Submission API as well as a more loosely
 
 This IG aims to use LOINC codes for all Observations and DiagnosticReports. However, LOINC does not currently define codes for all required concepts.  We have therefore established the following approach:
 
-* **Temporary CodeSystem:** [CodeSystem/cgm-summary-codes-temporary](CodeSystem-cgm-summary-codes-temporary.html) represents all concepts used by our resources.  Resource instances include these temporary codes + (whenever possible) equivalent LOINC codes.
-* **ConceptMap:** [ConceptMap/CGMSummaryToLoinc](ConceptMap-CGMSummaryToLoinc.html) provides mappings between the temporary CodeSystem and existing LOINC codes (for the concepts with available codes).
+* **Temporary CodeSystem:** [CodeSystem/cgm-summary-codes-temporary](CodeSystem-cgm-summary-codes-temporary.html#root) represents all concepts used by our resources.  Resource instances include these temporary codes + (whenever possible) equivalent LOINC codes.
+* **ConceptMap:** [ConceptMap/CGMSummaryToLoinc](ConceptMap-CGMSummaryToLoinc.html#root) provides mappings between the temporary CodeSystem and existing LOINC codes (for the concepts with available codes).
 * **Deprecation Planning:** We will deprecate this CodeSystem when LOINC support exists for the required concepts.
 
 #### Overview of LOINC Mappings
