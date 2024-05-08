@@ -1,0 +1,57 @@
+@startuml
+
+start
+
+partition "App Authorization (SMART on FHIR)" {
+    :Obtain OAuth token;
+}
+
+partition "Establish EHR Patient ID" {
+    if (SMART context?) then (yes)
+        :Read patient ID
+         from SMART context;
+    else (no)
+        :Obtain patient ID
+         out-of-band;
+    endif
+}
+
+partition "Learn Submission Preferences" {
+    if (Use ServiceRequest?) then (yes)
+        :Read ServiceRequest resource
+         with "standing order" tag;
+        :Extract submission preferences;
+        note right
+            e.g., every 2 weeks        
+        end note
+    else (no)
+        :Obtain submission preferences
+         out-of-band (through user interaction
+         or external configuration);
+    endif
+}
+
+partition "Submission Triggers" {
+    split
+        :Scheduled Submission Interval;
+    split again
+        :Manual Trigger;
+        note right
+            e.g., User initiated
+            (e.g., in-app button)
+        end note
+    end split
+}
+
+:Prepare FHIR Bundle
+ with CGM data;
+ 
+:POST Bundle
+ to EHR;
+note right 
+    Using SMART on FHIR Access Token
+end note
+
+stop
+
+@enduml
