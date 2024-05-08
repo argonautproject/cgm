@@ -32,7 +32,9 @@ This IG also refers to Data Receivers as "**EHRs**".
 
 ### Nominal Workflow
 
-<img style="max-width: 400px; float: none;" src="flowchart.png">
+<div style="max-width: 400px; float: none;">
+{% include flow.svg %}
+</div>
 
 1. **App Authorization (SMART on FHIR)**: The Data Submitter completes a [SMART App Launch](https://www.hl7.org/fhir/smart-app-launch/app-launch.html#app-launch-launch-and-authorization) or [SMART Backend Services Authorization](https://www.hl7.org/fhir/smart-app-launch/backend-services.html) to securely access the EHR system.
 
@@ -68,7 +70,7 @@ In this workflow, a patient-facing app connects directly to the EHR using the SM
   * `launch/patient`: {{ launch_patient }}
   * `offline_access`: {{ offline_access }}
   * Data Scopes:
-    * `patient/Patient.r`: it may be desirable to cross-reference patient demographics, e.g. to confirm a match
+    * `patient/Patient.r`: it may still be desirable to cross-reference patient demographics, e.g. to confirm a match
     * `patient/ServiceRequest.rs?code=cgm-data-submission-standing-order`: helps app learn the EHR's data submission preferences
     * `patient/DiagnosticReport.cu?category=laboratory`: submit a summary report
     * `patient/Observation.cu?category=laboratory`: submit a summary observation or sensor reading
