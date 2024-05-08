@@ -111,6 +111,17 @@ Description: "A PDF report containing a summary of continuous glucose monitoring
 * presentedForm.contentType = #application/pdf
   * ^short = "PDF content type"
 * presentedForm.data 1..1 MS
+* result ^slicing.discriminator.type = #value
+  * ^short = "Slicing based on the pattern of the component.code"
+* result ^slicing.discriminator.path = "resolve().code"
+  * ^short = "Path used to identify the slices"
+* result ^slicing.rules = #open
+  * ^short = "Open slicing allowing additional slices"
+* result contains
+    cgmSummary 0..* MS
+  * ^short = "CGM Summary observation"
+* result[cgmSummary] only Reference(CGMSummaryObservation)
+  * ^short = "CGM Summary observation"
 
 Profile: CGMSummaryTimesInRanges
 Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
