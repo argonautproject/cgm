@@ -17,10 +17,7 @@ Usage: #example
 * status = #final 
 * subject = Reference(patientExample)
 * effectiveDateTime = "2024-05-02T10:15:00Z"
-* valueQuantity.value = 120
-* valueQuantity.unit = "mg/dl"
-* valueQuantity.system = "http://unitsofmeasure.org"
-* valueQuantity.code= "mg/dL"
+* valueQuantity = 120 'mg/dL' "mg/dl"
 
 Instance: cgmSensorReadingMolesPerVolumeExample
 InstanceOf: CGMSensorReadingMolesPerVolume
@@ -29,10 +26,7 @@ Usage: #example
 * status = #final
 * subject = Reference(patientExample)
 * effectiveDateTime = "2024-05-02T10:30:00Z"
-* valueQuantity.value = 6.7
-* valueQuantity.unit = "mmol/l"
-* valueQuantity.system = "http://unitsofmeasure.org"
-* valueQuantity.code= "mmol/L"
+* valueQuantity = 6.7 'mmol/L' "mmol/l"
 
 Instance: cgmSummaryMeanGlucoseMassPerVolumeExample
 InstanceOf: CGMSummaryMeanGlucoseMassPerVolume
@@ -42,10 +36,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
-* valueQuantity.value = 145
-* valueQuantity.unit = "mg/dl"
-* valueQuantity.system = "http://unitsofmeasure.org"
-* valueQuantity.code= "mg/dL"
+* valueQuantity = 145 'mg/dL' "mg/dl"
 
 
 Instance: cgmSummaryMeanGlucoseMolesPerVolumeExample
@@ -56,10 +47,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01" 
 * effectivePeriod.end = "2024-05-31"
-* valueQuantity.value = 8.1
-* valueQuantity.unit = "mmol/l"
-* valueQuantity.system = "http://unitsofmeasure.org"
-* valueQuantity.code= "mmol/L"
+* valueQuantity = 8.1 'mmol/L' "mmol/l"
 
 Instance: cgmSummaryTimesInRangesExample
 InstanceOf: CGMSummaryTimesInRanges
@@ -69,26 +57,11 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"  
-* component[timeInVeryLow].valueQuantity.value = 3
-* component[timeInVeryLow].valueQuantity.unit = "%"
-* component[timeInVeryLow].valueQuantity.system = "http://unitsofmeasure.org"
-* component[timeInVeryLow].valueQuantity.code= "%"
-* component[timeInLow].valueQuantity.value = 8
-* component[timeInLow].valueQuantity.unit = "%"
-* component[timeInLow].valueQuantity.system = "http://unitsofmeasure.org"
-* component[timeInLow].valueQuantity.code= "%"
-* component[timeInTarget].valueQuantity.value = 65
-* component[timeInTarget].valueQuantity.unit = "%"
-* component[timeInTarget].valueQuantity.system = "http://unitsofmeasure.org"
-* component[timeInTarget].valueQuantity.code= "%"
-* component[timeInHigh].valueQuantity.value = 20
-* component[timeInHigh].valueQuantity.unit = "%"
-* component[timeInHigh].valueQuantity.system = "http://unitsofmeasure.org"
-* component[timeInHigh].valueQuantity.code= "%"
-* component[timeInVeryHigh].valueQuantity.value = 4
-* component[timeInVeryHigh].valueQuantity.unit = "%"
-* component[timeInVeryHigh].valueQuantity.system = "http://unitsofmeasure.org"
-* component[timeInVeryHigh].valueQuantity.code= "%"
+* component[timeInVeryLow].valueQuantity = 3 '%' "%"
+* component[timeInLow].valueQuantity = 8 '%' "%"
+* component[timeInTarget].valueQuantity = 65 '%' "%"
+* component[timeInHigh].valueQuantity = 20 '%' "%"
+* component[timeInVeryHigh].valueQuantity = 4 '%' "%"
 
 Instance: cgmSummaryGMIExample
 InstanceOf: CGMSummaryGMI  
@@ -98,7 +71,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31" 
-* valueQuantity.value = 6.8
+* valueQuantity = 6.8 '%' "%"
 
 Instance: cgmSummaryCoefficientOfVariationExample
 InstanceOf: CGMSummaryCoefficientOfVariation
@@ -108,10 +81,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
-* valueQuantity.value = 34
-* valueQuantity.unit = "%"
-* valueQuantity.system = "http://unitsofmeasure.org"
-* valueQuantity.code= "%"
+* valueQuantity = 34 '%' "%"
 
 
 Instance: cgmSummaryDaysOfWearExample
@@ -122,11 +92,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31" 
-* valueQuantity.value = 28
-* valueQuantity.unit = "days"
-* valueQuantity.system = "http://unitsofmeasure.org"
-* valueQuantity.code= "d"
-
+* valueQuantity = 28 'd' "days"
 
 Instance: cgmSummarySensorActivePercentageExample  
 InstanceOf: CGMSummarySensorActivePercentage
@@ -136,10 +102,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
-* valueQuantity.value = 95
-* valueQuantity.unit = "%"
-* valueQuantity.system = "http://unitsofmeasure.org"
-* valueQuantity.code= "%"
+* valueQuantity = 95 '%' "%"
 
 Instance: cgmSummaryExample
 InstanceOf: CGMSummaryObservation
