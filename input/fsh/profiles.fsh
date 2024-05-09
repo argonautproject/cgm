@@ -1,7 +1,9 @@
 Alias: $UCUM = http://unitsofmeasure.org
 Alias: $LNC = http://loinc.org
+Alias: $compliesWithProfile = http://hl7.org/fhir/StructureDefinition/structuredefinition-compliesWithProfile
 
 RuleSet: ObservationLabBase
+* ^extension[$compliesWithProfile].valueCanonical = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
 * subject 1..1 MS
   * ^short = "Patient for the report" 
 * category
@@ -14,6 +16,8 @@ RuleSet: ObservationLabBase
   * ^short = "Lab category"
 
 RuleSet: DiagnosticReportLabBase
+* ^extension[$compliesWithProfile].valueCanonical = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab"
+* subject 1..1 MS
 * subject 1..1 MS
   * ^short = "Patient for the report" 
 * category
@@ -39,7 +43,7 @@ RuleSet: GlucoseMolesPerVolume
   * ^short = "Glucose value in mmol/L"
 
 Profile: CGMSensorReadingMassPerVolume
-Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation
 Id: cgm-sensor-reading-mass-per-volume
 Title: "CGM Sensor Reading (Mass)"
 Description: "A continuous glucose monitoring (CGM) sensor reading represented in mass units."
@@ -50,7 +54,7 @@ Description: "A continuous glucose monitoring (CGM) sensor reading represented i
   * ^short = "Time the measurement was taken"
 
 Profile: CGMSensorReadingMolesPerVolume
-Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation
 Id: cgm-sensor-reading-moles-per-volume
 Title: "CGM Sensor Reading (Molar)"
 Description: "A continuous glucose monitoring (CGM) sensor reading represented in molar units."
@@ -73,7 +77,7 @@ RuleSet: CGMSummaryBase
 
  
 Profile: CGMSummaryObservation
-Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation
 Id: cgm-summary  
 Title: "CGM Summary Observation"
 Description: "An observation representing a summary of continuous glucose monitoring (CGM) data."
@@ -117,13 +121,8 @@ Description: "An observation representing a summary of continuous glucose monito
 * hasMember[sensorActivePercentage] only Reference(CGMSummarySensorActivePercentage)
   * ^short = "Sensor Active Percentage observation"
 
-Instance: PDFAttachment
-InstanceOf: Attachment
-Usage: #inline
-* contentType = #application/pdf
-
 Profile: CGMSummaryPDF
-Parent: DiagnosticReport // http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab
+Parent: DiagnosticReport 
 Id: cgm-summary-pdf
 Title: "CGM Summary PDF Report"
 Description: "A PDF report containing a summary of continuous glucose monitoring (CGM) data."
@@ -139,15 +138,16 @@ Description: "A PDF report containing a summary of continuous glucose monitoring
     * ^short = "End date of the reporting period (YYYY-MM-DD)"
 * presentedForm
   * ^slicing.discriminator.type = #value
-  * ^slicing.discriminator.path = "$this"
+  * ^slicing.discriminator.path = "contentType"
   * ^slicing.rules = #open
 * presentedForm contains
     cgmSummaryPDF 1..* MS
   * ^short = "CGM Summary PDF report"
-* presentedForm[cgmSummaryPDF] = PDFAttachment
-  * ^short = "PDF content type"
-* presentedForm[cgmSummaryPDF].data 1..1 MS
-  * ^short = "Base64-encoded PDF report data"
+* presentedForm[cgmSummaryPDF]
+  * contentType = #application/pdf
+    * ^short = "PDF content type"
+  * data 1..1 MS
+    * ^short = "Base64-encoded PDF report data"
 * result ^slicing.discriminator.type = #value
   * ^short = "Slicing based on the pattern of the component.code"
 * result ^slicing.discriminator.path = "resolve().code"
@@ -161,7 +161,7 @@ Description: "A PDF report containing a summary of continuous glucose monitoring
   * ^short = "CGM Summary observation"
 
 Profile: CGMSummaryTimesInRanges
-Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation
 Id: cgm-summary-times-in-ranges
 Title: "CGM Summary Times in Ranges"
 Description: "An observation representing the times in various ranges from a continuous glucose monitoring (CGM) summary."
@@ -203,7 +203,7 @@ Usage: #inline
 * coding[+] =  $LNC#97507-8
 
 Profile: CGMSummaryMeanGlucoseMassPerVolume
-Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation
 Id: cgm-summary-mean-glucose-mass-per-volume
 Title: "Mean Glucose (Mass)"
 Description: "The mean glucose value from a continuous glucose monitoring (CGM) summary, represented in mass units."
@@ -214,7 +214,7 @@ Description: "The mean glucose value from a continuous glucose monitoring (CGM) 
 
 
 Profile: CGMSummaryMeanGlucoseMolesPerVolume
-Parent: Observation //http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation
 Id: cgm-summary-mean-glucose-moles-per-volume
 Title: "Mean Glucose (Molar)"
 Description: "The mean glucose value from a continuous glucose monitoring (CGM) summary, represented in molar units."
@@ -236,7 +236,7 @@ Usage: #inline
 * coding[+] = $LNC#97506-0
 
 Profile: CGMSummaryGMI
-Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation
 Id: cgm-summary-gmi
 Title: "Glucose Management Indicator (GMI)"
 Description: "The Glucose Management Indicator (GMI) value from a continuous glucose monitoring (CGM) summary."
@@ -246,7 +246,7 @@ Description: "The Glucose Management Indicator (GMI) value from a continuous glu
 * insert QuantityPercent
 
 Profile: CGMSummaryCoefficientOfVariation
-Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation
 Id: cgm-summary-coefficient-of-variation
 Title: "Coefficient of Variation (CV)"
 Description: "The Coefficient of Variation (CV) value from a continuous glucose monitoring (CGM) summary."
@@ -256,7 +256,7 @@ Description: "The Coefficient of Variation (CV) value from a continuous glucose 
 * insert QuantityPercent
 
 Profile: CGMSummaryDaysOfWear
-Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation
 Id: cgm-summary-days-of-wear
 Title: "Days of Wear"
 Description: "The number of days the continuous glucose monitoring (CGM) device was worn during the reporting period."
@@ -268,7 +268,7 @@ Description: "The number of days the continuous glucose monitoring (CGM) device 
   * ^short = "Number of days the CGM device was worn"
 
 Profile: CGMSummarySensorActivePercentage
-Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation
 Id: cgm-summary-sensor-active-percentage
 Title: "Sensor Active Percentage"
 Description: "The percentage of time the continuous glucose monitoring (CGM) sensor was active during the reporting period."
