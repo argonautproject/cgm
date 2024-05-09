@@ -18,19 +18,19 @@ Dr. Patel is the principal investigator for a longitudinal research study. Parti
 
 ### Actors
 
-#### Data Submitter
+#### CGM Data Submitter
 
 The data submitter is a software system that manages CGM data. It typically incorporates a patient-facing app, and may also incorporate a clinician-facing EHR-integrated app and a cloud service.
 
 This IG also refers to Data Submitters as "**apps**" or "**diabetes management platforms**".
 
-#### Data Receiver
+#### CGM Data Receiver
 
 The data receiver is a software system that receives and stores the CGM data submitted by the data submitter.
 
 This IG also refers to Data Receivers as "**EHRs**".
 
-{{ site.data.resources["CapabilityStatement/cgm-data-receiver-capability-statement"].description }}
+{{ site.data.resources["CapabilityStatement/cgm-data-receiver"].description }}
 
 ### Nominal Workflow
 

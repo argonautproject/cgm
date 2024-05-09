@@ -504,12 +504,12 @@ Context: ServiceRequest
   * ^short = "Data profile for submission"
 
 
-Instance: cgm-data-receiver-capability-statement
+Instance: cgm-data-receiver
 InstanceOf: CapabilityStatement
 Usage: #definition
 Title: "CGM Data Receiver Capability Statement"
 Description: """
-Any CGM Data Receiver SHALL populate its `/metadata` response to ensure that `CapabilityStatement.instantiates` includes `"http://hl7.org/uv/cgm/CapabilityStatement/cgm-data-receiver-capability-statement"`.
+Any CGM Data Receiver SHALL populate its `/metadata` response to ensure that `CapabilityStatement.instantiates` includes `"http://hl7.org/uv/cgm/CapabilityStatement/cgm-data-receiver"`.
 """
 * status = #active
 * date =  2024-05-09
