@@ -17,7 +17,7 @@ Usage: #example
 * status = #final 
 * subject = Reference(patientExample)
 * effectiveDateTime = "2024-05-02T10:15:00Z"
-* valueQuantity = 120 'mg/dL' "mg/dl"
+* valueQuantity.value = 120 
 
 Instance: cgmSensorReadingMolesPerVolumeExample
 InstanceOf: CGMSensorReadingMolesPerVolume
@@ -26,7 +26,7 @@ Usage: #example
 * status = #final
 * subject = Reference(patientExample)
 * effectiveDateTime = "2024-05-02T10:30:00Z"
-* valueQuantity = 6.7 'mmol/L' "mmol/l"
+* valueQuantity.value = 6.7
 
 Instance: cgmSummaryMeanGlucoseMassPerVolumeExample
 InstanceOf: CGMSummaryMeanGlucoseMassPerVolume
@@ -36,7 +36,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
-* valueQuantity = 145 'mg/dL' "mg/dl"
+* valueQuantity.value = 145
 
 
 Instance: cgmSummaryMeanGlucoseMolesPerVolumeExample
@@ -47,7 +47,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01" 
 * effectivePeriod.end = "2024-05-31"
-* valueQuantity = 8.1 'mmol/L' "mmol/l"
+* valueQuantity.value = 8.1
 
 Instance: cgmSummaryTimesInRangesExample
 InstanceOf: CGMSummaryTimesInRanges
@@ -57,11 +57,11 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"  
-* component[timeInVeryLow].valueQuantity = 3 '%' "%"
-* component[timeInLow].valueQuantity = 8 '%' "%"
-* component[timeInTarget].valueQuantity = 65 '%' "%"
-* component[timeInHigh].valueQuantity = 20 '%' "%"
-* component[timeInVeryHigh].valueQuantity = 4 '%' "%"
+* component[timeInVeryLow].valueQuantity.value = 3 
+* component[timeInLow].valueQuantity.value = 8
+* component[timeInTarget].valueQuantity.value = 65
+* component[timeInHigh].valueQuantity.value = 20
+* component[timeInVeryHigh].valueQuantity.value = 4
 
 Instance: cgmSummaryGMIExample
 InstanceOf: CGMSummaryGMI  
@@ -71,7 +71,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31" 
-* valueQuantity = 6.8 '%' "%"
+* valueQuantity.value = 6.8
 
 Instance: cgmSummaryCoefficientOfVariationExample
 InstanceOf: CGMSummaryCoefficientOfVariation
@@ -81,7 +81,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
-* valueQuantity = 34 '%' "%"
+* valueQuantity.value = 34
 
 
 Instance: cgmSummaryDaysOfWearExample
@@ -92,7 +92,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31" 
-* valueQuantity = 28 'd' "days"
+* valueQuantity.value = 28
 
 Instance: cgmSummarySensorActivePercentageExample  
 InstanceOf: CGMSummarySensorActivePercentage
@@ -102,7 +102,7 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-31"
-* valueQuantity = 95 '%' "%"
+* valueQuantity.value = 95
 
 Instance: cgmSummaryExample
 InstanceOf: CGMSummaryObservation
@@ -129,8 +129,9 @@ Usage: #example
 * subject = Reference(patientExample)
 * effectivePeriod.start = "2024-05-01"
 * effectivePeriod.end = "2024-05-14"
-* presentedForm.contentType = #application/pdf
-* presentedForm.data = "JVBERi0xLjAKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG9nL1BhZ2VzIDIgMCBSPj4KZW5kb2JqCgoyIDAgb2JqCjw8L0tpZHNbMyAwIFJdL0NvdW50IDEvVHlwZS9QYWdlcy9NZWRpYUJveFswIDAgNTk1IDc5Ml0+PgplbmRvYmoKCjMgMCBvYmoKPDwvVHlwZS9QYWdlL1BhcmVudCAyIDAgUi9Db250ZW50cyA0IDAgUi9SZXNvdXJjZXM8PD4+Pj4KZW5kb2JqCgo0IDAgb2JqCjw8L0xlbmd0aCA1OD4+CnN0cmVhbQpxCkJUCi8gOTYgVGYKMSAwIDAgMSAzNiA2ODQgVG0KKEZISVIgQ0dNISkgVGoKRVQKUQoKZW5kc3RyZWFtCmVuZG9iagoKeHJlZgowIDUKMDAwMDAwMDAwMCA2NTUzNiBmIAowMDAwMDAwMDE2IDAwMDAwIG4gCjAwMDAwMDAwNjIgMDAwMDAgbiAKMDAwMDAwMDEzNiAwMDAwMCBuIAowMDAwMDAwMjA5IDAwMDAwIG4gCgp0cmFpbGVyCjw8L1NpemUgNS9Sb290IDEgMCBSPj4Kc3RhcnR4cmVmCjMxNgolJUVPRgoK"
+* presentedForm[cgmSummaryPDF]
+  * contentType = #application/pdf
+  * data = "JVBERi0xLjAKJcK1wrYKCjEgMCBvYmoKPDwvVHlwZS9DYXRhbG9nL1BhZ2VzIDIgMCBSPj4KZW5kb2JqCgoyIDAgb2JqCjw8L0tpZHNbMyAwIFJdL0NvdW50IDEvVHlwZS9QYWdlcy9NZWRpYUJveFswIDAgNTk1IDc5Ml0+PgplbmRvYmoKCjMgMCBvYmoKPDwvVHlwZS9QYWdlL1BhcmVudCAyIDAgUi9Db250ZW50cyA0IDAgUi9SZXNvdXJjZXM8PD4+Pj4KZW5kb2JqCgo0IDAgb2JqCjw8L0xlbmd0aCA1OD4+CnN0cmVhbQpxCkJUCi8gOTYgVGYKMSAwIDAgMSAzNiA2ODQgVG0KKEZISVIgQ0dNISkgVGoKRVQKUQoKZW5kc3RyZWFtCmVuZG9iagoKeHJlZgowIDUKMDAwMDAwMDAwMCA2NTUzNiBmIAowMDAwMDAwMDE2IDAwMDAwIG4gCjAwMDAwMDAwNjIgMDAwMDAgbiAKMDAwMDAwMDEzNiAwMDAwMCBuIAowMDAwMDAwMjA5IDAwMDAwIG4gCgp0cmFpbGVyCjw8L1NpemUgNS9Sb290IDEgMCBSPj4Kc3RhcnR4cmVmCjMxNgolJUVPRgoK"
 * result = Reference(cgmSummaryExample)
 
 Instance: cgmDataSubmissionBundle

@@ -1,41 +1,67 @@
 Alias: $UCUM = http://unitsofmeasure.org
 Alias: $LNC = http://loinc.org
 
+RuleSet: ObservationLabBase
+* subject 1..1 MS
+  * ^short = "Patient for the report" 
+* category
+  * ^slicing.discriminator.type = #value
+  * ^slicing.discriminator.path = "$this"
+  * ^slicing.rules = #open
+* category contains
+    labCategory 1..1 MS
+* category[labCategory] = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
+  * ^short = "Lab category"
+
+RuleSet: DiagnosticReportLabBase
+* subject 1..1 MS
+  * ^short = "Patient for the report" 
+* category
+  * ^slicing.discriminator.type = #value
+  * ^slicing.discriminator.path = "$this"
+  * ^slicing.rules = #open
+* category contains
+    labCategory 1..1 MS
+* category[labCategory] = http://terminology.hl7.org/CodeSystem/v2-0074#LAB
+  * ^short = "Lab category"
+
+
 RuleSet: GlucoseMassPerVolume
 * value[x] only Quantity
-* valueQuantity
-  * code = #mg/dL
-  * unit = "mg/dl"
+* valueQuantity 1..1 MS
+* valueQuantity = 'mg/dL' "mg/dl"
   * ^short = "Glucose value in mg/dL"
 
 RuleSet: GlucoseMolesPerVolume
 * value[x] only Quantity
-* valueQuantity
-  * code = #mmol/L
-  * unit = "mmol/l"
+* valueQuantity 1..1 MS
+* valueQuantity = 'mmol/L' "mmol/l"
   * ^short = "Glucose value in mmol/L"
 
 Profile: CGMSensorReadingMassPerVolume
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Id: cgm-sensor-reading-mass-per-volume
 Title: "CGM Sensor Reading (Mass)"
 Description: "A continuous glucose monitoring (CGM) sensor reading represented in mass units."
+* insert ObservationLabBase
 * insert GlucoseMassPerVolume
 * code = $LNC#99504-3
 * effectiveDateTime 1..1 MS
   * ^short = "Time the measurement was taken"
 
 Profile: CGMSensorReadingMolesPerVolume
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Id: cgm-sensor-reading-moles-per-volume
 Title: "CGM Sensor Reading (Molar)"
 Description: "A continuous glucose monitoring (CGM) sensor reading represented in molar units."
+* insert ObservationLabBase
 * insert GlucoseMolesPerVolume
 * code = $LNC#14745-4
 * effectiveDateTime 1..1 MS
   * ^short = "Time the measurement was taken"
 
 RuleSet: CGMSummaryBase
+* insert ObservationLabBase
 * code
   * ^short = "Type of CGM summary observation"
 * effectivePeriod 1..1 MS
@@ -47,10 +73,11 @@ RuleSet: CGMSummaryBase
 
  
 Profile: CGMSummaryObservation
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Id: cgm-summary  
 Title: "CGM Summary Observation"
 Description: "An observation representing a summary of continuous glucose monitoring (CGM) data."
+* insert ObservationLabBase
 * code = CGMSummaryCodesTemporary#cgm-summary
   * ^short = "Code for Times in Ranges observation"
 * effectivePeriod 1..1 MS
@@ -90,11 +117,19 @@ Description: "An observation representing a summary of continuous glucose monito
 * hasMember[sensorActivePercentage] only Reference(CGMSummarySensorActivePercentage)
   * ^short = "Sensor Active Percentage observation"
 
+Instance: PDFAttachment
+InstanceOf: Attachment
+Usage: #inline
+* contentType = #application/pdf
+
 Profile: CGMSummaryPDF
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab
+Parent: DiagnosticReport // http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab
 Id: cgm-summary-pdf
 Title: "CGM Summary PDF Report"
 Description: "A PDF report containing a summary of continuous glucose monitoring (CGM) data."
+* insert DiagnosticReportLabBase
+* subject 1..1 MS
+  * ^short = "Patient for the report" 
 * code = CGMSummaryCodesTemporary#cgm-summary
   * ^short = "Code for CGM Summary report"
 * effectivePeriod 1..1 MS
@@ -102,15 +137,17 @@ Description: "A PDF report containing a summary of continuous glucose monitoring
     * ^short = "Start date of the reporting period (YYYY-MM-DD)"
   * end 1..1 MS
     * ^short = "End date of the reporting period (YYYY-MM-DD)"
-* presentedForm 1..1 MS
-  * ^short = "The PDF report content"
-* presentedForm.contentType 1..1 MS
-  * ^short = "Content type of the report (application/pdf)"
-* presentedForm.data 1..1 MS
-  * ^short = "Base64-encoded PDF report data"
-* presentedForm.contentType = #application/pdf
+* presentedForm
+  * ^slicing.discriminator.type = #value
+  * ^slicing.discriminator.path = "$this"
+  * ^slicing.rules = #open
+* presentedForm contains
+    cgmSummaryPDF 1..* MS
+  * ^short = "CGM Summary PDF report"
+* presentedForm[cgmSummaryPDF] = PDFAttachment
   * ^short = "PDF content type"
-* presentedForm.data 1..1 MS
+* presentedForm[cgmSummaryPDF].data 1..1 MS
+  * ^short = "Base64-encoded PDF report data"
 * result ^slicing.discriminator.type = #value
   * ^short = "Slicing based on the pattern of the component.code"
 * result ^slicing.discriminator.path = "resolve().code"
@@ -124,19 +161,17 @@ Description: "A PDF report containing a summary of continuous glucose monitoring
   * ^short = "CGM Summary observation"
 
 Profile: CGMSummaryTimesInRanges
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Id: cgm-summary-times-in-ranges
 Title: "CGM Summary Times in Ranges"
 Description: "An observation representing the times in various ranges from a continuous glucose monitoring (CGM) summary."
 * insert CGMSummaryBase
 * code = CGMSummaryCodesTemporary#times-in-ranges
   * ^short = "Code for Times in Ranges observation"
-* component ^slicing.discriminator.type = #value
-  * ^short = "Slicing based on the pattern of the component.code"
-* component ^slicing.discriminator.path = "code"
-  * ^short = "Path used to identify the slices"
-* component ^slicing.rules = #open
-  * ^short = "Open slicing allowing additional slices"
+* component
+  * ^slicing.discriminator.type = #value
+  * ^slicing.discriminator.path = "code"
+  * ^slicing.rules = #open
 * component contains
     timeInVeryLow 1..1 MS and
     timeInLow 1..1 MS and 
@@ -168,7 +203,7 @@ Usage: #inline
 * coding[+] =  $LNC#97507-8
 
 Profile: CGMSummaryMeanGlucoseMassPerVolume
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Id: cgm-summary-mean-glucose-mass-per-volume
 Title: "Mean Glucose (Mass)"
 Description: "The mean glucose value from a continuous glucose monitoring (CGM) summary, represented in mass units."
@@ -179,7 +214,7 @@ Description: "The mean glucose value from a continuous glucose monitoring (CGM) 
 
 
 Profile: CGMSummaryMeanGlucoseMolesPerVolume
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation //http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Id: cgm-summary-mean-glucose-moles-per-volume
 Title: "Mean Glucose (Molar)"
 Description: "The mean glucose value from a continuous glucose monitoring (CGM) summary, represented in molar units."
@@ -190,13 +225,8 @@ Description: "The mean glucose value from a continuous glucose monitoring (CGM) 
 
 RuleSet: QuantityPercent
 * value[x] only Quantity
-* valueQuantity 1..1
-  * unit = "%" (exactly)
-    * ^short = "Percentage unit"
-  * code = #"%" (exactly)
-    * ^short = "Dimensionless UCUM code"
-  * system = $UCUM (exactly)
-    * ^short = "UCUM code system"
+* valueQuantity 1..1 MS
+* valueQuantity = '%' "%"
   * ^short = "Value as a percentage"
 
 Instance: GMIWithLoinc
@@ -206,7 +236,7 @@ Usage: #inline
 * coding[+] = $LNC#97506-0
 
 Profile: CGMSummaryGMI
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Id: cgm-summary-gmi
 Title: "Glucose Management Indicator (GMI)"
 Description: "The Glucose Management Indicator (GMI) value from a continuous glucose monitoring (CGM) summary."
@@ -216,7 +246,7 @@ Description: "The Glucose Management Indicator (GMI) value from a continuous glu
 * insert QuantityPercent
 
 Profile: CGMSummaryCoefficientOfVariation
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Id: cgm-summary-coefficient-of-variation
 Title: "Coefficient of Variation (CV)"
 Description: "The Coefficient of Variation (CV) value from a continuous glucose monitoring (CGM) summary."
@@ -226,7 +256,7 @@ Description: "The Coefficient of Variation (CV) value from a continuous glucose 
 * insert QuantityPercent
 
 Profile: CGMSummaryDaysOfWear
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Id: cgm-summary-days-of-wear
 Title: "Days of Wear"
 Description: "The number of days the continuous glucose monitoring (CGM) device was worn during the reporting period."
@@ -234,16 +264,11 @@ Description: "The number of days the continuous glucose monitoring (CGM) device 
 * code = CGMSummaryCodesTemporary#days-of-wear
   * ^short = "Code for Days of Wear observation"
 * valueQuantity 1..1 MS
-  * unit = "days" (exactly)
-    * ^short = "Days unit"
-  * code = #d
-    * ^short = "UCUM code for days"
-  * system = $UCUM (exactly)
-    * ^short = "UCUM code system"
+* valueQuantity = 'd' "days"
   * ^short = "Number of days the CGM device was worn"
 
 Profile: CGMSummarySensorActivePercentage
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+Parent: Observation // http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Id: cgm-summary-sensor-active-percentage
 Title: "Sensor Active Percentage"
 Description: "The percentage of time the continuous glucose monitoring (CGM) sensor was active during the reporting period."
@@ -376,11 +401,12 @@ The Bundle `entry` array includes any combination of
   * ^short = "Tag for CGM submission bundle"
 * timestamp 1..1 MS
   * ^short = "Instant the bundle was created"
-* entry ^slicing.discriminator[+].type = #type
-* entry ^slicing.discriminator[=].path = "resource"
-* entry ^slicing.discriminator[+].type = #value
-* entry ^slicing.discriminator[=].path = "resource.ofType(Observation).code"
-* entry ^slicing.rules = #open
+* entry
+  * ^slicing.discriminator[+].type = #type
+  * ^slicing.discriminator[=].path = "resource"
+  * ^slicing.discriminator[+].type = #value
+  * ^slicing.discriminator[=].path = "resource.ofType(Observation).code"
+  * ^slicing.rules = #open
 * entry 1..* MS
 * entry contains
     patient 0..1 MS and
@@ -418,7 +444,7 @@ The Bundle `entry` array includes any combination of
 
   
 Profile: CGMDataSubmissionStandingOrder
-Parent: http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest
+Parent: ServiceRequest // http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest
 Id: cgm-data-submission-standing-order
 Title: "Data Submission Standing Order"
 Description: """
