@@ -391,7 +391,6 @@ The Bundle `entry` array includes any combination of
 * CGM Sensor Readings (Moles per Volume) ([Profile](StructureDefinition-cgm-sensor-reading-moles-per-volume.html#profile), [Example](Observation-cgmSensorReadingMolesPerVolumeExample.json.html#root))
 """
 
-
 * meta.tag
   * ^slicing.discriminator.path = "$this"
   * ^slicing.discriminator.type = #value
@@ -503,3 +502,59 @@ Context: ServiceRequest
 * extension[submissionDataProfile].value[x] only canonical
 * extension[submissionDataProfile].valueCanonical 1..1 MS
   * ^short = "Data profile for submission"
+
+
+Instance: cgm-data-receiver-capability-statement
+InstanceOf: CapabilityStatement
+Usage: #definition
+Title: "CGM Data Receiver Capability Statement"
+Description: """
+Any CGM Data Receiver SHALL populate its `/metadata` response to ensure that `CapabilityStatement.instantiates` includes `"http://hl7.org/uv/cgm/CapabilityStatement/cgm-data-receiver-capability-statement"`.
+"""
+* status = #active
+* date =  2024-05-09
+* kind =  #requirements
+* fhirVersion = #4.0.1
+* format[0] = #json 
+* rest[+]
+  * mode = #server
+  * interaction[+].code = #batch
+  * resource[+]
+    * type = #ServiceRequest
+    * supportedProfile[+] = Canonical(cgm-data-submission-standing-order)
+    * interaction[+].code = #read
+    * interaction[+].code = #search-type
+    * searchParam[+].name = "patient"
+    * searchParam[=].type = #reference
+    * searchParam[+].name = "code"
+    * searchParam[=].type = #token
+  * resource[+]
+    * type = #DiagnosticReport
+    * supportedProfile[+] = Canonical(CGMSummaryPDF)
+    * interaction[+].code = #create
+    * interaction[+].code = #update
+  * resource[+]
+    * type = #Device
+    * supportedProfile[+] = Canonical(CGMDevice)
+    * interaction[+].code = #create
+    * interaction[+].code = #update
+  * resource[+]
+    * type = #Order
+    * supportedProfile[+]  = Canonical(CGMSummaryObservation)
+    * supportedProfile[+]  = Canonical(CGMSummaryMeanGlucoseMassPerVolume)
+    * supportedProfile[+]  = Canonical(CGMSummaryMeanGlucoseMolesPerVolume)
+    * supportedProfile[+]  = Canonical(CGMSummaryTimesInRanges)
+    * supportedProfile[+]  = Canonical(CGMSummaryGMI)
+    * supportedProfile[+]  = Canonical(CGMSummaryCoefficientOfVariation)
+    * supportedProfile[+]  = Canonical(CGMSummaryDaysOfWear)
+    * supportedProfile[+]  = Canonical(CGMSummarySensorActivePercentage)
+    * supportedProfile[+]  = Canonical(CGMSensorReadingMassPerVolume)
+    * supportedProfile[+]  = Canonical(CGMSensorReadingMolesPerVolume)
+    * interaction[+].code = #create
+    * interaction[+].code = #update
+    * searchParam[+].name = "patient"
+    * searchParam[=].type = #reference
+    * searchParam[+].name = "category"
+    * searchParam[=].type = #token
+    * searchParam[+].name = "code"
+    * searchParam[=].type = #token

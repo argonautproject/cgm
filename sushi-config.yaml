@@ -4,10 +4,10 @@
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: fhir.argocgm
-canonical: http://argo.run/cgm
+canonical: http://hl7.org/uv/cgm
 name: ArgoCGM
 title: Argo CGM Write
-description: Write continous glucose monitoring data to an EHR
+description: Communicate Continuous Glucose Monitor (CGM) data using FHIR
 status: draft # draft | active | retired | unknown
 version: 0.1.0
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html

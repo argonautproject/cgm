@@ -30,6 +30,8 @@ The data receiver is a software system that receives and stores the CGM data sub
 
 This IG also refers to Data Receivers as "**EHRs**".
 
+{{ site.data.resources["CapabilityStatement/cgm-data-receiver-capability-statement"].description }}
+
 ### Nominal Workflow
 
 <div style="max-width: 400px; float: none;">
