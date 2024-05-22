@@ -449,9 +449,9 @@ Title: "Data Submission Standing Order"
 Description: """
 The Data Receiver can expose a standing order indicating:
 
+* What data a Data Submitter should include in each CGM Data Submission Bundle
 * How often a Data Submitter should submit CGM data
-* What data a Data Submitter should include in each CGM Data Submission Bundle.
-
+* What lookback period should each submission cover
 
 **Guiding Data Submission**
 
@@ -462,9 +462,9 @@ Data Submitters can query to guide their future submissions. The standing order 
 
 The `DataSubmissionSchedule` extension contains:
 
-- `submissionFrequency` (1..1): A `Timing` element that specifies the frequency or schedule for data submission. It includes elements a `frequency`, `period`, `periodUnit`, and optionally `maxFrequency` define the desired submission schedule.
-
-- `submissionDataProfile` (1..*): A list of `canonical` references to FHIR profiles that represent the types of data to be submitted according to the specified schedule.
+- `submissionPeriod`: Quantity with unit `d` for days, `wk` for weeks, `mo` for months, or `a` for years. This indicates how often the data should be submitted.
+- `submissionDataProfile` (1..*): `canonical` reference to FHIR profiles that represent the types of data to be submitted according to the specified schedule.
+- `lookbackPeriod` (optional): Quantity with unit `d` for days, `wk` for weeks, `mo` for months, or `a` for years. This indicates the period of time the data submission should cover.
 
 Multiple `DataSubmissionSchedule` extensions can be included in a single `DataSubmissionRequest` resource if the Data Recipient prefers a different schedule for different data types.
 
@@ -486,23 +486,19 @@ Title: "Data Submission Schedule"
 Description: "Schedule and type of data to be submitted"
 Context: ServiceRequest
 * extension contains
-    submissionFrequency 1..1 MS and
+    submissionPeriod 1..1 MS and
+    lookbackPeriod 0..1 MS and
     submissionDataProfile 1..*  MS
-  * ^short = "Submission frequency and data profiles"
-* extension[submissionFrequency].value[x] only Timing
-  * ^short = "Timing for data submission"
-* extension[submissionFrequency].valueTiming.repeat.frequency 1..1 MS
-  * ^short = "Intended frequency of submission"
-* extension[submissionFrequency].valueTiming.repeat.frequencyMax 0..1 MS
-  * ^short = "Maximum frequency of submission"
-* extension[submissionFrequency].valueTiming.repeat.period 1..1 MS
-  * ^short = "Period for submission frequency" 
-* extension[submissionFrequency].valueTiming.repeat.periodUnit 1..1 MS
-  * ^short = "Unit for the period (typically d, wk, or mo)"
+  * ^short = "Submission schedule"
+* extension[submissionPeriod].value[x] only Quantity
+  * ^short = "How often the data should be submitted."
+* extension[submissionPeriod].valueQuantity from http://hl7.org/fhir/ValueSet/units-of-time (required)
+* extension[lookbackPeriod].value[x] only Quantity
+* extension[lookbackPeriod].valueQuantity from http://hl7.org/fhir/ValueSet/units-of-time (required)
+  * ^short = "How far back the data submission should cover."
 * extension[submissionDataProfile].value[x] only canonical
 * extension[submissionDataProfile].valueCanonical 1..1 MS
   * ^short = "Data profile for submission"
-
 
 Instance: cgm-data-receiver
 InstanceOf: CapabilityStatement
@@ -543,7 +539,7 @@ Any CGM Data Receiver SHALL populate its `/metadata` response to ensure that `Ca
     * interaction[+].code = #create
     * interaction[+].code = #update
   * resource[+]
-    * type = #Order
+    * type = #Observation
     * supportedProfile[+]  = Canonical(CGMSummaryObservation)
     * supportedProfile[+]  = Canonical(CGMSummaryMeanGlucoseMassPerVolume)
     * supportedProfile[+]  = Canonical(CGMSummaryMeanGlucoseMolesPerVolume)

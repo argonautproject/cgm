@@ -192,9 +192,8 @@ available for clinical review.
 * intent = #order
 * code = CGMCodes#cgm-data-submission-standing-order
 * subject = Reference(Patient/example)
-* extension[dataSubmissionSchedule].extension[submissionFrequency].valueTiming.repeat.frequency = 1
-* extension[dataSubmissionSchedule].extension[submissionFrequency].valueTiming.repeat.period = 2
-* extension[dataSubmissionSchedule].extension[submissionFrequency].valueTiming.repeat.periodUnit = #wk
+* extension[dataSubmissionSchedule].extension[submissionPeriod].valueQuantity.value = 2
+* extension[dataSubmissionSchedule].extension[submissionPeriod].valueQuantity = 'wk' "week"
 * extension[dataSubmissionSchedule].extension[submissionDataProfile][0].valueCanonical = Canonical(CGMSummaryObservation)
 * extension[dataSubmissionSchedule].extension[submissionDataProfile][+].valueCanonical = Canonical(CGMSummaryPDF) 
 
